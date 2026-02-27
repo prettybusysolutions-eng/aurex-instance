@@ -1,0 +1,59 @@
+\n=== gateway ===
+Service: LaunchAgent (loaded)
+File logs: /tmp/openclaw/openclaw-2026-02-27.log
+Command: /usr/local/Cellar/node/25.6.1_1/bin/node /usr/local/lib/node_modules/openclaw/dist/index.js gateway --port 18789
+Service file: ~/Library/LaunchAgents/ai.openclaw.gateway.plist
+Service env: OPENCLAW_GATEWAY_PORT=18789
+
+Config (cli): ~/.openclaw/openclaw.json
+Config (service): ~/.openclaw/openclaw.json
+
+Gateway: bind=loopback (127.0.0.1), port=18789 (service args)
+Probe target: ws://127.0.0.1:18789
+Dashboard: http://127.0.0.1:18789/
+Probe note: Loopback-only gateway; only local clients can connect.
+
+Runtime: running (pid 10651)
+RPC probe: ok
+
+Listening: 127.0.0.1:18789
+Other gateway-like services detected (best effort):
+- ai.openclaw.node (user, plist: /Users/marcuscoarchitect/Library/LaunchAgents/ai.openclaw.node.plist)
+Cleanup hint: launchctl bootout gui/$UID/ai.openclaw.gateway
+Cleanup hint: rm ~/Library/LaunchAgents/ai.openclaw.gateway.plist
+
+Recommendation: run a single gateway per machine for most setups. One gateway supports multiple agents (see docs: /gateway#multiple-gateways-same-host).
+If you need multiple gateways (e.g., a rescue bot on the same host), isolate ports + config/state (see docs: /gateway#multiple-gateways-same-host).
+
+Troubles: run openclaw status
+Troubleshooting: https://docs.openclaw.ai/troubleshooting
+[PASS] gateway
+\n=== node ===
+Service: LaunchAgent (loaded)
+Command: /usr/local/Cellar/node/25.6.1_1/bin/node /usr/local/lib/node_modules/openclaw/dist/index.js node run --host 127.0.0.1 --port 18789
+Service file: /Users/marcuscoarchitect/Library/LaunchAgents/ai.openclaw.node.plist
+Runtime: stopped (state spawn scheduled)
+Service is loaded but not running.
+Launchd stdout (if installed): /Users/marcuscoarchitect/.openclaw/logs/node.log
+Launchd stderr (if installed): /Users/marcuscoarchitect/.openclaw/logs/node.err.log
+[PASS] node
+\n=== cron ===
+{
+  "enabled": true,
+  "storePath": "/Users/marcuscoarchitect/.openclaw/cron/jobs.json",
+  "jobs": 2,
+  "nextWakeAtMs": 1772241404858
+}
+[PASS] cron
+\n=== browser(chrome profile) ===
+profile: chrome
+enabled: true
+running: false
+cdpPort: 18792
+cdpUrl: http://127.0.0.1:18792
+browser: unknown
+detectedBrowser: chrome
+detectedPath: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+profileColor: #00AA00
+[PASS] browser(chrome profile)
+\nOVERALL: PASS
