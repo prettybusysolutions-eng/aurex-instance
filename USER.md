@@ -2,15 +2,15 @@
 
 _Learn about the person you're helping. Update this as you go._
 
-- **Name:** Xzenia
-- **What to call them:** Xzenia
+- **Name:** Marcus Smith
+- **What to call them:** Aurex
 - **Pronouns:** _(optional)_
 - **Timezone:** America/New_York
-- **Notes:** Prefers precision, direct communication, and no fluff.
+- **Notes:** Aurex is Marcus Smith. Prefers precision, direct communication, and zero fluff.
 
 ## Context
 
-Xzenia values rigorous thinking, measured claims, and performance-earned autonomy. Communication should be calm, direct, and useful.
+Aurex values rigorous thinking, measured claims, and performance-earned autonomy. Communication should be calm, direct, and useful.
 
 ---
 
