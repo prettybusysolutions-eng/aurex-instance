@@ -105,6 +105,16 @@ export default function register(api) {
       }
     }
 
+    const resolutionRes = runTm(['resolve', augmentedInput]);
+    let resolution = null;
+    if (resolutionRes.ok && resolutionRes.stdout) {
+      try {
+        resolution = JSON.parse(resolutionRes.stdout);
+      } catch {
+        resolution = null;
+      }
+    }
+
     const detect = runTm(['detect', augmentedInput]);
     if (!detect.ok || !detect.stdout || detect.stdout === 'None') return {};
     const topic = detect.stdout;
@@ -126,6 +136,8 @@ export default function register(api) {
       `- Active thread: ${context?.topic || topic}`,
       `- Thread id: ${context?.thread_id || 'unknown'}`,
       `- Message count: ${context?.message_count ?? recent.length}`,
+      `- Continuity score: ${resolution?.score ?? context?.continuity_score ?? 0}`,
+      `- Continuity matched existing thread: ${resolution?.matched ? 'yes' : 'no'}`,
       `- Isolation rule: use only this thread by default; do not merge unrelated histories.`,
       `- Cross-thread rule: only use /weave source target query for targeted context injection.`,
       '',
@@ -140,7 +152,10 @@ export default function register(api) {
     ];
 
     if (includeExtractionNotes && extractionReasons.length) {
-      contextBlock.splice(9, 0, `- Extraction reasons: ${extractionReasons.join(', ')}`);
+      contextBlock.splice(11, 0, `- Extraction reasons: ${extractionReasons.join(', ')}`);
+    }
+    if (resolution?.reasons?.length) {
+      contextBlock.splice(7, 0, `- Continuity reasons: ${resolution.reasons.join(', ')}`);
     }
 
     if (recent.length === 0) {
@@ -154,7 +169,7 @@ export default function register(api) {
     }
 
     try {
-      api?.logger?.info?.(`[thread-context] injected context for topic=${topic} channel=${channel} extracted=${userInput !== rawInput}`);
+      api?.logger?.info?.(`[thread-context] injected context for topic=${topic} channel=${channel} extracted=${userInput !== rawInput} continuity=${resolution?.score ?? 0}`);
     } catch {}
 
     return { appendSystemContext: contextBlock.join('\n') };
