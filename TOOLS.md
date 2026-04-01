@@ -14,6 +14,7 @@ _Local notes for this workspace. Skills are shared; this file is yours._
 | **CPIN** | 8002 | `cpin` | 20 | **LIVE** |
 | **LeakLock** | — | `xzenia-leaklock` | — | Ready for Render |
 | **Context Nexus** | plugin | `context-nexus` | — | Loaded |
+| **AION Agent Studio** | 8005 | `agent-studio` | MCP/WS | **LIVE** |
 | **AdversarialCoder** | — | `adversarial-coder` | — | Framework |
 
 **Intelligence Archive:** `adversarial-coder-intelligence` (PRIVATE) — Kamm + Aurex only
