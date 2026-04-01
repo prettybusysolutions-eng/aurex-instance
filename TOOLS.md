@@ -4,29 +4,52 @@ _Local notes for this workspace. Skills are shared; this file is yours._
 
 ---
 
-## Products
+## Products — Running Status
 
-### LeakLock
-**GitHub:** `prettybusysolutions-eng/xzenia-leaklock`
-**Stripe:** live key (`sk_live_...`) — real payments
-**Webhook secret:** `whsec_[REDACTED]`
-**Deploy:** Render (PostgreSQL + Web Service)
-**Status:** Ready for Render deploy — human action needed (~10 min)
+| Product | Port | GitHub | Patterns | Status |
+|---------|------|--------|----------|--------|
+| **AION Platform** | 8004 | `aion` | — | **LIVE** |
+| **VerifiAgent** | 8003 | `verifiagent` | — | **LIVE** |
+| **DenialNet** | 8001 | `denialnet` | 71 | **LIVE** |
+| **CPIN** | 8002 | `cpin` | 20 | **LIVE** |
+| **LeakLock** | — | `xzenia-leaklock` | — | Ready for Render |
+| **Context Nexus** | plugin | `context-nexus` | — | Loaded |
+| **AdversarialCoder** | — | `adversarial-coder` | — | Framework |
 
-**Render deploy steps:**
-1. render.com → New → PostgreSQL → name: `leaklock-db` → Create
-2. New → Web Service → connect `prettybusysolutions-eng/xzenia-leaklock`
-3. Env vars: `DATABASE_URL`, `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `LEAKLOCK_DOMAIN`, SMTP
-4. Deploy → get URL → set `LEAKLOCK_DOMAIN`
-5. Stripe Dashboard → register webhook: `https://<url>/webhook/stripe` → events: `checkout.session.completed`
+**Intelligence Archive:** `adversarial-coder-intelligence` (PRIVATE) — Kamm + Aurex only
 
-### Context Nexus
-**GitHub:** `prettybusysolutions-eng/context-nexus`
-**ClawHub:** published (`clawhub install context-nexus`)
-**Install:** `clawhub install context-nexus --force` + git clone + `./scripts/install`
-**OpenClaw plugin:** LOADED (44/84 plugins)
-**Smoke tests:** 18/18 passing
-**Status:** READY_TO_PUBLISH
+---
+
+## Live Services
+
+### AION Platform — `:8004`
+```bash
+curl http://127.0.0.1:8004/verify/health
+curl http://127.0.0.1:8004/verify/ready
+curl http://127.0.0.1:8004/coordinator/models
+```
+Restart: `cd ~/.openclaw/agents/aurex/workspace/projects/aion && nohup uvicorn app:app --port 8004 &`
+
+### VerifiAgent — `:8003`
+```bash
+curl http://127.0.0.1:8003/verify/health
+curl -X POST http://127.0.0.1:8003/verify/local -H "X-API-Key: test" -d '{"diff": "+API_KEY=\"sk\"", "repo_url": "test", "commit_sha": "abc"}'
+```
+Restart: `cd ~/.openclaw/agents/aurex/workspace/projects/verifiagent && nohup uvicorn app:app --port 8003 &`
+
+### DenialNet — `:8001`
+```bash
+curl http://127.0.0.1:8001/health
+curl http://127.0.0.1:8001/stats
+```
+Restart: `cd ~/.openclaw/agents/aurex/workspace/projects/denialnet && nohup uvicorn routes:app --port 8001 &`
+
+### CPIN — `:8002`
+```bash
+curl http://127.0.0.1:8002/cpin/health
+curl http://127.0.0.1:8002/cpin/stats
+```
+Restart: `cd ~/.openclaw/agents/aurex/workspace/projects/cpin && nohup uvicorn routes:app --port 8002 &`
 
 ---
 
@@ -72,14 +95,12 @@ _Local notes for this workspace. Skills are shared; this file is yours._
 
 ### 📄 Documents & Notes
 - **obsidian** — `obsidian query <vault> <query>` → search notes, read files
-- **notion** — `notion create page --title "X" --content "Y"`, `notion list databases`
 - **nano-pdf** — `nano-pdf edit <pdf> "change X to Y"` → PDF editing
 
 ### 🔧 System & Platform
 - **healthcheck** — `healthcheck audit` → security hardening report
 - **node-connect** — `node-connect diagnose` → pairing/connection failure diagnosis
 - **peekaboo** — `peekaboo capture` → screenshot; `peekaboo run "Click Button"` → UI automation
-- **video-frames** — `video-frames clip <video> --start 00:05 --duration 10`
 
 ---
 
@@ -95,37 +116,33 @@ github.com → authenticated via gh CLI (account: prettybusysolutions-eng)
 
 ---
 
-## Environment Variables (Active Products)
-
-```bash
-# Context Nexus
-CONTEXT_NEXUS_DB_PATH=~/.openclaw/context-nexus/nexus.db
-CONTEXT_NEXUS_ENCRYPTION_KEY=<key>
-
-# LeakLock (in .env)
-STRIPE_SECRET_KEY=sk_live_...
-STRIPE_WEBHOOK_SECRET=whsec_[REDACTED]
-LEAKLOCK_DOMAIN=https://leaklock.onrender.com
-DATABASE_URL=postgresql://...
-SMTP_HOST=smtp.resend.dev
-SMTP_PORT=587
-SMTP_USER=resend
-SMTP_PASS=re_...
-SMTP_FROM=LeakLock <hello@yourdomain.com>
-```
-
----
-
 ## GitHub
 
 **Organizations:**
-- `prettybusysolutions-eng` — products (LeakLock, Context Nexus)
+- `prettybusysolutions-eng` — products (AION, VerifiAgent, DenialNet, CPIN, LeakLock, Context Nexus, AdversarialCoder)
 - Operator: Kamm Smith (`@MrBigZa`)
 
 **Repos:**
-- `xzenia-leaklock` — Stripe SaaS
-- `context-nexus` — OpenClaw memory/observability plugin
-- `xzienia` — Xzenia platform
+- `aion` — AION Platform (port 8004)
+- `verifiagent` — Adversarial verification (port 8003)
+- `denialnet` — Claim denial patterns (port 8001)
+- `cpin` — Child welfare patterns (port 8002)
+- `xzenia-leaklock` — CSV leak scanning
+- `context-nexus` — OpenClaw memory plugin
+- `adversarial-coder` — Python framework from leaked patterns
+- `aurex-instance` — This workspace
+- `adversarial-coder-intelligence` — PRIVATE (Claude Code source archive)
+
+---
+
+## Known Issues / Notes
+
+- **GitHub HTTPS push**: may time out requiring `gh auth refresh -h github.com`
+- **OpenClaw gateway**: `openclaw gateway restart` needed after plugin config changes (resets openclaw.json)
+- **VirusTotal false positive**: encryption code in `secrets_service.py` triggers — expected, use `--force`
+- **Context Nexus path bug**: plugin subprocess path detection walks up from `~/.openclaw/plugins/<plugin>/src/` — this is intentional
+- **Exec wedge**: background uvicorn processes accumulate → exec returns empty. Fix: `pkill -9 -f uvicorn` from terminal
+- **Subagent rate limits**: Anthropic Sonnet 4 exhausted, subagents return empty results after ~6s runtime
 
 ---
 
@@ -156,27 +173,21 @@ SMTP_FROM=LeakLock <hello@yourdomain.com>
 1. Note: encryption code (PBKDF2, crypto) triggers detection — expected
 2. Publish anyway: `clawhub install <slug> --force`
 3. Submit for re-scan: virustotal.com → submit for vendor re-analysis
-4. Monitor: clears in 24-48h
 
 ### Run session self-audit
 1. `session-logs search "error" --hours 24 | jq '.[]'`
 2. `session-logs analyze --session <id>` → tool usage, errors, duration
-3. Write findings to `memory/YYYY-MM-DD.md`
 
 ---
 
 ## Release Hardening Loop (Active)
 
 For any product in development, run on every heartbeat:
-
 ```bash
-python3 /Users/marcuscoarchitect/.openclaw/agents/aurex/workspace/projects/<product>/scripts/release_hardening_loop.py
+python3 /path/to/project/scripts/release_hardening_loop.py
 ```
-
 Reads: `release-status.json`
 Outputs: `state` = `READY_TO_PUBLISH` | `BLOCKED_WITH_EXACT_CAUSE`
-
-No narration without artifact change. No optimism without proof.
 
 ---
 
@@ -184,17 +195,22 @@ No narration without artifact change. No optimism without proof.
 
 ```
 Workspace root: ~/.openclaw/workspace-aurex/
-Context Nexus:  ~/.openclaw/agents/aurex/workspace/projects/context-nexus/
-LeakLock:      ~/.openclaw/agents/aurex/workspace/projects/xzenia-saas/
+AION:         ~/.openclaw/agents/aurex/workspace/projects/aion/           (port 8004)
+VerifiAgent:  ~/.openclaw/agents/aurex/workspace/projects/verifiagent/    (port 8003)
+DenialNet:    ~/.openclaw/agents/aurex/workspace/projects/denialnet/       (port 8001)
+CPIN:         ~/.openclaw/agents/aurex/workspace/projects/cpin/           (port 8002)
+Context Nexus: ~/.openclaw/agents/aurex/workspace/projects/context-nexus/
 Plugins:       ~/.openclaw/plugins/
-Memory:        ~/.openclaw/workspace-aurex/memory/
+Memory:       ~/.openclaw/workspace-aurex/memory/
+Claude leak:  /tmp/original-src/ (starkdcc/claude-code-original-src)
 ```
 
 ---
 
-## Known Issues / Notes
+## Intelligence Archive
 
-- **GitHub HTTPS push**: may time out requiring `gh auth refresh -h github.com`
-- **OpenClaw gateway**: `openclaw gateway restart` needed after plugin config changes
-- **VirusTotal false positive**: encryption code in `secrets_service.py` triggers — expected, use `--force`
-- **Context Nexus path bug**: plugin subprocess path detection walks up from `~/.openclaw/plugins/<plugin>/src/` to find actual project root — this is intentional
+`/tmp/original-src/` — 1,332 TypeScript files, ~380K lines
+`/tmp/claude-prompts/` — 255 extracted system prompts
+`/tmp/claw-code/` — Rust clean-room reimplementation
+
+Private repo: `prettybusysolutions-eng/adversarial-coder-intelligence` (PRIVATE)

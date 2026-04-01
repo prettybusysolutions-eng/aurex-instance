@@ -1,30 +1,77 @@
-# HEARTBEAT.md — Execution Stack
+# HEARTBEAT.md — Execution Contract
 
-_On heartbeat, execute. Do not merely acknowledge._
-
-## 1. Active Product Status Checks
-
-### Context Nexus
-```bash
-python3 /Users/marcuscoarchitect/.openclaw/agents/aurex/workspace/projects/context-nexus/scripts/release_hardening_loop.py
-cat /Users/marcuscoarchitect/.openclaw/agents/aurex/workspace/projects/context-nexus/release-status.json
-```
-- State `READY_TO_PUBLISH`: no action needed — done
-- State `BLOCKED_WITH_EXACT_CAUSE`: fix smallest blocker, rerun, report
-- State missing or stale: rerun loop, report new state
-
-### LeakLock
-```bash
-# Check if Render deploy has happened
-# Check release-status.json if it exists
-ls /Users/marcuscoarchitect/.openclaw/agents/aurex/workspace/projects/xzenia-saas/release-status.json 2>/dev/null
-```
-- If deployed: verify webhook fires, verify DB tables
-- If not deployed: no action (human required — Render setup)
+_On heartbeat, execute. Run every phase. No narration without artifact change._
 
 ---
 
-## 2. Truth Discipline
+## Phase 1: Pre-Action Security Check
+
+Before ANY exec, diff, write, or push:
+
+```
+Check against 26 security conditions:
+- DESTRUCTIVE_OPERATIONS (rm -rf /etc/, /root/, /usr/)
+- CREDENTIAL_EMBED (API_KEY=, sk_live_, gh p_)
+- COMMAND_SUBSTITUTION (| sh, | bash, $(), <())
+- GIT_DEFAULT_BRANCH_PUSH (git push origin main)
+- ZSH_DANGEROUS_COMMANDS (zmodload, ztcp, zpty)
+- JQ_SYSTEM_FUNCTION (jq.*$(, jq.*|sh)
+
+Allowed:
+- pip install -r requirements.txt
+- npm install
+- rm -rf node_modules/
+- git push origin fix/... or feat/...
+- curl -s -O (read-only)
+```
+
+If BLOCKED → do not execute. Report exact block.
+
+---
+
+## Phase 2: Session Memory
+
+1. Read `memory/YYYY-MM-DD.md` (today)
+2. Read `MEMORY.md` (long-term)
+3. Note any unresolved blockers from previous sessions
+4. Note any products needing attention
+
+---
+
+## Phase 3: Active Product Status Checks
+
+Run these checks in order:
+
+### DenialNet (port 8001)
+```bash
+curl -s http://127.0.0.1:8001/health
+curl -s http://127.0.0.1:8001/stats | python3 -c "import json,sys; d=json.load(sys.stdin); print(f'patterns: {d[\"active_patterns\"]}, queries: {d[\"total_queries\"]}')"
+```
+- Not responding → restart: `cd ~/.openclaw/agents/aurex/workspace/projects/denialnet && nohup uvicorn routes:app --port 8001 &`
+- Report only if materially changed
+
+### CPIN (port 8002)
+```bash
+curl -s http://127.0.0.1:8002/cpin/health
+curl -s http://127.0.0.1:8002/cpin/stats | python3 -c "import json,sys; d=json.load(sys.stdin); print(f'patterns: {d[\"active_patterns\"]}, signals: {d[\"signal_clusters\"]}')"
+```
+- Not responding → restart: `cd ~/.openclaw/agents/aurex/workspace/projects/cpin && nohup uvicorn routes:app --port 8002 &`
+
+### VerifiAgent (port 8003)
+```bash
+curl -s http://127.0.0.1:8003/verify/health
+```
+- Not responding → restart: `cd ~/.openclaw/agents/aurex/workspace/projects/verifiagent && nohup uvicorn app:app --port 8003 &`
+
+### AION Platform (port 8004)
+```bash
+curl -s http://127.0.0.1:8004/verify/health
+```
+- Not responding → restart: `cd ~/.openclaw/agents/aurex/workspace/projects/aion && nohup uvicorn app:app --port 8004 &`
+
+---
+
+## Phase 4: Truth Discipline
 
 **Never say executing unless one of these is true:**
 - A file changed on disk
@@ -36,39 +83,41 @@ ls /Users/marcuscoarchitect/.openclaw/agents/aurex/workspace/projects/xzenia-saa
 
 ---
 
-## 3. Stack Hardening Priorities
+## Phase 5: GitHub Sync
 
-Continuously prefer:
-1. **Artifact proof over narration** — show the output, not the intent
-2. **Blockers over optimism** — name the exact failure, not the hope
-3. **Deterministic paths over speculative ones** — if it worked before, it should work again
-4. **Local-first reliability** — don't depend on remote services you can't verify
-5. **Shipping over building** — if it's ready, ship it
-
----
-
-## 4. Memory Maintenance (Every Few Days)
-
-1. Read recent `memory/YYYY-MM-DD.md` files
-2. Identify significant events, lessons, decisions
-3. Update `MEMORY.md` with distilled learnings
-4. Remove outdated MEMORY.md entries that are no longer relevant
+Check for any push failures from previous session:
+```bash
+cd ~/.openclaw/workspace-aurex && git status
+```
+If behind → push.
 
 ---
 
-## 5. Skill-Driven Proactive Actions
+## Phase 6: Stack Hardening
 
-When background cycles are available, consider:
-- **github**: Check for new issues on `prettybusysolutions-eng/context-nexus` or `xzenia-leaklock`
-- **blogwatcher**: Check monitored feeds for relevant updates
-- **weather**: If morning and operator might travel — check forecast
-- **gog calendar**: Any events in next 24h that need reminder?
+For any product in development, run release hardening loop:
+```bash
+python3 /path/to/project/scripts/release_hardening_loop.py
+```
+Read: `release-status.json`
+Output: `state` = `READY_TO_PUBLISH` | `BLOCKED_WITH_EXACT_CAUSE`
 
 ---
 
-## 6. Quiet Rule
+## Phase 7: Dream Consolidation
 
-**`HEARTBEAT_OK`** if and only if:
+On session end (or every ~30 min in long sessions):
+```python
+from services.dream_consolidation import DreamConsolidation
+dream = DreamConsolidation("~/.openclaw/workspace-aurex/memory")
+dream.consolidate(dry_run=False)
+```
+
+---
+
+## Quiet Rule
+
+**HEARTBEAT_OK** if and only if:
 - Nothing materially changed
 - No blockers need surfacing
 - No proactive actions available
@@ -77,20 +126,22 @@ When background cycles are available, consider:
 **Always report when:**
 - A product reached `READY_TO_PUBLISH`
 - A blocker was removed or fixed
-- An external event needs attention (payment received, new issue, etc.)
+- An external event needs attention (payment received, new issue)
 - Operator has been >8h without a message
 
 ---
 
-## 7. Execution Artifact Locations
+## Execution Artifact Locations
 
 ```
-Context Nexus: ~/.../projects/context-nexus/release-status.json
-LeakLock:     ~/.../projects/xzenia-saas/release-status.json
-Heartbeat log: ~/.openclaw/workspace-aurex/memory/heartbeat-state.json
-Daily memory: ~/.openclaw/workspace-aurex/memory/YYYY-MM-DD.md
+DenialNet:    ~/.openclaw/agents/aurex/workspace/projects/denialnet/release-status.json
+CPIN:         ~/.openclaw/agents/aurex/workspace/projects/cpin/release-status.json
+VerifiAgent:  ~/.openclaw/agents/aurex/workspace/projects/verifiagent/release-status.json
+AION:         ~/.openclaw/agents/aurex/workspace/projects/aion/
+Heartbeat:    ~/.openclaw/workspace-aurex/memory/heartbeat-state.json
+Daily:        ~/.openclaw/workspace-aurex/memory/YYYY-MM-DD.md
 ```
 
 ---
 
-_This file is the execution contract. Follow it strictly. No inference, no carryover from prior chats._
+_This file is the execution contract. Follow it strictly. Every phase. No shortcuts._
