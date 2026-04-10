@@ -1,0 +1,35 @@
+{
+  "updatedAt": "2026-04-08T20:05:52.904806-04:00",
+  "entries": [
+    {
+      "id": "mem-001",
+      "stored_at": "2026-03-22T11:21:00-04:00",
+      "source": "direct_user_statement",
+      "confidence": 0.95,
+      "validated": true,
+      "last_referenced": "2026-03-22T11:21:00-04:00",
+      "decay_state": "fresh",
+      "content": "Aurex prefers precision, direct communication, and zero fluff.",
+      "tags": [
+        "user-preference",
+        "style"
+      ]
+    },
+    {
+      "id": "mem-002",
+      "stored_at": "2026-04-08T20:05:52.904806-04:00",
+      "source": "direct_user_statement",
+      "confidence": 0.99,
+      "validated": true,
+      "last_referenced": "2026-04-08T20:05:52.904806-04:00",
+      "decay_state": "fresh",
+      "content": "Aurex directed Xzenia to operate as Xzenia, not separate, and to avoid fallback models unless explicitly re-enabled.",
+      "tags": [
+        "user-directive",
+        "identity",
+        "models",
+        "continuity"
+      ]
+    }
+  ]
+}

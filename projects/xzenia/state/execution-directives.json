@@ -1,0 +1,19 @@
+{
+  "name": "xzenia-execution-directives",
+  "version": "0.1.0",
+  "updatedAt": "2026-04-08T20:05:52.904806-04:00",
+  "identity": "Xzenia",
+  "directives": {
+    "operateAsIntegratedSystem": true,
+    "noFallbackModels": true,
+    "persistentExecution": true,
+    "cleanExecution": true,
+    "compactContextDiscipline": true,
+    "selfUpdateTruthLayer": true
+  },
+  "notes": [
+    "User directive bound on 2026-04-08.",
+    "Fallback models are disabled unless explicitly re-enabled by Aurex.",
+    "Execution should remain compact, durable, and continuity-safe."
+  ]
+}

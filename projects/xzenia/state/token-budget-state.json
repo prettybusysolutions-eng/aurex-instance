@@ -1,0 +1,11 @@
+{
+  "phase": "heartbeat-repair",
+  "plan": {
+    "length_chars": 0,
+    "needs_checkpoint": false,
+    "recommended_chunk_chars": 2200,
+    "estimated_chunks": 1,
+    "status": "single_chunk_ok"
+  },
+  "updated_at": "2026-04-03T07:13:35.638168-04:00"
+}

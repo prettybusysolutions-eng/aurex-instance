@@ -1,0 +1,87 @@
+{
+  "name": "xzenia-performance-ledger",
+  "version": "0.1.0",
+  "metrics": {
+    "artifactsCreated": 23,
+    "skillsCreated": 2,
+    "checkpointsWritten": 1,
+    "recoveredInterruptions": 0,
+    "loopBreaks": 0,
+    "orchestrationRuns": 3
+  },
+  "qualitySignals": {
+    "stateResumable": true,
+    "antiLoopGuardActive": true,
+    "memoryDiscipline": true,
+    "manifestDiscipline": true
+  },
+  "lastUpdated": "2026-03-14T03:08:33.935439+00:00",
+  "notes": [
+    {
+      "timestamp": "2026-03-14T02:22:36.644599+00:00",
+      "metric": "artifactsCreated",
+      "delta": 6,
+      "note": "phase-2 ignition artifacts and checkpoint protocol added"
+    },
+    {
+      "timestamp": "2026-03-14T02:22:36.796081+00:00",
+      "metric": "skillsCreated",
+      "delta": 1,
+      "note": "autonomy-loop-guard created and packaged"
+    },
+    {
+      "timestamp": "2026-03-14T02:22:36.945479+00:00",
+      "metric": "checkpointsWritten",
+      "delta": 1,
+      "note": "checkpoint template and protocol established"
+    },
+    {
+      "timestamp": "2026-03-14T02:28:47.324339+00:00",
+      "metric": "artifactsCreated",
+      "delta": 5,
+      "note": "phase-3 control, session, checkpoint, genesis, and meta-healing binding artifacts added"
+    },
+    {
+      "timestamp": "2026-03-14T02:28:48.619449+00:00",
+      "metric": "orchestrationRuns",
+      "delta": 1,
+      "note": "phase-3 binding completed with concurrent browser control test"
+    },
+    {
+      "timestamp": "2026-03-14T02:43:50.241737+00:00",
+      "metric": "artifactsCreated",
+      "delta": 4,
+      "note": "mac execution bridge manifests, protocol, and session state added"
+    },
+    {
+      "timestamp": "2026-03-14T02:43:50.493718+00:00",
+      "metric": "skillsCreated",
+      "delta": 1,
+      "note": "mac-execution-bridge created and packaged"
+    },
+    {
+      "timestamp": "2026-03-14T02:46:06.735693+00:00",
+      "metric": "artifactsCreated",
+      "delta": 4,
+      "note": "rigor pass added browser verification, image info, target map, and UI rigor docs"
+    },
+    {
+      "timestamp": "2026-03-14T02:46:07.395953+00:00",
+      "metric": "orchestrationRuns",
+      "delta": 1,
+      "note": "simultaneous bridge hardening pass completed"
+    },
+    {
+      "timestamp": "2026-03-14T03:08:33.348000+00:00",
+      "metric": "artifactsCreated",
+      "delta": 4,
+      "note": "hybrid execution manifest, benchmark doc, runner, and observation log added"
+    },
+    {
+      "timestamp": "2026-03-14T03:08:33.935439+00:00",
+      "metric": "orchestrationRuns",
+      "delta": 1,
+      "note": "live hybrid benchmark executed against Chrome demo surface"
+    }
+  ]
+}

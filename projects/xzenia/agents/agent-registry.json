@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-03-21T19:35:00-04:00",
+  "agents": [
+    "sentinel",
+    "optimizer",
+    "evolver",
+    "historian",
+    "orchestrator"
+  ],
+  "coordination": {
+    "order": [
+      "sentinel",
+      "optimizer",
+      "evolver",
+      "historian",
+      "orchestrator"
+    ],
+    "rule": "sentinel checks first, optimizer ranks pressure, evolver acts, historian persists, orchestrator consolidates"
+  }
+}

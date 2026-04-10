@@ -1,0 +1,9 @@
+{
+  "total_tasks": 1,
+  "edge_executed": 0,
+  "cloud_executed": 1,
+  "hybrid": 0,
+  "escalations": 0,
+  "total_cost": 0.05,
+  "unified_model_version": "1.0"
+}

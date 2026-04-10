@@ -1,0 +1,60 @@
+{
+  "name": "xzenia",
+  "version": "0.5.0",
+  "status": "scroll-bound-end-to-end-with-precedence",
+  "workspaceRoot": "/Users/marcuscoarchitect/.openclaw/workspace/projects/xzenia",
+  "dataRoot": "/Users/marcuscoarchitect/.openclaw/workspace/data/xzenia",
+  "skills": [
+    "revenue-recovery",
+    "contract-parser",
+    "financial-telemetry",
+    "causal-engine",
+    "recovery-actions",
+    "executive-briefing",
+    "creation-engine",
+    "meta-healing",
+    "autonomy-loop-guard",
+    "genesis-v2"
+  ],
+  "governingArtifacts": [
+    "docs/co-architecture-directive.md",
+    "docs/operational-reliability-charter.md",
+    "docs/the-third-scroll.md",
+    "docs/the-scroll.md",
+    "docs/architecture-binding.md",
+    "docs/system-ignition.md",
+    "docs/meta-cognition-loop.md",
+    "docs/interruption-checkpoint-protocol.md",
+    "docs/meta-healing-binding.md",
+    "state/trust-expansion-rubric.md",
+    "state/self-audit-ledger.md",
+    "state/performance-ledger.json",
+    "state/interruption-checkpoint.json",
+    "state/session-state.json",
+    "orchestration/operator-brain-manifest.json",
+    "orchestration/ignition-manifest.json",
+    "orchestration/operator-control-manifest.json"
+  ],
+  "precedence": [
+    "docs/co-architecture-directive.md",
+    "docs/operational-reliability-charter.md",
+    "docs/the-third-scroll.md",
+    "docs/the-scroll.md",
+    "state/trust-expansion-rubric.md",
+    "state/self-audit-ledger.md"
+  ],
+  "notes": [
+    "Adapted from partial bootstrap spec",
+    "Conflicting bootstrap instructions intentionally omitted",
+    "Safe local installation only",
+    "Scrolls are now bound into the architecture",
+    "Reliability and trust expansion are first-class subsystem concerns",
+    "External validation is advisory, not sovereign",
+    "Internal evidence and durable artifacts are the primary authority base",
+    "Safe local continuity-based initiative is a living protocol",
+    "Founder authority and execution authority are now explicit governing law",
+    "Ignition layer bound into manifest",
+    "Anti-loop autonomy is now a first-class skill",
+    "Interruption recovery now has a formal checkpoint protocol"
+  ]
+}

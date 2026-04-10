@@ -1,0 +1,11 @@
+{
+  "objective": "",
+  "currentStep": "",
+  "lastMeaningfulChange": "",
+  "recentActions": [],
+  "blocker": "",
+  "nextPlannedChange": "",
+  "escalationThresholdReached": false,
+  "activeArtifacts": [],
+  "resumeInstructions": []
+}

@@ -1,0 +1,21 @@
+{
+  "name": "xzenia-session-state",
+  "version": "0.1.0",
+  "status": "active",
+  "currentObjective": "Build Xzenia into a meta-cognitive performing system with resumable autonomy and direct Mac execution capability.",
+  "activePhase": "phase-3",
+  "activeControlSurface": "operator-control-manifest",
+  "browserState": {
+    "chromeAvailable": true,
+    "currentTarget": "Pocket Option",
+    "currentUrl": "https://pocketoption.com/en/cabinet",
+    "authState": "probable-authenticated-session",
+    "domAppleEventJs": false
+  },
+  "nextTargets": [
+    "bind ledger updates into repeated workflows",
+    "connect meta-healing events to performance ledger",
+    "expand browser-safe operating procedures",
+    "continue genesis-layer synthesis"
+  ]
+}
