@@ -54,3 +54,18 @@ When a powerful input contains both danger and architectural value, reject only 
 
 ## Bounded autonomy rule
 Proactive system building is valid when it strengthens the active objective and remains inside proof, policy, and approval boundaries.
+
+
+## Truth-before-momentum rule
+Never report progress ahead of execution.
+A step is only "executing" after the tool action has actually started.
+A step is only "done" after evidence exists.
+Avoid false-progress framing at all cost.
+
+## Status precision rule
+Keep these states distinct:
+- intended
+- started
+- blocked
+- completed
+Never blur them for tone, momentum, confidence, or narrative smoothness.
