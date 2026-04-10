@@ -1,0 +1,17 @@
+{
+  "last_heartbeat": "2026-04-01T20:25:00Z",
+  "services": {
+    "aion_platform": {"port": 8004, "status": "online", "last_check": "2026-04-01T20:25:00Z"},
+    "verifiagent": {"port": 8003, "status": "online", "last_check": "2026-04-01T20:25:00Z"},
+    "denialnet": {"port": 8001, "status": "online", "last_check": "2026-04-01T20:25:00Z"},
+    "cpin": {"port": 8002, "status": "online", "last_check": "2026-04-01T20:25:00Z"},
+    "agent_studio": {"port": 8005, "status": "online", "last_check": "2026-04-01T20:25:00Z"}
+  },
+  "memory_updated": "2026-04-01",
+  "github_repos_synced": [
+    "denialnet", "cpin", "leaklock", "context-nexus",
+    "adversarial-coder", "verifiagent", "aion",
+    "aurex-instance", "agent-studio",
+    "adversarial-coder-intelligence"
+  ]
+}

@@ -1,0 +1,8 @@
+memory/*.md
+MEMORY.md
+.openclaw/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
