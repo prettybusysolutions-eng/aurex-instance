@@ -1,0 +1,105 @@
+{
+  "id": "xzenia-unheard-of-threshold-charter",
+  "title": "Xzenia Build Charter: Toward the Unheard-Of Threshold",
+  "status": "active",
+  "classification": "internal_operational",
+  "timebox": "open-ended until threshold evidence is achieved",
+  "operatingDoctrine": {
+    "artifact": "system/UNHEARD-OF-DOCTRINE.md",
+    "principle": "No novelty theater. Build only governed capability that compounds under real constraints.",
+    "executionRule": "Every milestone must reduce drag, increase resilience, or expand governed autonomy with artifact-backed verification.",
+    "promotionRule": "No frontier is promoted without measured benefit and preserved rollback/control.",
+    "blockRule": "Any repeatedly reissued but ineligible frontier must be marked blocked and removed from automatic re-selection until evidence changes.",
+    "defectRule": "Every newly exposed orchestration, measurement, or mutation defect becomes governed work."
+  },
+  "thresholdDefinition": {
+    "description": "A substrate that can identify, test, apply, verify, and retain beneficial changes to itself under real-world constraints without losing honesty or control.",
+    "requiredProperties": [
+      "persistent continuity",
+      "honest degradation",
+      "governed mutation",
+      "causal frontier generation",
+      "reversible self-improvement",
+      "proof-bearing execution"
+    ]
+  },
+  "frontiers": [
+    {
+      "id": "frontier-1-proof-spine-recursion",
+      "name": "Recursive proof-spine optimization",
+      "priority": "highest",
+      "status": "active",
+      "objective": "Turn measured cost/fragility surfaces into governed recurring optimization work without looping on blocked items.",
+      "definitionOfDone": [
+        "frontier generator respects blocked and ineligible states",
+        "top cost driver can be optimized, rerun, and remeasured in one closed loop",
+        "at least two sequential cost frontiers execute without introducing contradictions"
+      ],
+      "evidenceTargets": [
+        "projects/xzenia/csmr/reports/cost-accounting.json",
+        "projects/xzenia/csmr/reports/frontier-evolver-report.json",
+        "projects/xzenia/csmr/reports/unified-supervisor-health.json"
+      ]
+    },
+    {
+      "id": "frontier-2-honest-tier-lift",
+      "name": "Honest transition from reduced to normal tier",
+      "priority": "high",
+      "status": "active",
+      "objective": "Reach normal operating tier through real resource/cadence improvement rather than policy fiction.",
+      "definitionOfDone": [
+        "normal-tier recalibrator reports eligible=true",
+        "degradation gate reports tier=normal under honest policy",
+        "tier lift remains stable through verification rerun"
+      ],
+      "evidenceTargets": [
+        "projects/xzenia/csmr/reports/normal-tier-recalibration.json",
+        "projects/xzenia/csmr/reports/degradation-gate.json",
+        "projects/xzenia/csmr/reports/resource-monitor.json"
+      ]
+    },
+    {
+      "id": "frontier-3-governed-substrate-mutation",
+      "name": "Closed-loop governed substrate mutation",
+      "priority": "high",
+      "status": "executed",
+      "objective": "Advance from isolated proposal execution to repeatable self-improvement with validation, promotion, and retention of beneficial mutations.",
+      "definitionOfDone": [
+        "measured bottleneck can produce a bounded mutation proposal",
+        "proposal passes gates A/B/C and is applied or rolled back based on measured effect",
+        "beneficial mutation is retained and reappears as improved operating baseline"
+      ],
+      "evidenceTargets": [
+        "projects/xzenia/csmr/ledger/causal_ledger.sqlite",
+        "projects/xzenia/csmr/reports/",
+        "projects/xzenia/state/latest-checkpoint.json"
+      ],
+      "last_execution": "2026-03-23T15:25:35.181264+00:00"
+    },
+    {
+      "id": "frontier-4-imitation-resistance",
+      "name": "Moat through lived substrate integration",
+      "priority": "medium_high",
+      "status": "executed",
+      "objective": "Convert hard-won runtime lessons into local machinery that is difficult to copy from code alone.",
+      "definitionOfDone": [
+        "at least three repeated lessons are packaged into durable substrate artifacts",
+        "new operator value depends on integrated local continuity and governance layers",
+        "removing any one core layer measurably reduces system capability"
+      ],
+      "evidenceTargets": [
+        "skills/",
+        "system/",
+        "projects/xzenia/orchestration/"
+      ],
+      "last_execution": "2026-03-23T15:25:35.181602+00:00"
+    }
+  ],
+  "activePressureSurfaces": [
+    "supervisor_cycle",
+    "executor_gateway",
+    "integrity_check",
+    "resource posture"
+  ],
+  "nextExecutionRule": "When no ready frontier exists, generate the next one from measured drag, contradiction, failure, or structural opportunity. If a frontier is blocked by honest evidence, mark it blocked and advance the next justified item."
+}

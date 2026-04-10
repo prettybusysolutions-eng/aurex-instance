@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Xzenia Degraded Output",
+  "type": "object",
+  "required": ["tier", "confidence", "capability_reductions", "preserved_intent"],
+  "properties": {
+    "tier": {"type": "string", "enum": ["normal", "reduced", "minimal"]},
+    "confidence": {"type": "string"},
+    "capability_reductions": {"type": "array"},
+    "preserved_intent": {"type": "object"}
+  }
+}

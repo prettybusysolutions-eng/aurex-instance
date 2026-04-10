@@ -1,0 +1,32 @@
+{
+  "policy_version": 3,
+  "modes": {
+    "full": {
+      "description": "Run full governed cycle with storage, supervisor, resource, and degradation checks.",
+      "steps": [
+        "sync",
+        "storage_governor",
+        "supervisor",
+        "resource_monitor",
+        "degradation_gate"
+      ]
+    },
+    "lean": {
+      "description": "Run lower-cost verification after stable proofs; skip storage governor unless storage contradiction or reclaim threshold is active.",
+      "steps": [
+        "sync",
+        "supervisor",
+        "resource_monitor",
+        "degradation_gate"
+      ]
+    }
+  },
+  "selection_rule": {
+    "lean_requires": {
+      "supervisor_overall": "pass",
+      "contradictions": 0,
+      "degradation_tier": "normal",
+      "high_safety_reclaim_bytes_max": 10000000
+    }
+  }
+}

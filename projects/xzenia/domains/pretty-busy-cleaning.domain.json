@@ -1,0 +1,46 @@
+{
+  "identity": {
+    "name": "pretty-busy-cleaning",
+    "objective": "Acquire, classify, and advance local cleaning leads into scheduled work.",
+    "core_entities": ["lead", "property", "service_request", "followup", "quote", "booking"],
+    "success_metrics": ["qualified_leads", "response_time", "quote_to_booking_rate", "followup_completion_rate"]
+  },
+  "causal": {
+    "graph_schema": "lead-state progression graph",
+    "required_nodes": ["lead_source", "lead_quality", "followup_state", "quote_state", "booking_state"],
+    "required_edges": ["influences", "blocks", "advances", "converts"],
+    "evidence_sources": ["lead queue", "followup schedule", "local notes"],
+    "confidence_semantics": "explicit confidence on lead quality and next-action recommendation"
+  },
+  "verification": {
+    "valid_state_rules": [
+      "lead queue artifact present",
+      "followup scheduler artifact present",
+      "lead memory artifact present"
+    ],
+    "regression_rules": [
+      "lead state without followup path",
+      "booking recommendation without supporting lead classification"
+    ],
+    "required_tests": ["artifact presence", "queue consistency", "followup due validation"]
+  },
+  "connector": {
+    "sources": ["local json", "manual intake"],
+    "refresh_expectations": "state updates must be resumable and preserve followup queue",
+    "normalization_rules": "all leads normalize into common lead-state model"
+  },
+  "execution": {
+    "internal_actions": ["classify lead", "schedule followup", "prioritize queue", "summarize pipeline"],
+    "approval_required_actions": ["send customer message", "publish public marketing content"],
+    "rollback_semantics": "restore prior queue and memory artifacts"
+  },
+  "reporting": {
+    "operator_summary": "pipeline state, urgent followups, likely conversions",
+    "machine_outputs": ["lead queue", "followup due", "pipeline summary"]
+  },
+  "risk_surface": {
+    "sensitive_data": ["lead personal details", "property details"],
+    "external_write_boundaries": ["customer communications", "public marketing"],
+    "guardrails": ["no customer outreach without approval", "preserve queue continuity"]
+  }
+}

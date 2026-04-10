@@ -1,0 +1,30 @@
+{
+  "degradation_tiers": {
+    "normal": {
+      "disk_free_gb_threshold": 10,
+      "confidence_label": "normal",
+      "capabilities": "full"
+    },
+    "reduced": {
+      "disk_free_gb_threshold": 3,
+      "confidence_label": "reduced",
+      "capabilities": "limited",
+      "restrictions": [
+        "no_new_skills",
+        "no_large_writes"
+      ]
+    },
+    "minimal": {
+      "disk_free_gb_threshold": 1,
+      "confidence_label": "minimal",
+      "capabilities": "preserved_state_only",
+      "actions": [
+        "checkpoint_only",
+        "defer_all"
+      ]
+    }
+  },
+  "current_tier": "normal",
+  "last_evaluated": "2026-03-23T10:26:24.917971-04:00",
+  "hysteresis_seconds": 300
+}

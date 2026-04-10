@@ -1,0 +1,48 @@
+{
+  "identity": {
+    "name": "revenue-recovery",
+    "objective": "Detect revenue leakage, explain likely causes, and generate governed recovery actions.",
+    "core_entities": ["client", "contract", "invoice", "usage_event", "finding", "recovery_action"],
+    "success_metrics": ["validated_findings", "estimated_recovered_revenue", "false_positive_rate", "time_to_briefing"]
+  },
+  "causal": {
+    "graph_schema": "financial-event to leakage-cause attribution graph",
+    "required_nodes": ["contract_term", "billing_event", "usage_event", "invoice_state", "recovery_action"],
+    "required_edges": ["constrains", "causes", "explains", "recovers"],
+    "evidence_sources": ["contracts", "billing exports", "crm/erp connectors", "manual csv imports"],
+    "confidence_semantics": "claim_type + confidence + evidence_depth + known_gaps"
+  },
+  "verification": {
+    "valid_state_rules": [
+      "contract extraction artifact present",
+      "financial telemetry normalized",
+      "causal finding artifact emitted",
+      "recovery action artifact emitted"
+    ],
+    "regression_rules": [
+      "missing connector normalization output",
+      "finding without provenance",
+      "recovery action without ranked basis"
+    ],
+    "required_tests": ["artifact presence", "schema validation", "provenance check"]
+  },
+  "connector": {
+    "sources": ["csv", "manual", "stripe-staged", "salesforce-staged"],
+    "refresh_expectations": "connector or import refresh must be resumable and checkpointed",
+    "normalization_rules": "all sources normalize into unified financial event model"
+  },
+  "execution": {
+    "internal_actions": ["ingest", "parse", "analyze", "rank recovery actions", "generate briefing"],
+    "approval_required_actions": ["send customer-facing communications", "modify external billing records", "trigger external connector writes"],
+    "rollback_semantics": "revert derived artifacts and restore prior state manifests"
+  },
+  "reporting": {
+    "operator_summary": "leakage summary, likely causes, ranked recovery actions, uncertainty",
+    "machine_outputs": ["finding artifact", "recovery artifact", "briefing artifact", "health artifact"]
+  },
+  "risk_surface": {
+    "sensitive_data": ["contracts", "billing exports", "customer financial records"],
+    "external_write_boundaries": ["crm write", "billing system write", "customer communication"],
+    "guardrails": ["no external writes without approval", "preserve provenance", "confidence must be explicit"]
+  }
+}

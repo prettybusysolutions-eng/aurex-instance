@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Xzenia Supervisory Health Report",
+  "type": "object",
+  "required": ["timestamp", "overall", "health_score", "components", "contradictions", "stalled_items", "recommended_action"],
+  "properties": {
+    "timestamp": {"type": "string"},
+    "overall": {"type": "string", "enum": ["pass", "partial", "fail"]},
+    "health_score": {"type": "number"},
+    "components": {"type": "array"},
+    "contradictions": {"type": "array"},
+    "stalled_items": {"type": "array"},
+    "recommended_action": {"type": "string"},
+    "remediation": {"type": "array"}
+  }
+}

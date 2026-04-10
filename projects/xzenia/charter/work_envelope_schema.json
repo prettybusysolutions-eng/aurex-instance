@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Xzenia Work Envelope",
+  "type": "object",
+  "required": ["work_id", "source", "priority", "checkpoint_state", "expected_outcome"],
+  "properties": {
+    "work_id": {"type": "string"},
+    "source": {"type": "string", "enum": ["scheduled", "defect_generated", "operator_requested", "supervisor_generated"]},
+    "priority": {"type": "integer"},
+    "checkpoint_state": {"type": "object"},
+    "expected_outcome": {"type": "object"},
+    "rollback_plan": {"type": "object"},
+    "verification_contract": {"type": "object"}
+  }
+}

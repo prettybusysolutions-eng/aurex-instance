@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Xzenia Structured Defect Record",
+  "type": "object",
+  "required": ["defect_id", "timestamp", "source", "severity", "state", "failure", "recovery_attempt", "registry_action"],
+  "properties": {
+    "defect_id": {"type": "string"},
+    "timestamp": {"type": "string"},
+    "source": {"type": "string", "enum": ["exception", "verification_failure", "contradiction", "resource_degradation", "loop_guard", "manual_capture"]},
+    "severity": {"type": "string", "enum": ["critical", "high", "medium", "low"]},
+    "state": {"type": "object"},
+    "failure": {"type": "object"},
+    "recovery_attempt": {"type": "object"},
+    "registry_action": {"type": "object"},
+    "retest": {"type": "object"}
+  }
+}

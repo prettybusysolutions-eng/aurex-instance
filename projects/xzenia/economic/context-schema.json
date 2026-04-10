@@ -1,0 +1,100 @@
+{
+  "context_schema": {
+    "version": "1.0",
+    "description": "Structured context for context-normalized outcome memory",
+    "fields": [
+      {
+        "name": "domain",
+        "type": "string",
+        "required": true,
+        "values": ["execution", "repair", "frontier", "analysis", "deliberation", "supervisor", "recovery"],
+        "description": "High-level domain of the action"
+      },
+      {
+        "name": "task_type",
+        "type": "string",
+        "required": true,
+        "description": "Specific type of task within domain"
+      },
+      {
+        "name": "resource_state",
+        "type": "object",
+        "required": true,
+        "fields": {
+          "disk_free_gb": {"type": "number", "description": "Available disk space"},
+          "memory_available_mb": {"type": "number", "description": "Available memory"},
+          "cpu_load": {"type": "number", "description": "Current CPU load 0-1"},
+          "network_available": {"type": "boolean", "description": "Network connectivity"}
+        }
+      },
+      {
+        "name": "risk_level",
+        "type": "string",
+        "required": true,
+        "values": ["low", "medium", "high", "critical"],
+        "description": "Risk assessment of the action"
+      },
+      {
+        "name": "time_to_value",
+        "type": "number",
+        "required": true,
+        "description": "Expected minutes until value realized"
+      },
+      {
+        "name": "execution_mode",
+        "type": "string",
+        "required": true,
+        "values": ["edge", "cloud", "hybrid", "deferred"],
+        "description": "How the action will be executed"
+      },
+      {
+        "name": "prior_success_rate",
+        "type": "number",
+        "required": true,
+        "description": "Historical success rate for this context type 0-1"
+      },
+      {
+        "name": "complexity",
+        "type": "number",
+        "required": false,
+        "description": "Complexity 0-1"
+      },
+      {
+        "name": "urgency",
+        "type": "number",
+        "required": false,
+        "description": "Urgency 0-1"
+      }
+    ]
+  },
+  "decay_config": {
+    "half_life_cycles": 20,
+    "minimum_weight": 0.1,
+    "regime_shift_detection": {
+      "enabled": true,
+      "lookback_cycles": 50,
+      "significance_threshold": 0.3
+    }
+  },
+  "failure_intelligence": {
+    "root_cause_categories": [
+      "resource_exhaustion",
+      "dependency_missing",
+      "logic_error",
+      "context_mismatch",
+      "timing_error",
+      "external_failure"
+    ],
+    "preventability_scales": {
+      "avoidable": 0.9,
+      "likely_preventable": 0.6,
+      "uncertain": 0.4,
+      "unavoidable": 0.1
+    },
+    "recurrence_likelihood": {
+      "high": 0.8,
+      "medium": 0.5,
+      "low": 0.2
+    }
+  }
+}

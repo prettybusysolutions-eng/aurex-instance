@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Xzenia Domain Contract",
+  "type": "object",
+  "required": ["identity", "causal", "verification", "connector", "execution", "reporting", "risk_surface"],
+  "properties": {
+    "identity": {"type": "object"},
+    "causal": {"type": "object"},
+    "verification": {"type": "object"},
+    "connector": {"type": "object"},
+    "execution": {"type": "object"},
+    "reporting": {"type": "object"},
+    "risk_surface": {"type": "object"}
+  }
+}

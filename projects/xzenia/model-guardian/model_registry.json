@@ -1,0 +1,199 @@
+{
+  "version": 1,
+  "updated": "2026-03-22",
+  "providers": {
+    "anthropic/claude-sonnet-4-6": {
+      "status": "active",
+      "auth": "token",
+      "activate": "already active",
+      "strengths": ["reasoning", "long-context", "coding", "analysis", "writing", "tool-use", "vision"],
+      "context_window": 200000,
+      "cost_tier": "high",
+      "local": false,
+      "tasks": ["complex-reasoning", "code-review", "architecture", "executive-briefing", "contract-parse", "causal-analysis", "orchestration"]
+    },
+    "openai-codex/gpt-5.4": {
+      "status": "active",
+      "auth": "oauth",
+      "activate": "already active via OpenAI OAuth",
+      "strengths": ["coding", "code-generation", "debugging", "tool-use"],
+      "context_window": 128000,
+      "cost_tier": "high",
+      "local": false,
+      "tasks": ["coding", "code-generation", "debugging", "refactor", "test-writing"]
+    },
+    "openai/gpt-5.4": {
+      "status": "inactive",
+      "auth": "api_key",
+      "activate": "openclaw onboard --auth-choice openai-api-key",
+      "env": "OPENAI_API_KEY",
+      "strengths": ["coding", "reasoning", "tool-use", "vision", "function-calling"],
+      "context_window": 128000,
+      "cost_tier": "high",
+      "local": false,
+      "tasks": ["coding", "tool-use", "structured-output", "vision"]
+    },
+    "google/gemini-3.1-pro-preview": {
+      "status": "inactive",
+      "auth": "api_key",
+      "activate": "openclaw onboard --auth-choice gemini-api-key",
+      "env": "GEMINI_API_KEY",
+      "strengths": ["long-context", "multimodal", "code", "analysis", "free-tier-available"],
+      "context_window": 1000000,
+      "cost_tier": "medium",
+      "local": false,
+      "tasks": ["document-analysis", "multimodal", "long-context-summarization", "vision"]
+    },
+    "google/gemini-3-flash-preview": {
+      "status": "inactive",
+      "auth": "api_key",
+      "activate": "openclaw onboard --auth-choice gemini-api-key",
+      "env": "GEMINI_API_KEY",
+      "strengths": ["fast", "cheap", "long-context", "multimodal"],
+      "context_window": 1000000,
+      "cost_tier": "low",
+      "local": false,
+      "tasks": ["fast-summarization", "classification", "simple-qa", "heartbeat-checks"]
+    },
+    "moonshot/kimi-k2.5": {
+      "status": "inactive",
+      "auth": "api_key",
+      "activate": "openclaw onboard --auth-choice moonshot-api-key OR set MOONSHOT_API_KEY",
+      "env": "MOONSHOT_API_KEY",
+      "strengths": ["coding", "long-context", "chinese-english", "agentic-coding"],
+      "context_window": 200000,
+      "cost_tier": "medium",
+      "local": false,
+      "tasks": ["coding", "code-review", "long-context", "agentic-coding"]
+    },
+    "openrouter/anthropic/claude-sonnet-4-5": {
+      "status": "inactive",
+      "auth": "api_key",
+      "activate": "set OPENROUTER_API_KEY — routes through OpenRouter to many providers",
+      "env": "OPENROUTER_API_KEY",
+      "strengths": ["multi-provider-gateway", "routing-fallback", "access-to-many-models"],
+      "context_window": 200000,
+      "cost_tier": "medium",
+      "local": false,
+      "tasks": ["fallback-gateway", "provider-diversity", "experimentation"]
+    },
+    "mistral/mistral-large-latest": {
+      "status": "inactive",
+      "auth": "api_key",
+      "activate": "openclaw onboard --auth-choice mistral-api-key",
+      "env": "MISTRAL_API_KEY",
+      "strengths": ["coding", "multilingual", "efficient", "european-privacy"],
+      "context_window": 128000,
+      "cost_tier": "medium",
+      "local": false,
+      "tasks": ["coding", "multilingual", "eu-privacy-workloads"]
+    },
+    "zai/glm-5": {
+      "status": "inactive",
+      "auth": "api_key",
+      "activate": "openclaw onboard --auth-choice zai-api-key",
+      "env": "ZAI_API_KEY",
+      "strengths": ["coding", "chinese-english", "tool-use", "reasoning"],
+      "context_window": 128000,
+      "cost_tier": "medium",
+      "local": false,
+      "tasks": ["coding", "tool-use", "multilingual"]
+    },
+    "huggingface/deepseek-ai/DeepSeek-R1": {
+      "status": "inactive",
+      "auth": "api_key",
+      "activate": "openclaw onboard --auth-choice huggingface-api-key",
+      "env": "HUGGINGFACE_HUB_TOKEN",
+      "strengths": ["deep-reasoning", "math", "science", "open-source"],
+      "context_window": 64000,
+      "cost_tier": "low",
+      "local": false,
+      "tasks": ["math", "science-reasoning", "research", "deep-analysis"]
+    },
+    "ollama/qwen2.5:7b": {
+      "status": "active",
+      "auth": "none",
+      "activate": "already active — Ollama running locally",
+      "strengths": ["local", "free", "private", "coding", "fast"],
+      "context_window": 32768,
+      "cost_tier": "zero",
+      "local": true,
+      "tasks": ["local-coding", "private-data", "budget-fallback", "fast-classification", "background-tasks"]
+    },
+    "ollama/qwen2.5:3b": {
+      "status": "active",
+      "auth": "none",
+      "activate": "already active — Ollama running locally",
+      "strengths": ["local", "free", "fast", "minimal-footprint"],
+      "context_window": 32768,
+      "cost_tier": "zero",
+      "local": true,
+      "tasks": ["local-classification", "heartbeat", "quick-qa", "budget-critical-fallback"]
+    },
+    "ollama/llama3.2:3b": {
+      "status": "active",
+      "auth": "none",
+      "activate": "already active — Ollama running locally",
+      "strengths": ["local", "free", "english-focused", "general"],
+      "context_window": 8192,
+      "cost_tier": "zero",
+      "local": true,
+      "tasks": ["local-general", "simple-qa", "budget-emergency"]
+    },
+    "ollama/qwen2.5:1.5b-instruct-q4_K_M": {
+      "status": "active",
+      "auth": "none",
+      "activate": "already active — Ollama running locally",
+      "strengths": ["local", "ultra-fast", "minimal-resources"],
+      "context_window": 16384,
+      "cost_tier": "zero",
+      "local": true,
+      "tasks": ["heartbeat", "classification", "minimal-local-fallback"]
+    }
+  },
+  "task_routing": {
+    "complex-reasoning": ["anthropic/claude-sonnet-4-6", "openai-codex/gpt-5.4", "ollama/qwen2.5:7b"],
+    "coding": ["openai-codex/gpt-5.4", "anthropic/claude-sonnet-4-6", "ollama/qwen2.5:7b"],
+    "code-review": ["anthropic/claude-sonnet-4-6", "openai-codex/gpt-5.4", "ollama/qwen2.5:7b"],
+    "architecture": ["anthropic/claude-sonnet-4-6", "ollama/qwen2.5:7b"],
+    "analysis": ["anthropic/claude-sonnet-4-6", "ollama/qwen2.5:7b"],
+    "vision": ["anthropic/claude-sonnet-4-6"],
+    "fast-classification": ["ollama/qwen2.5:3b", "ollama/qwen2.5:7b"],
+    "heartbeat": ["ollama/qwen2.5:1.5b-instruct-q4_K_M", "ollama/qwen2.5:3b"],
+    "background-tasks": ["ollama/qwen2.5:7b", "ollama/qwen2.5:3b"],
+    "private-data": ["ollama/qwen2.5:7b", "ollama/llama3.2:3b"],
+    "budget-fallback": ["ollama/qwen2.5:7b", "ollama/qwen2.5:3b", "ollama/llama3.2:3b"]
+  },
+  "activation_priority": [
+    {
+      "model": "google/gemini-3-flash-preview",
+      "reason": "Free tier available. Massive context window (1M tokens). Ideal for long-doc analysis, fast classification, heartbeat tasks. Near-zero cost.",
+      "effort": "low",
+      "command": "openclaw onboard --auth-choice gemini-api-key"
+    },
+    {
+      "model": "openrouter/anthropic/claude-sonnet-4-5",
+      "reason": "Single key unlocks 100+ models. Use as fallback gateway when Anthropic/Codex budgets run low. Strategic coverage.",
+      "effort": "low",
+      "command": "set OPENROUTER_API_KEY in openclaw.json env block"
+    },
+    {
+      "model": "moonshot/kimi-k2.5",
+      "reason": "200K context, strong at agentic coding. Useful alternative for Codex-class tasks at lower cost.",
+      "effort": "low",
+      "command": "set MOONSHOT_API_KEY"
+    },
+    {
+      "model": "huggingface/deepseek-ai/DeepSeek-R1",
+      "reason": "Free HuggingFace inference for deep-reasoning tasks (math, science, research). No cost.",
+      "effort": "low",
+      "command": "openclaw onboard --auth-choice huggingface-api-key"
+    },
+    {
+      "model": "mistral/mistral-large-latest",
+      "reason": "European privacy-compliant, multilingual, strong coding. Good GDPR-safe alternative.",
+      "effort": "low",
+      "command": "openclaw onboard --auth-choice mistral-api-key"
+    }
+  ]
+}

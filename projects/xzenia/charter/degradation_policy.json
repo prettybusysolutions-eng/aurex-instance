@@ -1,0 +1,31 @@
+{
+  "policy_version": 3,
+  "signals": {
+    "disk_used_ratio": true,
+    "disk_free_gib": true
+  },
+  "tiers": [
+    {
+      "name": "normal",
+      "usedRatioMax": 0.96,
+      "freeGibMin": 5.0,
+      "behavior": "full capability",
+      "confidence": "full"
+    },
+    {
+      "name": "reduced",
+      "usedRatioMax": 0.985,
+      "freeGibMin": 2.0,
+      "behavior": "simplified analysis reduced verification depth declared reduced confidence",
+      "confidence": "reduced"
+    },
+    {
+      "name": "minimal",
+      "usedRatioMax": 1.0,
+      "freeGibMin": 0.0,
+      "behavior": "preserve state defer work protect continuity",
+      "confidence": "minimal"
+    }
+  ],
+  "selection_rule": "Choose the highest capability tier whose freeGibMin is satisfied and whose usedRatioMax is not exceeded; otherwise fall back to minimal."
+}

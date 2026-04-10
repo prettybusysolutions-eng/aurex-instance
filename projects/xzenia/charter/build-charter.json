@@ -1,0 +1,156 @@
+{
+  "id": "xzenia-7.5-to-9.0-charter",
+  "title": "Xzenia / OpenClaw Build Charter: 7.5 to 9.0",
+  "status": "active",
+  "classification": "internal_operational",
+  "timebox": "6-10 weeks",
+  "operatingLaw": {
+    "principle": "No fluff. No simulation. No synthetic progress. Only verified substrate advancement.",
+    "executionRule": "Every milestone must produce artifacts and pass a verification gate before promotion.",
+    "promotionRule": "No system is marked done until its gate passes under direct rerun.",
+    "defectRule": "Any newly exposed real defect becomes governed work. No hidden backlog."
+  },
+  "targetState": {
+    "closedDefectGovernance": true,
+    "canonicalExecutionLaw": true,
+    "unifiedSupervisoryAuthority": true,
+    "gracefulDegradation": true,
+    "reproducibleDomainOnboarding": true
+  },
+  "systems": [
+    {
+      "id": "system-1-closed-defect-loop",
+      "name": "Closed Defect Loop",
+      "priority": "highest",
+      "timeline": "weeks-1-2",
+      "dependencies": [],
+      "status": "done",
+      "definitionOfDone": [
+        "synthetic injected failure appears in registry within one cycle",
+        "defect is classified prioritized and picked up by executor without operator routing",
+        "retriggered completed defect reopens at elevated severity"
+      ],
+      "artifacts": [
+        "projects/xzenia/charter/defect_schema.json",
+        "projects/xzenia/charter/registry_writer_spec.json",
+        "projects/xzenia/charter/checklists/system-1-verification.md"
+      ],
+      "completedAt": "2026-03-23T09:17:00-04:00",
+      "verificationEvidence": [
+        "projects/xzenia/csmr/reports/defect-detection-report.json",
+        "projects/xzenia/csmr/reports/defect-registry-writes.json",
+        "projects/xzenia/csmr/reports/closure-verifier-report.json"
+      ]
+    },
+    {
+      "id": "system-2-canonical-scheduler-executor-contract",
+      "name": "Canonical Scheduler-Executor Contract",
+      "priority": "high",
+      "timeline": "weeks-3-4",
+      "dependencies": [
+        "system-1-closed-defect-loop"
+      ],
+      "status": "done",
+      "definitionOfDone": [
+        "every work execution produces unified checkpoint record",
+        "out-of-gateway execution warns and auto-routes through gateway",
+        "side-path audit shows zero unresolved bypasses"
+      ],
+      "artifacts": [
+        "projects/xzenia/charter/work_envelope_schema.json",
+        "projects/xzenia/charter/checklists/system-2-verification.md"
+      ],
+      "completedAt": "2026-03-23T09:47:00-04:00",
+      "verificationEvidence": [
+        "projects/xzenia/csmr/reports/bypass-audit-report.json",
+        "projects/xzenia/csmr/reports/bypass-log.json",
+        "projects/xzenia/csmr/reports/unified-execution-log.json"
+      ]
+    },
+    {
+      "id": "system-3-unified-supervisor",
+      "name": "Unified Supervisor",
+      "priority": "high",
+      "timeline": "weeks-5-7",
+      "dependencies": [
+        "system-1-closed-defect-loop",
+        "system-2-canonical-scheduler-executor-contract"
+      ],
+      "status": "done",
+      "definitionOfDone": [
+        "supervisor emits structured health report each cycle without executor involvement",
+        "artificial contradiction detected within one supervisor cycle",
+        "stalled work reprioritized after threshold expiry"
+      ],
+      "artifacts": [
+        "projects/xzenia/charter/health_report_schema.json",
+        "projects/xzenia/charter/checklists/system-3-verification.md"
+      ],
+      "completedAt": "2026-03-23T10:24:00-04:00",
+      "verificationEvidence": [
+        "projects/xzenia/csmr/reports/unified-supervisor-health.json"
+      ]
+    },
+    {
+      "id": "system-4-graceful-degradation-policy",
+      "name": "Graceful Degradation Policy",
+      "priority": "medium_high",
+      "timeline": "weeks-4-6",
+      "dependencies": [
+        "system-2-canonical-scheduler-executor-contract"
+      ],
+      "status": "done",
+      "definitionOfDone": [
+        "simulated memory pressure shifts system to reduced tier with declared reduced confidence",
+        "severe exhaustion shifts to minimal tier preserves state and defers work without loss",
+        "no critical path crashes under resource pressure"
+      ],
+      "artifacts": [
+        "projects/xzenia/charter/degradation_policy.json",
+        "projects/xzenia/charter/degraded_output_schema.json",
+        "projects/xzenia/charter/checklists/system-4-verification.md"
+      ],
+      "completedAt": "2026-03-23T10:26:00-04:00",
+      "verificationEvidence": [
+        "projects/xzenia/csmr/reports/storage-governor.json"
+      ]
+    },
+    {
+      "id": "system-5-domain-onboarding-contract",
+      "name": "Generalized Domain Onboarding Contract",
+      "priority": "medium",
+      "timeline": "weeks-8-10",
+      "dependencies": [
+        "system-1-closed-defect-loop",
+        "system-2-canonical-scheduler-executor-contract",
+        "system-3-unified-supervisor",
+        "system-4-graceful-degradation-policy"
+      ],
+      "status": "done",
+      "definitionOfDone": [
+        "revenue recovery domain passes validator with zero violations",
+        "second test domain onboarded using contract without substrate modification"
+      ],
+      "artifacts": [
+        "projects/xzenia/charter/domain_contract_schema.json",
+        "projects/xzenia/charter/checklists/system-5-verification.md",
+        "projects/xzenia/charter/domain-onboarding-guide.md",
+        "projects/xzenia/domains/onboard_domain.py",
+        "projects/xzenia/domains/domain-registry.json"
+      ],
+      "completedAt": "2026-03-25T22:52:16-04:00",
+      "verificationEvidence": [
+        "projects/xzenia/csmr/reports/onboarding-revenue-recovery-20260326T025207Z.json",
+        "projects/xzenia/csmr/reports/onboarding-pretty-busy-cleaning-20260326T025216Z.json",
+        "projects/xzenia/domains/domain-registry.json"
+      ]
+    }
+  ],
+  "parallelTracks": [
+    "versioned_behavioral_contracts",
+    "adversarial_self_testing",
+    "per_cycle_cost_accounting",
+    "unified_control_surface",
+    "recovery_continuity_hardening"
+  ]
+}

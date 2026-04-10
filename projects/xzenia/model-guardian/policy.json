@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "description": "Autonomous model-switch policy. Monitor budget usage, switch primary before exhaustion.",
+  "providers": {
+    "anthropic": {
+      "budget_source": "usage_file",
+      "usage_file": "~/.openclaw/logs/gateway.log",
+      "daily_token_budget": 500000,
+      "comment": "Anthropic API usage — tokens not directly visible in log so we estimate from completions"
+    }
+  },
+  "thresholds": {
+    "warn_pct": 70,
+    "switch_pct": 85,
+    "critical_pct": 95
+  },
+  "switch_ladder": [
+    "anthropic/claude-sonnet-4-6",
+    "openai-codex/gpt-5.4",
+    "ollama/qwen2.5:7b",
+    "ollama/qwen2.5:3b",
+    "ollama/llama3.2:3b",
+    "ollama/qwen2.5:1.5b-instruct-q4_K_M"
+  ],
+  "local_only_from": "ollama/qwen2.5:7b",
+  "restore_primary_at_reset": true,
+  "reset_window": "daily",
+  "check_interval_seconds": 300,
+  "state_file": "~/.openclaw/workspace/projects/xzenia/model-guardian/state.json",
+  "config_path": "~/.openclaw/openclaw.json"
+}
