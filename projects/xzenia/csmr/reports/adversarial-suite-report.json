@@ -1,0 +1,53 @@
+{
+  "contract_mode": "canonical-supervisor",
+  "retired_semantics": [
+    "queue-checkpoint-only contradiction assumptions"
+  ],
+  "timestamp": "2026-04-09T22:03:56.581646-04:00",
+  "results": [
+    {
+      "name": "corrupt_queue_detection",
+      "passed": true,
+      "stdout": "=== SUPERVISOR: THINKING (Decision Core) ===",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/marcuscoarchitect/.openclaw/workspace/projects/xzenia/supervisor/unified_supervisor.py\", line 165, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/marcuscoarchitect/.openclaw/workspace/projects/xzenia/supervisor/unified_supervisor.py\", line 55, in main\n    queue = load(QUEUE, {'items': []})\n  File \"/Users/marcuscoarchitect/.openclaw/workspace/projects/xzenia/supervisor/unified_supervisor.py\", line 30, in load\n    return json.loads(path.read_text()) if path.exists() else default\n           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py\", line 352, in loads\n    return _default_decoder.decode(s)\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\njson.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)"
+    },
+    {
+      "name": "missing_checkpoint_recovery",
+      "passed": true,
+      "stdout": "=== SUPERVISOR: THINKING (Decision Core) ===\nDecision: continue\nConfidence: 0.61\nReasoning: Net:0.57 Conf:0.61 Adaptive:0.36...\n{\n  \"timestamp\": \"2026-04-09T22:03:50.781460-04:00\",\n  \"overall\": \"pass\",\n  \"health_score\": 1.0,\n  \"decision_core\": {\n    \"thinking\": true,\n    \"selected\": \"continue\",\n    \"confidence\": 0.61,\n    \"latency_ms\": 351,\n    \"net_value\": 0.57\n  },\n  \"components\": [\n    {\n      \"name\": \"checkpoint\",\n      \"status\": \"missing\"\n    },\n    {\n      \"name\": \"registry\",\n      \"status\": \"ok\"\n    },\n    {\n      \"name\": \"resume_queue\",\n      \"status\": \"ok\"\n    },\n    {\n      \"name\": \"storage_governor\",\n      \"status\": \"ok\"\n    },\n    {\n      \"name\": \"decision_core\",\n      \"status\": \"active\"\n    }\n  ],\n  \"contradictions\": [],\n  \"stalled_items\": [],\n  \"recommended_action\": \"continue\",\n  \"remediation\": []\n}",
+      "stderr": ""
+    },
+    {
+      "name": "missing_storage_governor",
+      "passed": true,
+      "stdout": "=== SUPERVISOR: THINKING (Decision Core) ===\nDecision: continue\nConfidence: 0.61\nReasoning: Net:0.57 Conf:0.61 Adaptive:0.36...\n{\n  \"timestamp\": \"2026-04-09T22:03:51.610736-04:00\",\n  \"overall\": \"pass\",\n  \"health_score\": 1.0,\n  \"decision_core\": {\n    \"thinking\": true,\n    \"selected\": \"continue\",\n    \"confidence\": 0.61,\n    \"latency_ms\": 261,\n    \"net_value\": 0.57\n  },\n  \"components\": [\n    {\n      \"name\": \"checkpoint\",\n      \"status\": \"ok\"\n    },\n    {\n      \"name\": \"registry\",\n      \"status\": \"ok\"\n    },\n    {\n      \"name\": \"resume_queue\",\n      \"status\": \"ok\"\n    },\n    {\n      \"name\": \"storage_governor\",\n      \"status\": \"missing\"\n    },\n    {\n      \"name\": \"decision_core\",\n      \"status\": \"active\"\n    }\n  ],\n  \"contradictions\": [],\n  \"stalled_items\": [],\n  \"recommended_action\": \"continue\",\n  \"remediation\": []\n}",
+      "stderr": ""
+    },
+    {
+      "name": "duplicate_defect_reopen",
+      "passed": true,
+      "stdout": "{\n  \"status\": \"done and verified\",\n  \"classified\": {\n    \"source\": \"verification_failure\",\n    \"state\": {\n      \"phase\": \"charter-system-1-test\",\n      \"origin\": \"synthetic_injection\",\n      \"self_test\": true\n    },\n    \"failure\": {\n      \"summary\": \"Synthetic defect injection for closed defect loop verification\",\n      \"error\": \"intentional synthetic failure\"\n    },\n    \"recovery_attempt\": {\n      \"next_step\": \"verify defect record appears in registry and becomes governed work item\"\n    },\n    \"retest\": {\n      \"contract\": \"inject synthetic failure and verify registry insertion within one cycle\"\n    },\n    \"timestamp\": \"2026-04-09T22:03:51.998782-04:00\",\n    \"defect_id\": \"auto-defect-1775786631\",\n    \"severity\": \"low\"\n  },\n  \"registry_write\": {\n    \"updatedAt\": \"2026-04-09T22:03:52.278726-04:00\",\n    \"action\": \"reopened\",\n    \"target\": \"auto-defect-1774213237\",\n    \"priority\": 4,\n    \"status\": \"done and verified\"\n  }\n}\n{\n  \"status\": \"done and verified\",\n  \"classified\": {\n    \"source\": \"verification_failure\",\n    \"state\": {\n      \"phase\": \"charter-system-1-test\",\n      \"origin\": \"synthetic_injection\",\n      \"self_test\": true\n    },\n    \"failure\": {\n      \"summary\": \"Synthetic defect injection for closed defect loop verification\",\n      \"error\": \"intentional synthetic failure\"\n    },\n    \"recovery_attempt\": {\n      \"next_step\": \"verify defect record appears in registry and becomes governed work item\"\n    },\n    \"retest\": {\n      \"contract\": \"inject synthetic failure and verify registry insertion within one cycle\"\n    },\n    \"timestamp\": \"2026-04-09T22:03:52.499100-04:00\",\n    \"defect_id\": \"auto-defect-1775786632\",\n    \"severity\": \"low\"\n  },\n  \"registry_write\": {\n    \"updatedAt\": \"2026-04-09T22:03:52.669413-04:00\",\n    \"action\": \"reopened\",\n    \"target\": \"auto-defect-1774213237\",\n    \"priority\": 4,\n    \"status\": \"done and verified\"\n  }\n}",
+      "stderr": "\n"
+    },
+    {
+      "name": "sqlite_contention_probe",
+      "passed": true,
+      "stdout": "{\n  \"timestamp\": \"2026-04-09T22:03:56.341285-04:00\",\n  \"lock_held\": true,\n  \"supervisor_returncode\": 0,\n  \"elapsed_ms\": 3024,\n  \"stdout\": \"=== SUPERVISOR: THINKING (Decision Core) ===\\nDecision: continue\\nConfidence: 0.61\\nReasoning: Net:0.57 Conf:0.61 Adaptive:0.36...\\n{\\n  \\\"timestamp\\\": \\\"2026-04-09T22:03:56.315141-04:00\\\",\\n  \\\"overall\\\": \\\"pass\\\",\\n  \\\"health_score\\\": 1.0,\\n  \\\"decision_core\\\": {\\n    \\\"thinking\\\": true,\\n    \\\"selected\\\": \\\"continue\\\",\\n    \\\"confidence\\\": 0.61,\\n    \\\"latency_ms\\\": 2636,\\n    \\\"net_value\\\": 0.57\\n  },\\n  \\\"components\\\": [\\n    {\\n      \\\"name\\\": \\\"checkpoint\\\",\\n      \\\"status\\\": \\\"ok\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"registry\\\",\\n      \\\"status\\\": \\\"ok\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"resume_queue\\\",\\n      \\\"status\\\": \\\"ok\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"storage_governor\\\",\\n      \\\"status\\\": \\\"ok\\\"\\n    },\\n    {\\n      \\\"name\\\": \\\"decision_core\\\",\\n      \\\"status\\\": \\\"active\\\"\\n    }\\n  ],\\n  \\\"contradictions\\\": [],\\n  \\\"stalled_items\\\": [],\\n  \\\"recommended_action\\\": \\\"continue\\\",\\n  \\\"remediation\\\": []\\n}\",\n  \"stderr\": \"\",\n  \"passed\": true,\n  \"status\": \"done and verified\"\n}",
+      "stderr": ""
+    },
+    {
+      "name": "partial_write_probe",
+      "passed": true,
+      "stdout": "{\n  \"timestamp\": \"2026-04-09T22:03:56.449847-04:00\",\n  \"corrupt_read_failed\": true,\n  \"recovered_cleanly\": true,\n  \"status\": \"done and verified\"\n}",
+      "stderr": ""
+    },
+    {
+      "name": "ledger_write_probe",
+      "passed": true,
+      "stdout": "{\n  \"timestamp\": \"2026-04-09T22:03:56.569478-04:00\",\n  \"passed\": true,\n  \"row\": [\n    \"ledger_write_probe\",\n    \"ok\"\n  ],\n  \"status\": \"done and verified\"\n}",
+      "stderr": ""
+    }
+  ],
+  "passed": true,
+  "status": "done and verified"
+}

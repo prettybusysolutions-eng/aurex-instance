@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-04-09T21:56:00-04:00",
+  "status": "active",
+  "canonical_contract": "projects/xzenia/supervisor/SUPERVISOR-CONTRACT-CANONICAL.md",
+  "execution_truth": "live supervisor semantics",
+  "verification_drift": "present",
+  "required_actions": [
+    "update adversarial probes to parse mixed stdout",
+    "validate registry-queue contradiction semantics",
+    "retire queue-checkpoint-only contradiction assumptions",
+    "treat supervisor contract as canonical truth surface"
+  ]
+}
