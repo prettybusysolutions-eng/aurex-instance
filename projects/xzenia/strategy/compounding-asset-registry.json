@@ -1,0 +1,33 @@
+{
+  "generatedAt": "2026-03-21T21:42:00-04:00",
+  "assets": [
+    {
+      "name": "core-substrate",
+      "category": "infrastructure",
+      "moat": "continuity + recovery + governed mutation",
+      "copyResistance": 0.88,
+      "compoundingPotential": 0.95
+    },
+    {
+      "name": "csmr-pipeline",
+      "category": "governed-evolution",
+      "moat": "proposal gates promotion rollback ledger history",
+      "copyResistance": 0.82,
+      "compoundingPotential": 0.92
+    },
+    {
+      "name": "browser-agent",
+      "category": "acquisition",
+      "moat": "persistent local browsing with queue recovery and archive",
+      "copyResistance": 0.61,
+      "compoundingPotential": 0.78
+    },
+    {
+      "name": "domain-lead-engine",
+      "category": "workflow",
+      "moat": "turns domain operations into reusable installable engine",
+      "copyResistance": 0.74,
+      "compoundingPotential": 0.9
+    }
+  ]
+}
