@@ -1,0 +1,196 @@
+{
+  "verified_at": "2026-03-22T12:20:08.466301-04:00",
+  "integrity": {
+    "timestamp": "2026-03-22T12:20:07.803588-04:00",
+    "scope": "full",
+    "triggered_by": "boot_trigger",
+    "overall": "pass",
+    "checks": [
+      {
+        "category": "existence",
+        "artifact": "MEMORY.md",
+        "status": "pass",
+        "detail": "artifact resolved",
+        "severity": "LOW"
+      },
+      {
+        "category": "existence",
+        "artifact": "daily-memory",
+        "status": "pass",
+        "detail": "artifact resolved",
+        "severity": "LOW"
+      },
+      {
+        "category": "existence",
+        "artifact": "SUBSTRATE-LAW.md",
+        "status": "pass",
+        "detail": "artifact resolved",
+        "severity": "LOW"
+      },
+      {
+        "category": "existence",
+        "artifact": "checkpoint.json",
+        "status": "pass",
+        "detail": "artifact resolved",
+        "severity": "LOW"
+      },
+      {
+        "category": "existence",
+        "artifact": "checkpoint-writer",
+        "status": "pass",
+        "detail": "artifact resolved",
+        "severity": "LOW"
+      },
+      {
+        "category": "existence",
+        "artifact": "resume-queue.json",
+        "status": "pass",
+        "detail": "artifact resolved",
+        "severity": "LOW"
+      },
+      {
+        "category": "existence",
+        "artifact": "CSMR-ledger.json",
+        "status": "pass",
+        "detail": "artifact resolved",
+        "severity": "LOW"
+      },
+      {
+        "category": "existence",
+        "artifact": "event-trace-log",
+        "status": "pass",
+        "detail": "artifact resolved",
+        "severity": "LOW"
+      },
+      {
+        "category": "existence",
+        "artifact": "proposals/",
+        "status": "pass",
+        "detail": "artifact resolved",
+        "severity": "LOW"
+      },
+      {
+        "category": "existence",
+        "artifact": "proposal-gate",
+        "status": "pass",
+        "detail": "artifact resolved",
+        "severity": "LOW"
+      },
+      {
+        "category": "existence",
+        "artifact": "promotion-states.json",
+        "status": "pass",
+        "detail": "artifact resolved",
+        "severity": "LOW"
+      },
+      {
+        "category": "existence",
+        "artifact": "skill-harvester",
+        "status": "pass",
+        "detail": "artifact resolved",
+        "severity": "LOW"
+      },
+      {
+        "category": "existence",
+        "artifact": "substrate-optimizer",
+        "status": "pass",
+        "detail": "artifact resolved",
+        "severity": "LOW"
+      },
+      {
+        "category": "existence",
+        "artifact": "resilience-fabric",
+        "status": "pass",
+        "detail": "artifact resolved",
+        "severity": "LOW"
+      },
+      {
+        "category": "existence",
+        "artifact": "openclaw-config",
+        "status": "pass",
+        "detail": "artifact resolved",
+        "severity": "LOW"
+      },
+      {
+        "category": "existence",
+        "artifact": "plugin-seam",
+        "status": "pass",
+        "detail": "artifact resolved",
+        "severity": "LOW"
+      },
+      {
+        "category": "existence",
+        "artifact": "canonical-processor",
+        "status": "pass",
+        "detail": "artifact resolved",
+        "severity": "LOW"
+      },
+      {
+        "category": "existence",
+        "artifact": "fallback-routing-config",
+        "status": "pass",
+        "detail": "artifact resolved",
+        "severity": "LOW"
+      },
+      {
+        "category": "existence",
+        "artifact": "recovery-playbook.md",
+        "status": "pass",
+        "detail": "artifact resolved",
+        "severity": "LOW"
+      },
+      {
+        "category": "existence",
+        "artifact": "reconcile-scripts",
+        "status": "pass",
+        "detail": "artifact resolved",
+        "severity": "LOW"
+      },
+      {
+        "category": "schema",
+        "artifact": "checkpoint.json",
+        "status": "pass",
+        "detail": "json parse ok",
+        "severity": "LOW"
+      },
+      {
+        "category": "schema",
+        "artifact": "resume-queue.json",
+        "status": "pass",
+        "detail": "json parse ok",
+        "severity": "LOW"
+      },
+      {
+        "category": "schema",
+        "artifact": "substrate-graph.json",
+        "status": "pass",
+        "detail": "json parse ok",
+        "severity": "LOW"
+      },
+      {
+        "category": "consistency",
+        "artifact": "checkpoint/resume_queue",
+        "status": "pass",
+        "detail": "checkpoint and queue consistent",
+        "severity": "LOW"
+      }
+    ],
+    "critical_failures": 0,
+    "recommended_action": "proceed"
+  },
+  "boot": {
+    "timestamp": "2026-03-22T12:20:08.415987-04:00",
+    "boot_mode": "warm_resume",
+    "checkpoint_found": true,
+    "queue_depth": 2,
+    "integrity_result": "pass",
+    "actions_taken": [
+      "read_checkpoint",
+      "read_resume_queue",
+      "fire_integrity_check",
+      "resume_tasks"
+    ],
+    "state": "OPERATIONAL"
+  },
+  "status": "done and verified"
+}

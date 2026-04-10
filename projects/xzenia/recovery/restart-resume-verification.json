@@ -1,0 +1,26 @@
+{
+  "verified_at": "2026-03-22T12:16:03.354188-04:00",
+  "checkpoint_exists": true,
+  "interruption_checkpoint_exists": true,
+  "steps": [
+    {
+      "label": "boot_trigger",
+      "code": 0,
+      "stdout": "{\n  \"timestamp\": \"2026-03-22T12:16:02.706468-04:00\",\n  \"boot_mode\": \"warm_resume\",\n  \"checkpoint_found\": true,\n  \"queue_depth\": 2,\n  \"integrity_result\": \"partial\",\n  \"actions_taken\": [\n    \"read_checkpoint\",\n    \"read_resume_queue\",\n    \"fire_integrity_check\",\n    \"fire_recovery\"\n  ],\n  \"state\": \"DEGRADED_OPERATIONAL\"\n}",
+      "stderr": ""
+    },
+    {
+      "label": "reconcile_state",
+      "code": 0,
+      "stdout": "{\n  \"checkpointPhase\": \"bottleneck:restart-resume-hooks:start\",\n  \"checkpointStatus\": \"completed\",\n  \"pendingQueue\": [\n    {\n      \"id\": \"resume-runtime-recovery\",\n      \"priority\": 2,\n      \"title\": \"Finish local restart-survivable recovery layer\",\n      \"status\": \"pending\",\n      \"nextSteps\": [\n        \"wire wake/boot recovery script\",\n        \"reconcile latest checkpoint with ledger state\",\n        \"detect interrupted work automatically\"\n      ]\n    }\n  ],\n  \"latestProposals\": [\n    [\n      \"proposal-1774195183\",\n      \"applied_target\"\n    ],\n    [\n      \"proposal-1774194973\",\n      \"applied_target\"\n    ],\n    [\n      \"proposal-1774194934\",\n      \"promoted\"\n    ],\n    [\n      \"proposal-skill-1774190862\",\n      \"validated_gate_a\"\n    ],\n    [\n      \"proposal-skill-1774175247\",\n      \"validated_gate_a\"\n    ]\n  ],\n  \"promotionArtifacts\": [\n    \"proposal-1774121391-canary-result.json\",\n    \"proposal-1774194934-canary-result.json\",\n    \"proposal-1774194973-canary-result.json\",\n    \"proposal-1774195183-canary-result.json\",\n    \"proposal-skill-1774134798-canary-result.json\"\n  ]\n}",
+      "stderr": ""
+    },
+    {
+      "label": "status_snapshot",
+      "code": 0,
+      "stdout": "{\n  \"active_nodes\": [\n    \"attribution_scorer\",\n    \"boot_trigger\",\n    \"canonical_processor\",\n    \"checkpoint\",\n    \"csmr_ledger\",\n    \"drift_detector\",\n    \"event_tracer\",\n    \"failure_correlator\",\n    \"fallback_router\",\n    \"health_loop\",\n    \"integrity_checker\",\n    \"intent_graph\",\n    \"memory\",\n    \"openclaw_plugin\",\n    \"promotion_logic\",\n    \"proposal_pipeline\",\n    \"recovery_playbook\",\n    \"resilience_fabric\",\n    \"resume_queue\",\n    \"skill_dependency_map\",\n    \"skill_harvester\",\n    \"skill_quality_scorer\",\n    \"substrate_law\",\n    \"substrate_optimizer\"\n  ],\n  \"active_count\": 24,\n  \"queue_items\": [\n    {\n      \"id\": \"resume-csmr-next\",\n      \"priority\": 1,\n      \"title\": \"Continue CSMR beyond heuristic promotion scaffold\",\n      \"status\": \"in_progress\",\n      \"nextSteps\": [\n        \"replace heuristic shadow/canary comparator with measured live/shadow diffing\",\n        \"apply promoted proposal to real target config rather than scaffold artifact only\",\n        \"attach attribution v2 to proposal generation path automatically\"\n      ]\n    },\n    {\n      \"id\": \"resume-runtime-recovery\",\n      \"priority\": 2,\n      \"title\": \"Finish local restart-survivable recovery layer\",\n      \"status\": \"pending\",\n      \"nextSteps\": [\n        \"wire wake/boot recovery script\",\n        \"reconcile latest checkpoint with ledger state\",\n        \"detect interrupted work automatically\"\n      ]\n    }\n  ],\n  \"latest_events\": [\n    [\n      \"boot\",\n      \"boot_trigger\",\n      \"failed\"\n    ],\n    [\n      \"integrity_check\",\n      \"integrity_checker\",\n      \"failed\"\n    ],\n    [\n      \"boot\",\n      \"boot_trigger\",\n      \"failed\"\n    ],\n    [\n      \"integrity_check\",\n      \"integrity_checker\",\n      \"failed\"\n    ],\n    [\n      \"boot\",\n      \"boot_trigger\",\n      \"failed\"\n    ],\n    [\n      \"integrity_check\",\n      \"integrity_checker\",\n      \"failed\"\n    ],\n    [\n      \"health_loop\",\n      \"health_loop\",\n      \"ok\"\n    ],\n    [\n      \"integrity_check\",\n      \"integrity_checker\",\n      \"ok\"\n    ],\n    [\n      \"boot\",\n      \"boot_trigger\",\n      \"ok\"\n    ],\n    [\n      \"integrity_check\",\n      \"integrity_checker\",\n      \"ok\"\n    ]\n  ]\n}",
+      "stderr": ""
+    }
+  ],
+  "status": "done and verified"
+}

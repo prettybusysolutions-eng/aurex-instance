@@ -1,0 +1,14 @@
+{
+  "name": "xzenia-orchestration",
+  "version": "0.1.0",
+  "purpose": "Coordinate client onboarding, ingestion, contract parsing, causal analysis, recovery planning, and briefing generation for the Xzenia subsystem.",
+  "entrypoints": [
+    "onboard-client.sh",
+    "run-client-cycle.sh"
+  ],
+  "flows": [
+    "onboard",
+    "analyze",
+    "report"
+  ]
+}

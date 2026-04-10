@@ -1,0 +1,32 @@
+{
+  "name": "xzenia-operator-control",
+  "version": "0.1.0",
+  "purpose": "Define runtime control knobs for autonomous execution, checkpointing, and escalation.",
+  "runModes": [
+    "interactive",
+    "assisted-autonomous",
+    "bounded-autonomous"
+  ],
+  "defaultMode": "assisted-autonomous",
+  "controlFlags": {
+    "checkpointBeforeLongRuns": true,
+    "checkpointAfterMeaningfulChange": true,
+    "antiLoopGuardRequired": true,
+    "persistResumeState": true,
+    "browserControlAllowed": true,
+    "destructiveActionsRequireExplicitIntent": true
+  },
+  "autonomyLimits": {
+    "maxUnchangedCycles": 3,
+    "requireStateChangeEvidence": true,
+    "requireEscalationOnDiminishingReturns": true
+  },
+  "browserExecution": {
+    "macNativeAutomation": true,
+    "domScriptingViaAppleEvents": false,
+    "notes": [
+      "Chrome activation/navigation via AppleScript is working",
+      "JavaScript execution from Apple Events is currently disabled"
+    ]
+  }
+}

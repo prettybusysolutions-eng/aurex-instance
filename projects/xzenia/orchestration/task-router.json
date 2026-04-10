@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "updated_at": "2026-03-22T22:52:00-04:00",
+  "routes": [
+    {
+      "id": "long-context-analysis",
+      "description": "Causal analysis, attribution, research loops requiring >100k context",
+      "model": "google-gemini-cli/gemini-3.1-pro-preview",
+      "alias": "gemini",
+      "triggers": ["attribution", "causal_finding", "research_loop", "frontier_intelligence", "long_doc"],
+      "min_context_tokens": 50000,
+      "context_window": 1000000,
+      "cost_tier": "oauth_free",
+      "rationale": "1M context window; OAuth cost = $0"
+    },
+    {
+      "id": "code-generation",
+      "description": "Code synthesis, patch generation, script writing",
+      "model": "qwen-portal/coder-model",
+      "alias": "qwen",
+      "triggers": ["generate_proposal", "synthesize_patch", "write_script", "code_task"],
+      "min_context_tokens": 0,
+      "context_window": 125000,
+      "cost_tier": "oauth_free",
+      "rationale": "Code-specialized; OAuth cost = $0"
+    },
+    {
+      "id": "fast-reasoning",
+      "description": "Short reasoning steps, classification, gate decisions",
+      "model": "minimax-portal/MiniMax-M2.5-Lightning",
+      "alias": "minimax-m2.5-lightning",
+      "triggers": ["gate_decision", "classification", "quick_eval"],
+      "min_context_tokens": 0,
+      "context_window": 40000,
+      "cost_tier": "oauth_free",
+      "rationale": "Reasoning model; OAuth cost = $0"
+    },
+    {
+      "id": "default-primary",
+      "description": "General assistant tasks, Telegram/user interactions",
+      "model": "anthropic/claude-sonnet-4-6",
+      "alias": "claude-sonnet",
+      "triggers": ["user_chat", "general"],
+      "min_context_tokens": 0,
+      "context_window": 200000,
+      "cost_tier": "paid",
+      "rationale": "Highest quality; primary model"
+    }
+  ]
+}

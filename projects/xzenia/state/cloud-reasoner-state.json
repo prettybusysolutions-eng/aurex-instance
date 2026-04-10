@@ -1,0 +1,8 @@
+{
+  "total_reasoning_calls": 1,
+  "by_provider": {
+    "minimax-portal": 1
+  },
+  "total_latency_ms": 29,
+  "total_cost": 0.05
+}

@@ -1,0 +1,23 @@
+{
+  "name": "xzenia-ui-control",
+  "version": "0.1.0",
+  "purpose": "Define local Mac UI execution control surfaces, verification rules, and resumable GUI state.",
+  "capabilities": {
+    "screenCapture": true,
+    "windowState": true,
+    "appActivation": true,
+    "urlNavigation": true,
+    "mouseKeyboardPrimitives": true,
+    "domExtractionFromChromeAppleEvents": false
+  },
+  "verificationRules": [
+    "capture before action when ambiguity exists",
+    "verify frontmost app before coordinate click",
+    "verify title or URL after browser navigation",
+    "checkpoint after meaningful visible change"
+  ],
+  "antiLoop": {
+    "maxUnchangedCycles": 3,
+    "checker": "skills/mac-execution-bridge/scripts/check-ui-loop.py"
+  }
+}

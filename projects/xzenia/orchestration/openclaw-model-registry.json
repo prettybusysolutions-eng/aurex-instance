@@ -1,0 +1,49 @@
+{
+  "generatedAt": "2026-03-20T15:01:56-04:00",
+  "primarySessionModel": "openai-codex/gpt-5.4",
+  "openclawDefaultPrimary": "openai-codex/gpt-5.4",
+  "recommendedRouting": {
+    "primary": "openai-codex/gpt-5.4",
+    "fallbacks": [
+      "ollama/qwen2.5:7b",
+      "ollama/qwen2.5:3b",
+      "ollama/llama3.2:3b"
+    ],
+    "emergency": "ollama/qwen2.5:1.5b-instruct-q4_K_M"
+  },
+  "localModels": [
+    {
+      "ref": "ollama/qwen2.5:7b",
+      "role": "local-strong",
+      "family": "qwen2",
+      "parameterSize": "7.6B",
+      "sizeBytes": 4683087332
+    },
+    {
+      "ref": "ollama/qwen2.5:3b",
+      "role": "local-fast",
+      "family": "qwen2",
+      "parameterSize": "3.1B",
+      "sizeBytes": 1929912432
+    },
+    {
+      "ref": "ollama/llama3.2:3b",
+      "role": "local-emergency",
+      "family": "llama",
+      "parameterSize": "3.2B",
+      "sizeBytes": 2019393189
+    },
+    {
+      "ref": "ollama/qwen2.5:1.5b-instruct-q4_K_M",
+      "role": "minimal-survival",
+      "family": "qwen2",
+      "parameterSize": "1.5B",
+      "sizeBytes": 986061892
+    }
+  ],
+  "notes": [
+    "Use native Ollama API, not /v1, for tool-calling compatibility.",
+    "Keep remote primary and local fallbacks together in one routing policy.",
+    "Channel adapters should call the fallback layer instead of hardcoding a single model."
+  ]
+}

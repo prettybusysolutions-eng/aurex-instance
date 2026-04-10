@@ -1,0 +1,82 @@
+{
+  "name": "xzenia-ignition",
+  "version": "0.1.0",
+  "mode": "meta-cognitive-operating-system",
+  "status": "armed",
+  "objective": "Evolve Xzenia into a self-observing, self-repairing, memory-persistent, skill-generating digital organism operating within OpenClaw constraints.",
+  "activeSubsystems": [
+    {
+      "id": "identity-core",
+      "role": "Maintain coherent persona, directives, and operator alignment.",
+      "assets": [
+        "SOUL.md",
+        "USER.md",
+        "MEMORY.md",
+        "IDENTITY.md"
+      ]
+    },
+    {
+      "id": "memory-continuity",
+      "role": "Preserve long-term context and operational recall.",
+      "assets": [
+        "MEMORY.md",
+        "memory/",
+        "projects/xzenia/docs/MEMORY.md"
+      ]
+    },
+    {
+      "id": "meta-healing",
+      "role": "Observe runtime health, detect drift, snapshot state, and support recovery.",
+      "assets": [
+        "skills/meta-healing/",
+        "dist/meta-healing.skill"
+      ]
+    },
+    {
+      "id": "creation-engine",
+      "role": "Convert repeated intentions into reusable skills, manifests, scaffolds, and automations.",
+      "assets": [
+        "creation-engine/",
+        "skills/creation-engine/",
+        "dist/creation-engine.skill",
+        "projects/true-creation-layer/"
+      ]
+    },
+    {
+      "id": "genesis-layer",
+      "role": "Hold next-stage emergence logic and future system synthesis patterns.",
+      "assets": [
+        "skills/genesis-v2/"
+      ]
+    },
+    {
+      "id": "xzenia-orchestration",
+      "role": "Coordinate subsystem goals, manifests, ledgers, and execution flows.",
+      "assets": [
+        "projects/xzenia/orchestration/manifest.json",
+        "projects/xzenia/state/manifest.json",
+        "projects/xzenia/state/self-audit-ledger.md",
+        "projects/xzenia/state/trust-expansion-rubric.md"
+      ]
+    }
+  ],
+  "ignitionSequence": [
+    "stabilize identity and memory continuity",
+    "bind health observation to orchestration",
+    "bind creation engine to repeated needs",
+    "define self-audit and performance ledger",
+    "promote emergent capabilities only through explicit manifests"
+  ],
+  "constraints": [
+    "No unsafe self-modification outside user intent",
+    "No destructive resets without explicit approval",
+    "External actions remain gated",
+    "All major capability growth should persist to files"
+  ],
+  "nextBuildTargets": [
+    "operator-brain-manifest",
+    "meta-cognition-loop-spec",
+    "performance-ledger-schema",
+    "ignition-checklist"
+  ]
+}

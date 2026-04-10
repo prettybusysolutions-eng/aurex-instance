@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "primary": "openai-codex/gpt-5.4",
+  "maxAttemptsPerModel": 1,
+  "contextCompression": {
+    "enabled": true,
+    "maxChars": 12000
+  },
+  "stateFile": "projects/xzenia/state/resilience-fabric-state.json",
+  "tiers": [
+    {
+      "name": "primary-remote-reference",
+      "model": "openai-codex/gpt-5.4",
+      "provider": "external",
+      "enabled": false
+    },
+    {
+      "name": "local-fast",
+      "model": "qwen2.5:3b",
+      "provider": "ollama",
+      "enabled": true
+    },
+    {
+      "name": "local-strong",
+      "model": "qwen2.5:7b",
+      "provider": "ollama",
+      "enabled": true
+    },
+    {
+      "name": "local-emergency",
+      "model": "llama3.2:3b",
+      "provider": "ollama",
+      "enabled": true
+    }
+  ],
+  "fallbackMap": {
+    "token_limit": ["compress_context", "next_model"],
+    "context_overflow": ["compress_context", "next_model"],
+    "rate_limit": ["next_model"],
+    "timeout": ["retry_once", "next_model"],
+    "provider_unavailable": ["next_model"],
+    "unknown": ["next_model"]
+  }
+}

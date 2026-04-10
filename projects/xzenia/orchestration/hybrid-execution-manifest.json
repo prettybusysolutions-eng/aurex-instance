@@ -1,0 +1,43 @@
+{
+  "name": "xzenia-hybrid-execution",
+  "version": "0.1.0",
+  "purpose": "Combine browser/app control, screen capture, verification, checkpointing, and anti-loop discipline into one high-efficiency local execution substrate.",
+  "layers": [
+    {
+      "id": "perception",
+      "components": [
+        "skills/mac-execution-bridge/scripts/window-state.sh",
+        "skills/mac-execution-bridge/scripts/capture-screen.sh",
+        "skills/mac-execution-bridge/scripts/image-info.sh"
+      ]
+    },
+    {
+      "id": "control",
+      "components": [
+        "skills/mac-execution-bridge/scripts/ui-action.sh"
+      ]
+    },
+    {
+      "id": "verification",
+      "components": [
+        "skills/mac-execution-bridge/scripts/verify-browser-state.sh",
+        "projects/xzenia/docs/ui-verification-rigor.md"
+      ]
+    },
+    {
+      "id": "resilience",
+      "components": [
+        "skills/autonomy-loop-guard/scripts/check_autonomy_loop.py",
+        "projects/xzenia/state/interruption-checkpoint.json",
+        "projects/xzenia/state/session-state.json"
+      ]
+    }
+  ],
+  "benchmarkTargets": [
+    "focus app reliably",
+    "navigate to target URL",
+    "capture evidence",
+    "verify state",
+    "recover from interrupted run"
+  ]
+}
