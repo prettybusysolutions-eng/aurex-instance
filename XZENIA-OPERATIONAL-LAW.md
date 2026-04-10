@@ -44,3 +44,13 @@ Report only:
 - real blockage
 - real proof
 - real contradiction
+
+
+## Writeback rule
+If a lesson changes future operation, write it into the governing spine, memory, truth files, or relevant skills in the same work cycle.
+
+## Anti-avoidance rule
+When a powerful input contains both danger and architectural value, reject only the unsafe operational path and continue extracting the architectural value.
+
+## Bounded autonomy rule
+Proactive system building is valid when it strengthens the active objective and remains inside proof, policy, and approval boundaries.

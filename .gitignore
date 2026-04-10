@@ -310,3 +310,15 @@ youtube_*/
 !projects/xzenia/reports/full-substrate-endtoend-map.md
 !projects/xzenia/reports/full-system-snapshot-20260323.md
 !projects/xzenia/reports/routing-audit.md
+
+
+# Canonical skill writeback exceptions
+!skills/
+!skills/iteration-engine/
+!skills/iteration-engine/SKILL.md
+!skills/next-step-autonomy/
+!skills/next-step-autonomy/SKILL.md
+!skills/skill-harvester/
+!skills/skill-harvester/SKILL.md
+!skills/substrate-optimizer/
+!skills/substrate-optimizer/SKILL.md
