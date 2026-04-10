@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "xzenia/process-spine/trace-event.schema.json",
+  "title": "Process Spine Trace Event",
+  "type": "object",
+  "required": ["event_id", "run_id", "process_id", "emitted_at", "kind"],
+  "properties": {
+    "event_id": {"type": "string"},
+    "run_id": {"type": "string"},
+    "process_id": {"type": "string"},
+    "emitted_at": {"type": "string", "format": "date-time"},
+    "kind": {"type": "string", "enum": ["state", "stdout", "stderr", "metric", "security", "termination"]},
+    "payload": {"type": "object"}
+  },
+  "additionalProperties": false
+}

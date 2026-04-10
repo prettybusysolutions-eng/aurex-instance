@@ -1,0 +1,84 @@
+{
+  "timestamp": "2026-04-10T02:19:26.662482+00:00",
+  "status": "proof-generated",
+  "schemas_present": [
+    "/Users/marcuscoarchitect/.openclaw/workspace/projects/xzenia/process-spine/schemas/execution-intent.schema.json",
+    "/Users/marcuscoarchitect/.openclaw/workspace/projects/xzenia/process-spine/schemas/execution-envelope.schema.json",
+    "/Users/marcuscoarchitect/.openclaw/workspace/projects/xzenia/process-spine/schemas/trace-event.schema.json"
+  ],
+  "artifacts": {
+    "intent": {
+      "intent_id": "intent-9adea9fa-6567-43dd-b79c-e23c9983349c",
+      "requested_at": "2026-04-10T02:19:26.660658+00:00",
+      "requestor": {
+        "actor_id": "xzenia-operator",
+        "actor_type": "operator"
+      },
+      "authority_scope": [
+        "process:create",
+        "process:trace"
+      ],
+      "command_class": "health",
+      "resource_class": "low",
+      "target": {
+        "worker_id": "process-spine-local",
+        "environment": "local"
+      },
+      "policy": {
+        "timeout_seconds": 30,
+        "reattachable": false,
+        "trace_mode": "basic",
+        "memory_limit_mb": 128
+      },
+      "nonce": "b18d0650-45bf-4bfa-bd71-646ec68f02f7",
+      "signature": "local-proof-signature"
+    },
+    "envelope": {
+      "envelope_id": "env-8761eaaf-25b7-4a9b-aecb-7c6ea737141a",
+      "issued_at": "2026-04-10T02:19:26.661853+00:00",
+      "expires_at": "2026-04-10T02:24:26.661862+00:00",
+      "intent_id": "intent-9adea9fa-6567-43dd-b79c-e23c9983349c",
+      "run_id": "run-a0382664-2471-418f-9ad1-483840b4290a",
+      "process_id": "proc-3d60a10c-1630-455f-bc6b-d2557b1cd155",
+      "worker_identity": {
+        "worker_id": "process-spine-local",
+        "environment": "local",
+        "identity_version": "1.0"
+      },
+      "command_class": "health",
+      "authority_scope": [
+        "process:create",
+        "process:trace"
+      ],
+      "policy": {
+        "timeout_seconds": 30,
+        "reattachable": false,
+        "trace_mode": "basic",
+        "memory_limit_mb": 128
+      },
+      "provenance": {
+        "issued_by": "xzenia-control-plane",
+        "signature": "envelope-signature",
+        "signature_alg": "HS256"
+      }
+    },
+    "trace": {
+      "event_id": "evt-7fbbd180-0eec-4645-9550-256d8d05c512",
+      "run_id": "run-a0382664-2471-418f-9ad1-483840b4290a",
+      "process_id": "proc-3d60a10c-1630-455f-bc6b-d2557b1cd155",
+      "emitted_at": "2026-04-10T02:19:26.662463+00:00",
+      "kind": "state",
+      "payload": {
+        "status": "validated",
+        "worker_id": "process-spine-local"
+      }
+    }
+  },
+  "checks": {
+    "intent_has_required_fields": true,
+    "envelope_has_required_fields": true,
+    "trace_has_required_fields": true,
+    "auth_fail_open": false,
+    "locality_as_authority": false
+  }
+}

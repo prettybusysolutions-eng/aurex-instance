@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-04-10T02:19:26.657869+00:00",
+  "status": "done and verified",
+  "passed": true,
+  "contract_mode": "process-spine-canonical",
+  "checks": [
+    {
+      "name": "reject_missing_signature",
+      "passed": true
+    },
+    {
+      "name": "reject_missing_authority_scope",
+      "passed": true
+    },
+    {
+      "name": "reject_locality_as_authority",
+      "passed": true
+    },
+    {
+      "name": "reject_expired_envelope",
+      "passed": true
+    },
+    {
+      "name": "reject_identity_mismatch",
+      "passed": true
+    },
+    {
+      "name": "reject_fail_open_auth_mode",
+      "passed": true
+    }
+  ]
+}

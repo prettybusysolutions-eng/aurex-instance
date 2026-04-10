@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "xzenia/process-spine/execution-envelope.schema.json",
+  "title": "Process Spine Execution Envelope",
+  "type": "object",
+  "required": [
+    "envelope_id",
+    "issued_at",
+    "expires_at",
+    "intent_id",
+    "run_id",
+    "process_id",
+    "worker_identity",
+    "command_class",
+    "authority_scope",
+    "policy",
+    "provenance"
+  ],
+  "properties": {
+    "envelope_id": {"type": "string"},
+    "issued_at": {"type": "string", "format": "date-time"},
+    "expires_at": {"type": "string", "format": "date-time"},
+    "intent_id": {"type": "string"},
+    "run_id": {"type": "string"},
+    "process_id": {"type": "string"},
+    "worker_identity": {
+      "type": "object",
+      "required": ["worker_id", "environment", "identity_version"],
+      "properties": {
+        "worker_id": {"type": "string"},
+        "environment": {"type": "string"},
+        "identity_version": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "command_class": {"type": "string"},
+    "authority_scope": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "policy": {"type": "object"},
+    "provenance": {
+      "type": "object",
+      "required": ["issued_by", "signature", "signature_alg"],
+      "properties": {
+        "issued_by": {"type": "string"},
+        "signature": {"type": "string"},
+        "signature_alg": {"type": "string"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

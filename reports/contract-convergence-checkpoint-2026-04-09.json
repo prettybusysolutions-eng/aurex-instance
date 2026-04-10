@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-04-09T21:58:00-04:00",
+  "status": "contract_convergence_active",
+  "canonical_contract": "projects/xzenia/supervisor/SUPERVISOR-CONTRACT-CANONICAL.md",
+  "truth_model": {
+    "execution": "live supervisor semantics",
+    "verification": "must validate live supervisor semantics only",
+    "activation": "promote only on fresh proof under canonical contract",
+    "orchestration": "registry/queue semantics are canonical contradiction surface"
+  },
+  "next_actions": [
+    "refactor active adversarial probes to canonical supervisor contract",
+    "retire queue-checkpoint-only contradiction assumptions",
+    "rerun adversarial suite under converged verification semantics",
+    "promote integrity layer only after fresh green proof"
+  ]
+}

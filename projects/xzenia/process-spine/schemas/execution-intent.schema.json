@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "xzenia/process-spine/execution-intent.schema.json",
+  "title": "Process Spine Execution Intent",
+  "type": "object",
+  "required": [
+    "intent_id",
+    "requested_at",
+    "requestor",
+    "authority_scope",
+    "command_class",
+    "resource_class",
+    "target",
+    "policy",
+    "nonce"
+  ],
+  "properties": {
+    "intent_id": {"type": "string", "minLength": 8},
+    "requested_at": {"type": "string", "format": "date-time"},
+    "requestor": {
+      "type": "object",
+      "required": ["actor_id", "actor_type"],
+      "properties": {
+        "actor_id": {"type": "string"},
+        "actor_type": {"type": "string", "enum": ["operator", "system", "service"]}
+      },
+      "additionalProperties": false
+    },
+    "authority_scope": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1
+    },
+    "command_class": {
+      "type": "string",
+      "enum": ["health", "read", "bounded_exec", "maintenance", "analysis"]
+    },
+    "resource_class": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "target": {
+      "type": "object",
+      "required": ["worker_id", "environment"],
+      "properties": {
+        "worker_id": {"type": "string"},
+        "environment": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "policy": {
+      "type": "object",
+      "required": ["timeout_seconds", "reattachable", "trace_mode"],
+      "properties": {
+        "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 3600},
+        "reattachable": {"type": "boolean"},
+        "trace_mode": {"type": "string", "enum": ["none", "basic", "full"]},
+        "memory_limit_mb": {"type": "integer", "minimum": 16, "maximum": 65536}
+      },
+      "additionalProperties": false
+    },
+    "nonce": {"type": "string", "minLength": 8},
+    "signature": {"type": "string"}
+  },
+  "additionalProperties": false
+}

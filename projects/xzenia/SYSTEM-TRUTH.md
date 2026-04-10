@@ -86,3 +86,13 @@ Compact canonical source of truth for Xzenia architecture, verification status, 
   - projects/xzenia/state/system-truth.json
   - projects/xzenia/state/execution-directives.json
 - priorityIfOnlyOne: json_first
+
+## Canonical future execution layer
+- Process Spine canonical system: `projects/xzenia/process-spine/PROCESS-SPINE-CANONICAL.md`
+- Process Spine implementation plan: `projects/xzenia/process-spine/PROCESS-SPINE-IMPLEMENTATION-PLAN.md`
+- Process Spine hardening inversion: `projects/xzenia/process-spine/PROCESS-SPINE-HARDENING-INVERSION.md`
+
+## Governing spine
+- Merged governing spine: `XZENIA-GOVERNING-SPINE.md`
+- Operational law: `XZENIA-OPERATIONAL-LAW.md`
+- These files are canonical distillations for future convergence and operator alignment
