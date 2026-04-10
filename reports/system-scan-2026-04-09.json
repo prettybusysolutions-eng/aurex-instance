@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-04-09T20:06:00-0400",
+  "scan_scope": [
+    "host_runtime",
+    "openclaw_gateway",
+    "workspace_state",
+    "memory_surfaces",
+    "logs",
+    "checkpoints"
+  ],
+  "host": {
+    "os": "Darwin Marcuss-MacBook-Air.local 23.6.0 Darwin Kernel Version 23.6.0: Mon Jan 19 22:02:22 PST 2026; root:xnu-10063.141.1.710.3~1/RELEASE_X86_64 x86_64",
+    "node": "v25.8.1",
+    "npm": "11.11.0",
+    "python": "Python 3.14.3",
+    "disk_df_h": [
+      "Filesystem        Size    Used   Avail Capacity iused ifree %iused  Mounted on",
+      "/dev/disk1s4s1   113Gi   9.6Gi    19Gi    34%    406k  196M    0%   /"
+    ]
+  },
+  "findings": {
+    "gateway_running": true,
+    "latest_checkpoint_present": true,
+    "memory_dir_present": true,
+    "state_dir_present": true,
+    "logs_dir_present": true
+  },
+  "risks": [
+    "Default Anthropic path is failing due to provider billing/usage rejection.",
+    "Configured Ollama fallback qwen2.5:7b is missing, so automatic fallback chain is broken.",
+    "System volume free space is only about 19 GiB, enough to run but low for heavy local builds/models/media.",
+    "Workspace git tree is highly dirty/untracked, which increases drift risk and makes provenance weak."
+  ],
+  "recommendations": [
+    "Repair fallback chain first: either restore Anthropic credit path or install/configure a working local fallback model.",
+    "Create a canonical operational snapshot file and append today's scan to memory for continuity.",
+    "Triage large media/artifact directories and old generated assets to reclaim space before more heavy jobs.",
+    "Establish a smaller set of canonical state files to reduce duplicate cron and status surfaces."
+  ]
+}

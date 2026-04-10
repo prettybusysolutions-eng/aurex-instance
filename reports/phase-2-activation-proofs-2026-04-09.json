@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-04-09 20:22 EDT",
+  "proofs": {
+    "platform_spine": {
+      "status": "VERIFIED RUNNABLE",
+      "evidence": [
+        "platform-spine npm run health succeeded",
+        "platform-spine native dispatch run health succeeded",
+        "runId b0aa1232-a80e-45d3-94b4-40e1d5e8d729 completed"
+      ],
+      "constraints": [
+        "claude-code lane is not healthy",
+        "openclaw-native lane is the currently proven lane inside platform-spine"
+      ]
+    },
+    "continuity_checkpoint_path": {
+      "status": "VERIFIED RUNNABLE",
+      "evidence": [
+        "projects/xzenia/state/latest-checkpoint.json present and readable",
+        "projects/xzenia/state/interruption-checkpoint.json present and readable",
+        "projects/xzenia/state/resume-queue.json present and current",
+        "projects/xzenia/state/session-state.json present and coherent"
+      ],
+      "constraints": [
+        "latest-checkpoint is not fresh and should eventually be superseded by a new checkpoint",
+        "resume queue currently empty, so path is structurally live but lightly loaded"
+      ]
+    },
+    "meta_healing_evidence": {
+      "status": "PRESENT UNVERIFIED",
+      "evidence": [
+        "baseline.json present",
+        "recovery-layer-map.md present",
+        "host watchdog log present"
+      ],
+      "constraints": [
+        "evidence appears stale in this pass",
+        "host-watchdog log shows shell compatibility defect: mapfile command not found",
+        "needs a fresh successful watchdog tick or explicit validation artifact before promotion"
+      ]
+    }
+  }
+}
