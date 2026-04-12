@@ -2,6 +2,13 @@
 
 _Local notes for this workspace. Skills are shared; this file is yours._
 
+## Status
+- Workspace root repo: ACTIVE, drift-heavy, under governed cleanup
+- Platform spine: VERIFIED RUNNABLE
+- Revenue machine: MATERIALLY PROVEN LOCALLY, ingest closure incomplete
+- Observer lane: PARTIALLY REPAIRED, launch-surface reproval pending
+- Meta-healing: PRESENT UNVERIFIED pending fresh reproval
+
 ---
 
 ## Products — Running Status
