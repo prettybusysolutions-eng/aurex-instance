@@ -89,3 +89,12 @@
 - Revalidation result: security audit reduced from 1 critical + 2 warn to 0 critical + 1 conditional warn (`gateway.trustedProxies_missing`, acceptable while gateway remains loopback/local-only).
 
 Format: [timestamp] | [severity] | [component] | [error] | [resolution]
+
+## 2026-04-12 17:19 EDT — Boot integrity warning
+- MEMORY.md checkpoint is stale (>24h); last modified 2026-04-10 12:21 EDT.
+- Missing daily memory files for 2026-04-11 and 2026-04-12 at boot.
+- BRIDGE.md §4.2 daily-memory staleness check failed until daily files were restored.
+- BRIDGE.md §4.3 skill integrity check failed: 42 skill directories observed, 41 with SKILL.md; missing skill manifest in `skills/projects`.
+- TOOLS.md still does not include explicit status fields required by BRIDGE.md §4.3.
+- IDENTITY.md confirms Xzenia by name, but version/owner fields are not explicit in file contents; no contamination signal found, continued fail-soft.
+- Action: continued operating in degraded-but-operational mode, restored missing daily memory files, no interrupted task found.
