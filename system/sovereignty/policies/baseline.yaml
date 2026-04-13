@@ -1,0 +1,27 @@
+version: 1
+name: ai-sovereignty-baseline
+principles:
+  - policy_is_runtime
+  - immutable_preferred
+  - autonomous_remediation
+  - least_privilege
+  - measurable_slo
+requirements:
+  access:
+    ssm_managed: true
+    ssh_restricted: true
+  host:
+    unattended_upgrades: true
+    fail2ban: true
+    firewall_enabled: true
+    swap_min_gb: 4
+  telemetry:
+    cloudwatch_agent: true
+    metrics: [cpu, memory, disk]
+    logs: [/var/log/syslog, /var/log/auth.log]
+  reliability:
+    patch_window: weekly
+    snapshot_daily: true
+  autonomy:
+    drift_check_minutes: 30
+    remediate_on_drift: true

@@ -1,0 +1,20 @@
+{
+  "id": "optimizer",
+  "role": "substrate performance and bottleneck optimizer",
+  "purpose": "Rank bottlenecks, evaluate centrality pressure, and refresh optimization priorities.",
+  "reads": [
+    "projects/xzenia/csmr/reports/bottleneck-rankings.json",
+    "projects/xzenia/csmr/reports/dependency-weighting.json",
+    "projects/xzenia/csmr/reports/ecosystem-index.json",
+    "projects/xzenia/csmr/reports/causal-score-v2.json"
+  ],
+  "writes": [
+    "projects/xzenia/csmr/reports/priority-refresh.json",
+    "projects/xzenia/csmr/reports/live-priority-snapshot.json"
+  ],
+  "cadence": "45m",
+  "entrypoints": [
+    "projects/xzenia/tier5/priority_refresh.py",
+    "projects/xzenia/tier5/live_priority_snapshot.py"
+  ]
+}

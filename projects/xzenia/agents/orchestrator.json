@@ -1,0 +1,19 @@
+{
+  "id": "orchestrator",
+  "role": "cycle coordinator",
+  "purpose": "Coordinate all recurring agent cadences into a single bounded substrate rhythm.",
+  "reads": [
+    "projects/xzenia/agents/",
+    "projects/xzenia/state/resume-queue.json",
+    "projects/xzenia/csmr/reports/live-priority-snapshot.json"
+  ],
+  "writes": [
+    "projects/xzenia/csmr/reports/unified-cycle.json",
+    "projects/xzenia/csmr/reports/substrate-self-model.json"
+  ],
+  "cadence": "60m",
+  "entrypoints": [
+    "projects/xzenia/tier7/unified_cycle.py",
+    "projects/xzenia/tier7/substrate_self_model.py"
+  ]
+}

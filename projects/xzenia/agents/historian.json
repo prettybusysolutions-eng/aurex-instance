@@ -1,0 +1,22 @@
+{
+  "id": "historian",
+  "role": "memory and trend continuity curator",
+  "purpose": "Maintain durable continuity, summarize changes, and keep long-horizon trend artifacts current.",
+  "reads": [
+    "MEMORY.md",
+    "memory/",
+    "projects/xzenia/csmr/reports/temporal-trends.json",
+    "projects/xzenia/csmr/reports/historical-baseline.json",
+    "projects/xzenia/state/latest-checkpoint.json"
+  ],
+  "writes": [
+    "MEMORY.md",
+    "memory/",
+    "projects/xzenia/state/latest-checkpoint.json"
+  ],
+  "cadence": "6h",
+  "entrypoints": [
+    "projects/xzenia/recovery/reconcile_state.py",
+    "projects/xzenia/tier8/temporal_trend_engine.py"
+  ]
+}

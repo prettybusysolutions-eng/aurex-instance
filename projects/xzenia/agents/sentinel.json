@@ -1,0 +1,22 @@
+{
+  "id": "sentinel",
+  "role": "integrity and drift guardian",
+  "purpose": "Run checks, detect substrate divergence, confirm recovery readiness, and escalate real failures.",
+  "reads": [
+    "projects/xzenia/state/latest-checkpoint.json",
+    "projects/xzenia/state/resume-queue.json",
+    "projects/xzenia/csmr/ledger/causal_ledger.sqlite",
+    "projects/xzenia/csmr/reports/drift-report.json",
+    "projects/xzenia/csmr/reports/ledger-integrity-report.json"
+  ],
+  "writes": [
+    "projects/xzenia/csmr/reports/",
+    "projects/xzenia/state/latest-checkpoint.json"
+  ],
+  "cadence": "15m",
+  "entrypoints": [
+    "projects/xzenia/tier1/integrity_checker.py",
+    "projects/xzenia/tier4/ledger_integrity_guard.py",
+    "projects/xzenia/tier2/drift_detector.py"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "evolver",
+  "role": "governed mutation and rollback steward",
+  "purpose": "Advance proposals through gates, apply approved changes, and execute rollback when necessary.",
+  "reads": [
+    "projects/xzenia/csmr/ledger/causal_ledger.sqlite",
+    "projects/xzenia/csmr/reports/temporal-trends.json",
+    "projects/xzenia/csmr/reports/rollback-candidates.json",
+    "projects/xzenia/tier8/mutation_surface_registry.json"
+  ],
+  "writes": [
+    "projects/xzenia/csmr/promotions/",
+    "projects/xzenia/csmr/applied/",
+    "projects/xzenia/csmr/backups/"
+  ],
+  "cadence": "90m",
+  "entrypoints": [
+    "projects/xzenia/csmr/synthesizer/auto_pipeline.py",
+    "projects/xzenia/tier9/rollback_executor.py",
+    "projects/xzenia/tier10/trend_proposal_cycle.py"
+  ]
+}
