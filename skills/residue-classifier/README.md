@@ -1,6 +1,11 @@
 # Residue Classifier
 
-Free tool for classifying workspace sprawl into governance buckets safely.
+Free utility script for classifying workspace sprawl into governance buckets safely.
+
+## What it does
+- scans a workspace tree
+- classifies files into canonical, runtime, local-only, archive, or review-needed buckets
+- writes a non-destructive residue report
 
 ## Included
 - `SKILL.md`
@@ -10,10 +15,11 @@ Free tool for classifying workspace sprawl into governance buckets safely.
 - non-destructive
 - no secret embedding
 - local report generation only
+- safe to rerun
 
-## Monetization
-- Buy me a Coffee: https://buymeacoffee.com/aurex
-- Pro version: full thin-root convergence and workspace governance package
+## Support / Upgrade
+- Tip Jar: https://gumroad.com/l/claw-foundry-tip-jar
+- Pro Upgrade: https://gumroad.com/l/residue-classifier-pro
 
 ## Deployment package targets
 - GitHub
