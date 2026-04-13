@@ -5,7 +5,7 @@ Status key: VERIFIED RUNNABLE | MATERIALLY PROVEN LOCALLY | PRESENT WITH PROOF H
 ## 1. Runtime and control plane
 - OpenClaw gateway, VERIFIED RUNNABLE
 - Workspace memory/state/log substrate, VERIFIED RUNNABLE
-- Host watchdog and meta-healing artifacts, PRESENT UNVERIFIED pending fresh direct proof
+- Host watchdog and meta-healing artifacts, PRESENT UNVERIFIED pending fresh direct proof (`META-HEALING-REPROVAL.md`)
 - Model redundancy chain, BROKEN IN PRACTICE
 
 ## 2. Cognitive and orchestration substrate
@@ -17,7 +17,7 @@ Status key: VERIFIED RUNNABLE | MATERIALLY PROVEN LOCALLY | PRESENT WITH PROOF H
 - tiered cognitive architecture 1-14, PRESENT UNVERIFIED
 - swarm/meta-cognition architecture, PRESENT UNVERIFIED
 - CSMR causal self-modification runtime, PRESENT UNVERIFIED
-- Process Spine canonical system, PRESENT WITH PROOF HARNESS
+- Process Spine canonical system, PRESENT WITH PROOF HARNESS (`PROCESS-SPINE-PROMOTION-DECISION.md` currently holds promotion)
 
 ## 3. Skills substrate
 - Skill source directories in skills/, VERIFIED AS PRESENT ARTIFACTS
@@ -32,7 +32,7 @@ Status key: VERIFIED RUNNABLE | MATERIALLY PROVEN LOCALLY | PRESENT WITH PROOF H
 - Pretty Busy Cleaning domain substrate, PRESENT UNVERIFIED in this pass
 
 ## 5. Broken or stale surfaces requiring action
-- observer lane, BROKEN IN PRACTICE due to `node` resolution failure
+- observer lane, BROKEN IN PRACTICE due to unresolved stale launch-surface drift despite repaired entrypoint
 - stale queue approval residue, STALE/NEEDS REBIND
 - historical status surfaces outside canonical current truth, STALE/NEEDS REBIND
 - root repo runtime/generated mass, STALE GOVERNANCE VIOLATION against root policy
