@@ -173,6 +173,7 @@ video*.jpg
 !projects/xzenia/agents/optimizer.json
 !projects/xzenia/agents/orchestrator.json
 !projects/xzenia/agents/sentinel.json
+!projects/xzenia/agents/screen_capture.py
 !projects/xzenia/cognitive/
 !projects/xzenia/cognitive/auto_instrumentation.py
 !projects/xzenia/cognitive/cognitive_engine.py
@@ -333,6 +334,10 @@ video*.jpg
 !projects/xzenia/domains/onboard_domain.py
 !projects/xzenia/domains/pretty-busy-cleaning.domain.json
 !projects/xzenia/domains/revenue-recovery.domain.json
+!projects/xzenia/domains/pretty-busy-cleaning/
+!projects/xzenia/domains/pretty-busy-cleaning/DOMAIN-THESIS.md
+!projects/xzenia/domains/pretty-busy-cleaning/LEAD-ENGINE-BUILD.md
+!projects/xzenia/domains/pretty-busy-cleaning/TOOLCHAIN.md
 !projects/xzenia/domains/validate_domain_contract.py
 !projects/xzenia/reports/
 !projects/xzenia/reports/full-substrate-endtoend-map.md
