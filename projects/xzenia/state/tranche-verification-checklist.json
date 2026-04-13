@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "required": [
+    "git status --short",
+    "git log --oneline -n 1",
+    "state classification: decided/staged/committed/pushed/verified"
+  ],
+  "appliesTo": [
+    "git-impacting tranche"
+  ],
+  "status": "active"
+}
