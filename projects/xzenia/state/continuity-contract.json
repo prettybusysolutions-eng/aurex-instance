@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "status": "active",
+  "authoritativeArtifacts": [
+    "projects/xzenia/state/latest-checkpoint.json",
+    "projects/xzenia/state/autofallback-state.json"
+  ],
+  "resumeInterface": {
+    "queueFile": "projects/xzenia/state/resume-queue.json",
+    "role": "local_runtime_detail",
+    "demotionTarget": true
+  },
+  "promotedFields": {
+    "resumeInstruction": true,
+    "nextFrontier": true,
+    "artifacts": true,
+    "continuityStatus": true
+  },
+  "demotionCondition": "resume-queue.json may be demoted once no canonical script/doctrine depends on it as the primary promoted continuity truth surface"
+}
