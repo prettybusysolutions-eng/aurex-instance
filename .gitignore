@@ -168,6 +168,11 @@ video*.jpg
 !projects/xzenia/agents/cloud_reasoner.py
 !projects/xzenia/agents/digital_agent.py
 !projects/xzenia/agents/edge_executor.py
+!projects/xzenia/agents/evolver.json
+!projects/xzenia/agents/historian.json
+!projects/xzenia/agents/optimizer.json
+!projects/xzenia/agents/orchestrator.json
+!projects/xzenia/agents/sentinel.json
 !projects/xzenia/cognitive/
 !projects/xzenia/cognitive/auto_instrumentation.py
 !projects/xzenia/cognitive/cognitive_engine.py
@@ -308,6 +313,8 @@ video*.jpg
 !projects/xzenia/model-guardian/policy.json
 !projects/xzenia/model-guardian/provider_health.py
 !projects/xzenia/model-guardian/task_router.py
+!projects/xzenia/model-guardian/guardian_cycle.py
+!projects/xzenia/model-guardian/install_launchagent.py
 !projects/xzenia/economic/
 !projects/xzenia/economic/action_selection.py
 !projects/xzenia/economic/anti_deception.py
@@ -366,6 +373,8 @@ video*.jpg
 !skills/financial-telemetry/SKILL.md
 !skills/frontier-evolver/
 !skills/frontier-evolver/SKILL.md
+!skills/genesis-v2/
+!skills/genesis-v2/SKILL.md
 !skills/governed-mutation-engineer/
 !skills/governed-mutation-engineer/SKILL.md
 !skills/governed-substrate-cycle/
