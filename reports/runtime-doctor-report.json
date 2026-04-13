@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-04-13T18:12:40.803968-04:00",
+  "safe": true,
+  "destructiveActions": [],
+  "checks": [
+    {
+      "check": "openclaw-config",
+      "path": "/Users/marcuscoarchitect/.openclaw/openclaw.json",
+      "exists": true
+    },
+    {
+      "check": "workspace-memory",
+      "path": "/Users/marcuscoarchitect/.openclaw/workspace/memory",
+      "exists": true
+    },
+    {
+      "check": "continuity-state",
+      "path": "/Users/marcuscoarchitect/.openclaw/workspace/projects/xzenia/state/continuity-state.json",
+      "exists": true
+    },
+    {
+      "check": "autofallback-state",
+      "path": "/Users/marcuscoarchitect/.openclaw/workspace/projects/xzenia/state/autofallback-state.json",
+      "exists": true
+    }
+  ],
+  "summary": "non-destructive runtime diagnosis complete"
+}
