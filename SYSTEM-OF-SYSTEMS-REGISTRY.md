@@ -6,8 +6,8 @@ Status: ACTIVE
 | System | Role | Authority Surface | Current Status | Required Next Step |
 |---|---|---|---|---|
 | Root governing spine | canonical truth/control | root canonical docs | PROVED | keep authoritative |
-| Platform Spine | durable execution substrate | `platform-spine/` + proof artifacts | PROVED | preserve and integrate |
-| Revenue Recovery Engine | primary business machine | reports + revenue-copilot + xzenia domain | MATERIALLY PROVEN | close ingest and full artifact chain |
+| Platform Spine | durable execution substrate | `platform-spine/` + proof artifacts + private GitHub repo | PROVED | preserve and integrate |
+| Revenue Recovery Engine | primary business machine | reports + revenue-copilot + xzenia domain + private GitHub repo | MATERIALLY PROVEN | close ingest and full artifact chain |
 | Continuity/recovery | checkpoint/resume substrate | `projects/xzenia/state/` + recovery artifacts | PROVED | keep fresh |
 | Observer lane | observability/runtime watcher | scripts + logs + launch surfaces | BROKEN/PROVISIONAL | repair stale launcher |
 | Meta-healing | host/runtime hardening | skills/meta-healing + watchdog artifacts | PROVISIONAL | fresh reproval or demotion |
