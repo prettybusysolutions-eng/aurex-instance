@@ -17,3 +17,7 @@ It is runtime-bearing and not ideal as a permanent root-tracked truth surface.
 
 ## Closure condition
 A new promoted continuity state contract exists and `resume-queue.json` is no longer needed as tracked canonical truth.
+
+## Current status
+Replacement contract now exists at `projects/xzenia/state/continuity-contract.json`.
+Pending final demotion decision after canonical references align.
