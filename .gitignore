@@ -49,6 +49,7 @@ projects/xzenia/audit/
 projects/xzenia/browser-agent/
 projects/xzenia/charter/
 projects/xzenia/cognitive/
+projects/xzenia/**/__pycache__/
 projects/xzenia/csmr/applied/
 projects/xzenia/csmr/attribution/
 projects/xzenia/csmr/backups/
@@ -105,6 +106,13 @@ task-queue/
 tmp/
 workspace/
 youtube_*/
+memory/.dreams/
+memory/archived/
+memory/cron-state/
+memory/.cron-*.json
+memory/.cron_*.json
+memory/.kaggle*.json
+projects/xzenia/**/*.log
 *.mp4
 *.jpg
 *.png
@@ -322,3 +330,4 @@ youtube_*/
 !skills/skill-harvester/SKILL.md
 !skills/substrate-optimizer/
 !skills/substrate-optimizer/SKILL.md
+
