@@ -1,0 +1,33 @@
+{
+  "nodes": [
+    {"id": "system-1", "label": "Closed Defect Loop", "state": "ready"},
+    {"id": "system-2", "label": "Canonical Scheduler-Executor Contract", "state": "blocked_on_system_1"},
+    {"id": "system-3", "label": "Unified Supervisor", "state": "blocked_on_system_1_2"},
+    {"id": "system-4", "label": "Graceful Degradation Policy", "state": "blocked_on_system_2"},
+    {"id": "system-5", "label": "Generalized Domain Onboarding Contract", "state": "blocked_on_system_1_2_3_4"},
+    {"id": "track-versioned-soul", "label": "Versioned Behavioral Contracts", "state": "parallel"},
+    {"id": "track-adversarial", "label": "Adversarial Self Testing", "state": "parallel"},
+    {"id": "track-cost", "label": "Per-Cycle Cost Accounting", "state": "parallel"},
+    {"id": "track-control-surface", "label": "Unified Control Surface", "state": "parallel"},
+    {"id": "track-recovery", "label": "Recovery Continuity Hardening", "state": "parallel"}
+  ],
+  "edges": [
+    {"from": "system-1", "to": "system-2", "type": "unlocks"},
+    {"from": "system-1", "to": "system-3", "type": "feeds"},
+    {"from": "system-2", "to": "system-3", "type": "unlocks"},
+    {"from": "system-2", "to": "system-4", "type": "unlocks"},
+    {"from": "system-1", "to": "system-5", "type": "required_for"},
+    {"from": "system-2", "to": "system-5", "type": "required_for"},
+    {"from": "system-3", "to": "system-5", "type": "required_for"},
+    {"from": "system-4", "to": "system-5", "type": "required_for"},
+    {"from": "track-recovery", "to": "system-1", "type": "hardens"},
+    {"from": "track-recovery", "to": "system-2", "type": "hardens"},
+    {"from": "track-recovery", "to": "system-3", "type": "hardens"},
+    {"from": "track-recovery", "to": "system-4", "type": "hardens"},
+    {"from": "track-adversarial", "to": "system-1", "type": "tests"},
+    {"from": "track-adversarial", "to": "system-2", "type": "tests"},
+    {"from": "track-adversarial", "to": "system-3", "type": "tests"},
+    {"from": "track-adversarial", "to": "system-4", "type": "tests"},
+    {"from": "track-adversarial", "to": "system-5", "type": "tests"}
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "generatedAt": "2026-03-22T12:37:00-04:00",
+  "mode": "verification_gated",
+  "weeks": [
+    {
+      "week": 1,
+      "primary": [
+        "design defect schema",
+        "build defect detector hooks",
+        "build defect classifier"
+      ],
+      "parallel": [
+        "git-track SOUL.md and tag v1.0",
+        "design adversarial scenarios 1-5"
+      ],
+      "gate": "synthetic defect appears in governed registry within one cycle"
+    },
+    {
+      "week": 2,
+      "primary": [
+        "build registry writer",
+        "build closure verifier",
+        "verify full defect loop"
+      ],
+      "parallel": [
+        "run first adversarial subset",
+        "snapshot behavioral contract versions"
+      ],
+      "gate": "defect loop auto-classifies routes and reopens retriggered defects"
+    },
+    {
+      "week": 3,
+      "primary": [
+        "build executor gateway",
+        "define work envelope",
+        "start side-path audit"
+      ],
+      "parallel": [
+        "instrument per-cycle cost accounting",
+        "design adversarial scenarios 6-10"
+      ],
+      "gate": "all newly executed work emits unified checkpoint record"
+    },
+    {
+      "week": 4,
+      "primary": [
+        "enforce checkpoint contract",
+        "eliminate bypass paths",
+        "prototype resource monitor"
+      ],
+      "parallel": [
+        "define degradation tiers",
+        "run full adversarial suite"
+      ],
+      "gate": "zero unresolved executor bypass paths"
+    },
+    {
+      "week": 5,
+      "primary": [
+        "build supervisor",
+        "build health rollup",
+        "build conformance checker"
+      ],
+      "parallel": [
+        "add degradation handlers to executor and causal engine"
+      ],
+      "gate": "supervisor emits independent health report every cycle"
+    },
+    {
+      "week": 6,
+      "primary": [
+        "build contradiction detector",
+        "build staleness monitor",
+        "verify degradation policy"
+      ],
+      "parallel": [
+        "start unified control surface"
+      ],
+      "gate": "contradictions detected within one supervisor cycle; resource pressure degrades explicitly"
+    },
+    {
+      "week": 7,
+      "primary": [
+        "build remediation router",
+        "verify supervisor end to end"
+      ],
+      "parallel": [
+        "finish control surface",
+        "run weekly adversarial suite"
+      ],
+      "gate": "stalled work reprioritizes automatically and health authority is authoritative"
+    },
+    {
+      "week": 8,
+      "primary": [
+        "define domain contract schema",
+        "begin revenue recovery domain refactor"
+      ],
+      "parallel": [
+        "audit checkpoint semantics and recovery continuity"
+      ],
+      "gate": "domain contract accepted as canonical interface"
+    },
+    {
+      "week": 9,
+      "primary": [
+        "validate revenue recovery domain",
+        "attempt second test domain onboarding"
+      ],
+      "parallel": [
+        "review cost trendline and control surface completeness"
+      ],
+      "gate": "second domain onboards without substrate code modification"
+    },
+    {
+      "week": 10,
+      "primary": [
+        "full integration verification across all systems",
+        "final adversarial suite run",
+        "9.0 assessment"
+      ],
+      "parallel": [
+        "promote surviving contracts to canonical operational law"
+      ],
+      "gate": "all 9.0 conditions simultaneously true"
+    }
+  ]
+}
