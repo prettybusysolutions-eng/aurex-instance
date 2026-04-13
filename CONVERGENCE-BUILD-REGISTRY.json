@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "updatedAt": "2026-04-12T20:49:00-04:00",
+  "mission": "Turn the current extraordinary but fragmented substrate into one provable, deployable, revenue-bearing operating system.",
+  "phases": [
+    {
+      "id": "truth-convergence",
+      "status": "completed",
+      "artifacts": [
+        "STATE.md",
+        "NEXT-ACTION.md",
+        "ACTIVATION-REGISTRY.md",
+        "SUBSYSTEM-CLASSIFICATION-LEDGER.md",
+        "UNIFIED-ENVIRONMENT-MAP.md",
+        "EXECUTION-FRONTIER.md"
+      ]
+    },
+    {
+      "id": "drift-closure",
+      "status": "active",
+      "artifacts": [
+        "ROOT-DRIFT-CLOSURE-PLAN.md"
+      ]
+    },
+    {
+      "id": "runtime-repair",
+      "status": "active",
+      "artifacts": [
+        "OBSERVER-REPAIR-NOTE.md"
+      ]
+    },
+    {
+      "id": "promotion-discipline",
+      "status": "active",
+      "artifacts": [
+        "PROMOTION-GATE-MATRIX.md"
+      ]
+    },
+    {
+      "id": "revenue-closure",
+      "status": "active",
+      "artifacts": [
+        "REVENUE-MACHINE-CLOSURE-PLAN.md"
+      ]
+    },
+    {
+      "id": "canonical-os",
+      "status": "active",
+      "artifacts": [
+        "MASTER-CONVERGENCE-PLAN.md",
+        "CANONICAL-EXECUTION-SPINE.md",
+        "SYSTEM-OF-SYSTEMS-REGISTRY.md"
+      ]
+    }
+  ],
+  "nextBuildTargets": [
+    "OBSERVER-LAUNCH-SURFACE-REGISTRY.md",
+    "ROOT-DRIFT-INVENTORY.md",
+    "META-HEALING-REPROVAL.md",
+    "PROCESS-SPINE-PROMOTION-DECISION.md",
+    "REVENUE-CLOSURE-PROOF.md"
+  ]
+}
