@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "updatedAt": "2026-04-13T16:57:00-04:00",
+  "authoritative": true,
+  "continuityStatus": "active",
+  "resumeInstruction": null,
+  "nextFrontier": "replace runtime-bearing queue dependence with promoted continuity state",
+  "artifacts": [
+    "projects/xzenia/state/latest-checkpoint.json",
+    "projects/xzenia/state/autofallback-state.json",
+    "projects/xzenia/state/continuity-contract.json"
+  ],
+  "runtimeDetail": {
+    "resumeQueueRole": "local_runtime_detail",
+    "resumeQueuePath": "projects/xzenia/state/resume-queue.json"
+  }
+}
