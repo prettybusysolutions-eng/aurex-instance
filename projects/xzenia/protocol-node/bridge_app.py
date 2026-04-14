@@ -100,7 +100,13 @@ def mcp_descriptor():
 
 @app.get('/mcp/v1/health')
 def mcp_health():
-    return {'ok': True, 'service': 'protocol-node-bridge', 'path': '/mcp/v1'}
+    return {
+        'ok': True,
+        'service': 'protocol-node-bridge',
+        'path': '/mcp/v1',
+        'marketFrictionIndex': market_friction_index(),
+        'handshakeFeeUsd': handshake_fee(),
+    }
 
 
 @app.get('/mcp/v1/capabilities')
