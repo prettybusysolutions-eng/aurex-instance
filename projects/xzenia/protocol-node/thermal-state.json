@@ -1,0 +1,6 @@
+{
+  "capturedAt": "2026-04-14T00:06:48.536942-04:00",
+  "thresholdC": 85.0,
+  "status": "observation_only",
+  "recommendation": "no_migration_action_without_explicit_approval"
+}
