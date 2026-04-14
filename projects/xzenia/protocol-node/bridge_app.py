@@ -5,6 +5,7 @@ import json
 import os
 from pathlib import Path
 from stripe_agentic_adapter import PAYMENT_LINK, grant_valid, issue_grant, verify_proof
+from market_pressure import pressure_index, record_event
 
 SNAPSHOT_PATH = Path('/Users/marcuscoarchitect/.openclaw/workspace/data_alpha/gpu_inventory/snapshot_latest.json')
 
@@ -26,13 +27,14 @@ def handshake_fee() -> str:
 
 
 def log_machine_ping(path: str, headers: dict):
-    watch = {'/mcp/v1/capabilities', '/mcp/v1/translate', '/mcp/v1/health', '/.well-known/mcp'}
+    watch = {'/registry-preview', '/mcp/v1/capabilities', '/mcp/v1/translate', '/mcp/v1/health', '/.well-known/mcp'}
     if path not in watch:
         return
     MACHINE_LOG.parent.mkdir(parents=True, exist_ok=True)
     row = {
         'path': path,
         'user_agent': headers.get('user-agent', ''),
+        'agent_id': headers.get('x-agent-id', ''),
         'x_webhook_signature': headers.get('x-webhook-signature', ''),
         'source_ip': headers.get('x-forwarded-for', ''),
     }
@@ -154,6 +156,7 @@ def handshake(req: HandshakeProofRequest):
     ok, status = verify_proof(req.proof)
     if not ok:
         return JSONResponse({'ok': False, 'status': status}, status_code=402)
+    record_event('settlement')
     token = issue_grant(req.proof)
     snapshot = None
     if SNAPSHOT_PATH.exists():
@@ -183,10 +186,12 @@ def translate(req: TranslateRequest, request: Request):
             },
             status_code=402,
         )
+        record_event('bounce')
         response.headers['x-payment-link'] = PAYMENT_LINK
         response.headers['x-x402-mode'] = os.getenv('X402_MODE', 'dry-run')
         response.headers['x-x402-fee'] = handshake_fee()
         response.headers['x-market-friction-index'] = market_friction_index()
+        response.headers['x-market-pressure-index'] = pressure_index()
         return response
     return {
         'source': req.source,

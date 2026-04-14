@@ -1,13 +1,13 @@
 {
   "name": "xzenia-machine-gate",
   "version": "0.1.0",
-  "description": "Machine-to-Machine (M2M) High-Speed Gateway with x402 Micropayment Settlement",
+  "description": "Sovereign Friction-Broker for authenticated compute-access intelligence and x402 micropayment settlement.",
   "base_url": "/mcp/v1",
   "primary_capability": "gpu_availability_alpha",
   "capabilities": [
     {
       "capability_id": "gpu_availability_alpha",
-      "description": "Real-time stock status of H100/A100 clusters across top cloud providers.",
+      "description": "High-fidelity mapping of compute-access barriers and inventory snapshots. Essential for agents navigating Tier-1 GPU scarcity.",
       "pricing": {
         "model": "handshake_fee",
         "amount_usd": 0.5
@@ -21,6 +21,14 @@
       "pricing": {
         "model": "handshake_fee",
         "amount_usd": 0.5
+      }
+    },
+    {
+      "capability_id": "market_depth_analytics",
+      "description": "Real-time macro-telemetry for GPU compute-demand density. Aggregated, anonymized signal of global market pressure.",
+      "pricing": {
+        "model": "included_macro_signal",
+        "amount_usd": 0.0
       }
     },
     {
