@@ -424,3 +424,10 @@ Status: Boot complete
 Files verified: 14 core and intelligence targets checked directly
 Integrity: pass
 Awaiting: Aurex input
+
+## Session [1776145221] — Tue Apr 14 01:40:21 EDT 2026
+Status: Boot complete
+Files verified: 14 core and intelligence targets checked directly
+Integrity: fail-soft
+  - pipeline.md stale (last updated 2026-04-10 09:35:26 EDT, exceeds 48-hour window)
+Awaiting: Aurex input

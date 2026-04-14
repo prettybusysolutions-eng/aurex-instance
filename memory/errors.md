@@ -1,5 +1,12 @@
 # Error Log
 
+## 2026-04-14 01:40 EDT - boot integrity warning
+- Type: staleness
+- File: `memory/pipeline.md`
+- Detail: last updated 2026-04-10 09:35:26 EDT, exceeds BRIDGE.md §4.2 48-hour freshness window
+- Action: logged during boot, continue in degraded state
+- Verification: `stat -f '%Sm' -t '%Y-%m-%d %H:%M:%S %Z' memory/pipeline.md`
+
 ## 2026-03-31 08:22 EDT — Boot integrity warnings
 - MEMORY.md checkpoint is stale (>24h); last boot checkpoint recorded 2026-03-25.
 - Missing daily memory files for 2026-03-30 and 2026-03-31 at boot; created 2026-03-31.md during recovery.
@@ -105,3 +112,8 @@ Format: [timestamp] | [severity] | [component] | [error] | [resolution]
 - TOOLS.md still does not include explicit status fields required by BRIDGE.md §4.3.
 - IDENTITY.md confirms Xzenia by name, but version/owner fields are not explicit in file contents; no contamination signal found, continued fail-soft.
 - Action: continued operating in degraded-but-operational mode, restored missing daily memory files, no interrupted task found.
+
+## 2026-04-12 17:54 EDT — Observer historical launch-path failure persists
+- Verified current observer entrypoint is locally runnable with Node and writes `state/observer-state.json`.
+- Historical `logs/observer.log` still contains repeated `/bin/sh: node: command not found` lines.
+- Exact stale launcher path has not yet been identified in current reachable configs; failure remains classified as stale launch-surface drift, not a missing Node installation.
