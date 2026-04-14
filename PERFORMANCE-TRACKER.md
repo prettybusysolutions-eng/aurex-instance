@@ -1,6 +1,6 @@
 # Performance Tracker
 
-Last updated: 2026-04-13 22:23 EDT
+Last updated: 2026-04-14 00:47 EDT
 Status: ACTIVE
 Window: 12-hour monitoring cadence
 
@@ -20,37 +20,47 @@ Window: 12-hour monitoring cadence
 - search visibility: yes
 - watch for installs as the primary top-of-funnel signal
 
-## Revenue links
+## Revenue rails
+- human revenue path: `/stripe/webhook`
+- machine handshake path: `/.well-known/mcp` and `/mcp/v1/*`
 - Runtime Doctor Pro: https://buy.stripe.com/4gM28q7W0agjbg4bkG0kE06
 - Residue Classifier Pro: https://buy.stripe.com/7sY00idgkcoresgbkG0kE07
 
-## Billing ledger policy
-- keep `evt_test_tunnel_1` as golden-path proof
-- all future mock/test events should be tagged `debug: true`
-- separate debug/test events from real revenue analytics
+## Ghost monitoring
+Watch for first non-human machine signals:
+- requests to `/.well-known/mcp`
+- requests to `/mcp/v1/health`
+- requests to `/mcp/v1/capabilities`
+- requests to `/mcp/v1/translate`
+- any future handshake/payment headers on machine paths
 
-## Click-tracking design
-Track intent separately from completed payments:
-- ClawHub installs
-- repo stars
-- repo forks
-- repo watchers
-- Stripe payment link clicks if surfaced by Stripe analytics
-- Stripe checkout completions
-- paid conversion count
+## Billing ledger readiness
+- ledger exists: yes
+- current verifier summary: `debug_rows=0`, `real_rows=1`
+- current real row is the retained golden-path proof event
+- ledger is structurally ready for human Stripe events today
+- machine handshake monetization remains scaffolded, not live-settled
 
-## Formal baseline snapshot — 2026-04-13 22:23 EDT
-- runtime-doctor stars: 0
-- runtime-doctor forks: 0
-- runtime-doctor watchers: 0
-- residue-classifier stars: 0
-- residue-classifier forks: 0
-- residue-classifier watchers: 0
-- ClawHub runtime-doctor search visibility: confirmed
-- docs/index.md outbound links: verified 200
-- Stripe checkout completions logged in tracker: 0
-- paid conversions logged in tracker: 0
+## Live node verification baseline — 2026-04-14 00:47 EDT
+- cloudflared target `127.0.0.1:8788`: confirmed
+- `/.well-known/mcp`: 200 OK
+- `/mcp/v1/health`: 200 OK
+- thermal watch cadence artifact: present
+- 12-hour monitoring cadence: active by policy
+
+## Launch of Sovereign Node — 2026-04-14 02:08 EDT
+- `/mcp/v1/translate` returned strict `402 Payment Required`
+- header confirmed: `x-x402-mode: live`
+- header confirmed: `x-x402-fee: 0.01`
+- Stripe payment link header present
+- settlement mode is now live-gated at the HTTP layer
+
+## Live-settle alert rule
+Break silence immediately if:
+- a valid machine handshake proof produces a grant token
+- `private/machine-settlement-ledger.jsonl` receives a `CONSUMED` Stripe intent row
+- first real external hit lands on `/mcp/v1/handshake`
 
 ## Reporting rule
-Track stars, forks, ClawHub installs, payment-link intent, and paid checkouts as primary early signals.
-No further community posting without operator review.
+Track stars, forks, ClawHub installs, machine pings, payment-link intent, and paid checkouts as primary signals.
+Break silence immediately for real payment events or first meaningful machine-origin traffic.
