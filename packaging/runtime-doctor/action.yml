@@ -16,10 +16,17 @@ inputs:
 outputs:
   report-path:
     description: 'Path to the generated report'
+  critical:
+    description: 'Whether critical drift was detected'
 runs:
   using: 'composite'
   steps:
     - shell: bash
       run: |
-        python3 "$GITHUB_ACTION_PATH/runtime_doctor.py"
+        python3 "$GITHUB_ACTION_PATH/runtime_doctor_action.py"
         echo "report-path=${{ inputs.output-path }}" >> "$GITHUB_OUTPUT"
+        if grep -q '"critical": true' "${{ inputs.output-path }}"; then
+          echo "critical=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "critical=false" >> "$GITHUB_OUTPUT"
+        fi
