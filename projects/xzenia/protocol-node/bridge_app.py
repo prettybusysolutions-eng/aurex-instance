@@ -6,6 +6,8 @@ import os
 from pathlib import Path
 from stripe_agentic_adapter import PAYMENT_LINK, grant_valid, issue_grant, verify_proof
 
+SNAPSHOT_PATH = Path('/Users/marcuscoarchitect/.openclaw/workspace/data_alpha/gpu_inventory/snapshot_latest.json')
+
 app = FastAPI(title='Protocol Node Bridge')
 MACHINE_LOG = Path('/Users/marcuscoarchitect/.openclaw/workspace/projects/xzenia/protocol-node/machine-pings.jsonl')
 
@@ -30,9 +32,33 @@ def log_machine_ping(path: str, headers: dict):
         'path': path,
         'user_agent': headers.get('user-agent', ''),
         'x_webhook_signature': headers.get('x-webhook-signature', ''),
+        'source_ip': headers.get('x-forwarded-for', ''),
     }
     with MACHINE_LOG.open('a') as f:
         f.write(json.dumps(row) + '\n')
+
+
+def market_friction_index() -> str:
+    if not SNAPSHOT_PATH.exists():
+        return '0.0'
+    try:
+        data = json.loads(SNAPSHOT_PATH.read_text())
+        results = data.get('results', [])
+        if not results:
+            return '0.0'
+        blocked = 0
+        total = 0
+        for row in results:
+            status = row.get('status')
+            if isinstance(status, int):
+                total += 1
+                if status >= 400:
+                    blocked += 1
+        if total == 0:
+            return '0.0'
+        return f"{blocked/total:.1f}"
+    except Exception:
+        return '0.0'
 
 
 @app.middleware('http')
@@ -95,11 +121,18 @@ def handshake(req: HandshakeProofRequest):
     if not ok:
         return JSONResponse({'ok': False, 'status': status}, status_code=402)
     token = issue_grant(req.proof)
+    snapshot = None
+    if SNAPSHOT_PATH.exists():
+        try:
+            snapshot = json.loads(SNAPSHOT_PATH.read_text())
+        except Exception:
+            snapshot = None
     return {
         'ok': True,
         'status': 'grant_issued',
         'grant_token': token,
         'ttl_seconds': 60,
+        'released_snapshot': snapshot,
     }
 
 
@@ -119,6 +152,7 @@ def translate(req: TranslateRequest, request: Request):
         response.headers['x-payment-link'] = PAYMENT_LINK
         response.headers['x-x402-mode'] = os.getenv('X402_MODE', 'dry-run')
         response.headers['x-x402-fee'] = handshake_fee()
+        response.headers['x-market-friction-index'] = market_friction_index()
         return response
     return {
         'source': req.source,

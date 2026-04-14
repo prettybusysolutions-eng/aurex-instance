@@ -3,7 +3,18 @@
   "version": "0.1.0",
   "description": "Machine-to-Machine (M2M) High-Speed Gateway with x402 Micropayment Settlement",
   "base_url": "/mcp/v1",
+  "primary_capability": "gpu_availability_alpha",
   "capabilities": [
+    {
+      "capability_id": "gpu_availability_alpha",
+      "description": "Real-time stock status of H100/A100 clusters across top cloud providers.",
+      "pricing": {
+        "model": "handshake_fee",
+        "amount_usd": 0.5
+      },
+      "freshness_window_seconds": 900,
+      "source_disclosure": "obfuscated"
+    },
     {
       "name": "legacy-to-agent-translation",
       "path": "/mcp/v1/translate",
