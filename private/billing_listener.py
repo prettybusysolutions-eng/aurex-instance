@@ -70,8 +70,10 @@ class Handler(BaseHTTPRequestHandler):
         product = obj.get('metadata', {}).get('product_key', '')
         grant_url = DOWNLOADS.get(product)
 
+        debug = str(event_id).startswith('evt_test_') or str(obj.get('metadata', {}).get('debug', '')).lower() in {'1', 'true', 'yes', 'debug'}
         row = {
             'event_id': event_id,
+            'debug': debug,
             'paid': paid,
             'amount_total': amount,
             'product_key': product,
