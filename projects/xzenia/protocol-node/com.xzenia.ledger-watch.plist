@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.xzenia.ledger-watch</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/local/bin/python3</string>
+    <string>/Users/marcuscoarchitect/.openclaw/workspace/projects/xzenia/protocol-node/ledger_watch.py</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/Users/marcuscoarchitect/.openclaw/workspace/projects/xzenia/protocol-node/ledger-watch.stdout.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/marcuscoarchitect/.openclaw/workspace/projects/xzenia/protocol-node/ledger-watch.stderr.log</string>
+</dict>
+</plist>
