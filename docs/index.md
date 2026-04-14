@@ -89,6 +89,21 @@ What to do:
 - start with the free tools
 - if the issue is deeper, use the Pro path built to save 5+ hours of debugging and cleanup work
 
+## 6. Machine-to-machine translation access
+Symptoms:
+- an agent receives `402 Payment Required` from `/mcp/v1/translate`
+- the machine needs temporary paid access instead of a human checkout flow
+
+What to do:
+- submit a valid handshake proof to `/mcp/v1/handshake`
+- after proof verification, use the returned grant token for a 60-second translation window
+- send the grant token in the `x-grant-token` header when calling `/mcp/v1/translate`
+
+Current state:
+- the proof-gated path is live
+- settlement remains proof-gated and not yet auto-verified by Stripe Payment Intent lookup
+- current fee surface is `$0.01` equivalent in dry-run handshake headers
+
 ## Tool links
 - Runtime Doctor: https://github.com/prettybusysolutions-eng/runtime-doctor
 - Residue Classifier: https://github.com/prettybusysolutions-eng/residue-classifier
