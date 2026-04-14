@@ -1,3 +1,10 @@
+---
+layout: default
+title: "OpenClaw Troubleshooting Guide | OpenClaw Failure Fix and Automatic Runtime Repair"
+description: "Fix OpenClaw failures faster with a practical guide to gateway disconnects, session recovery issues, runtime drift, workspace cleanup, and automatic runtime repair paths."
+keywords: "OpenClaw failure fix, automatic runtime repair, OpenClaw troubleshooting, gateway disconnect, session recovery, runtime drift, workspace cleanup"
+---
+
 # OpenClaw Troubleshooting Guide
 
 If OpenClaw feels unstable, the problem usually is not that everything is broken. It is usually a smaller failure class: runtime drift, bad state, session recovery mismatch, or workspace residue making diagnosis harder than it should be.
