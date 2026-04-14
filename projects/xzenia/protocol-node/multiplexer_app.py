@@ -52,5 +52,5 @@ def routed_mcp_capabilities():
 
 
 @app.post('/mcp/v1/translate')
-def routed_mcp_translate(req: TranslateRequest):
-    return translate(req)
+def routed_mcp_translate(req: TranslateRequest, request: Request):
+    return translate(req, request)
