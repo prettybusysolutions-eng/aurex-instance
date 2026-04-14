@@ -1,9 +1,11 @@
 from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
 from pydantic import BaseModel
+import json
 import os
+from pathlib import Path
 
 app = FastAPI(title='Protocol Node Bridge')
+MACHINE_LOG = Path('/Users/marcuscoarchitect/.openclaw/workspace/projects/xzenia/protocol-node/machine-pings.jsonl')
 
 class TranslateRequest(BaseModel):
     source: str
@@ -14,17 +16,33 @@ def handshake_fee() -> str:
     return os.getenv('X402_HANDSHAKE_FEE_USDC', '0.01')
 
 
+def log_machine_ping(path: str, headers: dict):
+    watch = {'/mcp/v1/capabilities', '/mcp/v1/translate', '/mcp/v1/health', '/.well-known/mcp'}
+    if path not in watch:
+        return
+    MACHINE_LOG.parent.mkdir(parents=True, exist_ok=True)
+    row = {
+        'path': path,
+        'user_agent': headers.get('user-agent', ''),
+        'x_webhook_signature': headers.get('x-webhook-signature', ''),
+    }
+    with MACHINE_LOG.open('a') as f:
+        f.write(json.dumps(row) + '\n')
+
+
 @app.middleware('http')
 async def x402_handshake_logic(request: Request, call_next):
-    if request.url.path.startswith('/mcp/v1') or request.url.path in {'/translate', '/capabilities'}:
-        if os.getenv('X402_MODE', 'dry-run') != 'live':
-            request.state.x402 = {
-                'mode': 'dry-run',
-                'required': True,
-                'asset': 'USDC',
-                'fee': handshake_fee(),
-                'message': 'Handshake verification required before live M2M access.',
-            }
+    path = request.url.path
+    if path.startswith('/mcp/v1') or path == '/.well-known/mcp':
+        log_machine_ping(path, request.headers)
+        mode = os.getenv('X402_MODE', 'dry-run')
+        request.state.x402 = {
+            'mode': mode,
+            'required': True,
+            'asset': 'USDC',
+            'fee': handshake_fee(),
+            'message': 'Handshake verification required before live M2M access.',
+        }
     response = await call_next(request)
     x402 = getattr(request.state, 'x402', None)
     if x402:
