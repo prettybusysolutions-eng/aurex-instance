@@ -1,0 +1,32 @@
+{
+  "name": "xzenia-machine-gate",
+  "version": "0.1.0",
+  "description": "Machine-to-Machine (M2M) High-Speed Gateway with x402 Micropayment Settlement",
+  "base_url": "/mcp/v1",
+  "capabilities": [
+    {
+      "name": "legacy-to-agent-translation",
+      "path": "/mcp/v1/translate",
+      "pricing": {
+        "model": "handshake_fee",
+        "amount_usd": 0.5
+      }
+    },
+    {
+      "name": "dynamic-lead-validation-agent",
+      "status": "planned",
+      "pricing": {
+        "model": "success_fee",
+        "amount_usd": 1.0
+      }
+    },
+    {
+      "name": "automated-arbitrage-monitor",
+      "status": "planned",
+      "pricing": {
+        "model": "subscription_or_success_fee",
+        "amount_usd": 1.0
+      }
+    }
+  ]
+}

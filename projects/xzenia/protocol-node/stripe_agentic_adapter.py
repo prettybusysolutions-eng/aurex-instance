@@ -7,7 +7,7 @@ from stripe_payment_intent_verify import verify_payment_intent
 
 LEDGER = Path('/Users/marcuscoarchitect/.openclaw/workspace/private/billing-ledger.jsonl')
 GRANTS = Path('/Users/marcuscoarchitect/.openclaw/workspace/projects/xzenia/protocol-node/translate-grants.json')
-PAYMENT_LINK = 'https://buy.stripe.com/4gM28q7W0agjbg4bkG0kE06'
+PAYMENT_LINK = 'https://buy.stripe.com/fZuaEWa48ewz4RGewS0kE08'
 TTL_SECONDS = 60
 
 

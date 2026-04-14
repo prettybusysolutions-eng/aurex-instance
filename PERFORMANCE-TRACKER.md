@@ -61,6 +61,13 @@ Watch for first non-human machine signals:
 - current public Stripe link is not a valid quarter-dollar machine gate link
 - elasticity observation remains pending until a valid public gate price surface is chosen
 
+## Machine gate rebase resolved — 2026-04-14 02:42 EDT
+- public machine-gate price rebased to `$0.50`
+- verified Stripe product: `prod_UKg27vnEq2Q8bg`
+- verified Stripe price: `price_1TM0gHAc6hzX3Jk1mmxCxA3S`
+- verified machine-gate payment link: `https://buy.stripe.com/fZuaEWa48ewz4RGewS0kE08`
+- `$19.00` human product link is no longer the machine-gate surface
+
 ## Live-settle alert rule
 Break silence immediately if:
 - a valid machine handshake proof produces a grant token
@@ -68,5 +75,5 @@ Break silence immediately if:
 - first real external hit lands on `/mcp/v1/handshake`
 
 ## Reporting rule
-Track stars, forks, ClawHub installs, machine pings, payment-link intent, and paid checkouts as primary signals.
+Track stars, forks, ClawHub installs, machine pings, payment-link intent, paid checkouts, and handshake bounce rate (`402 returned` vs `handshake initiated`) as primary signals.
 Break silence immediately for real payment events or first meaningful machine-origin traffic.
