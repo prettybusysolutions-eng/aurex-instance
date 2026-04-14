@@ -1,8 +1,10 @@
 from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 import json
 import os
 from pathlib import Path
+from stripe_agentic_adapter import PAYMENT_LINK, grant_valid, issue_grant, verify_proof
 
 app = FastAPI(title='Protocol Node Bridge')
 MACHINE_LOG = Path('/Users/marcuscoarchitect/.openclaw/workspace/projects/xzenia/protocol-node/machine-pings.jsonl')
@@ -10,6 +12,9 @@ MACHINE_LOG = Path('/Users/marcuscoarchitect/.openclaw/workspace/projects/xzenia
 class TranslateRequest(BaseModel):
     source: str
     payload: dict
+
+class HandshakeProofRequest(BaseModel):
+    proof: dict
 
 
 def handshake_fee() -> str:
@@ -84,8 +89,37 @@ def capabilities():
     }
 
 
+@app.post('/mcp/v1/handshake')
+def handshake(req: HandshakeProofRequest):
+    ok, status = verify_proof(req.proof)
+    if not ok:
+        return JSONResponse({'ok': False, 'status': status}, status_code=402)
+    token = issue_grant(req.proof)
+    return {
+        'ok': True,
+        'status': 'grant_issued',
+        'grant_token': token,
+        'ttl_seconds': 60,
+    }
+
+
 @app.post('/mcp/v1/translate')
-def translate(req: TranslateRequest):
+def translate(req: TranslateRequest, request: Request):
+    token = request.headers.get('x-grant-token', '')
+    if not grant_valid(token):
+        response = JSONResponse(
+            {
+                'ok': False,
+                'error': 'payment_required',
+                'handshakePath': '/mcp/v1/handshake',
+                'paymentLink': PAYMENT_LINK,
+            },
+            status_code=402,
+        )
+        response.headers['x-payment-link'] = PAYMENT_LINK
+        response.headers['x-x402-mode'] = os.getenv('X402_MODE', 'dry-run')
+        response.headers['x-x402-fee'] = handshake_fee()
+        return response
     return {
         'source': req.source,
         'normalized': req.payload,
@@ -94,5 +128,6 @@ def translate(req: TranslateRequest):
             'mode': os.getenv('X402_MODE', 'dry-run'),
             'asset': 'USDC',
             'fee': handshake_fee(),
+            'grantTokenAccepted': True,
         },
     }

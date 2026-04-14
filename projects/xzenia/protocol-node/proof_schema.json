@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Machine Handshake Proof",
+  "type": "object",
+  "required": ["@context", "type", "payment_intent_id", "timestamp", "machine_signature"],
+  "properties": {
+    "@context": {
+      "type": "string",
+      "const": "https://prettybusysolutions-eng.github.io/aurex-instance/mcp/handshake/v1"
+    },
+    "type": {
+      "type": "string",
+      "const": "MachineHandshakeProof"
+    },
+    "payment_intent_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "machine_signature": {
+      "type": "string",
+      "minLength": 8
+    },
+    "grant_token": {
+      "type": "string"
+    }
+  }
+}
