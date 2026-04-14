@@ -1,6 +1,6 @@
 # Performance Tracker
 
-Last updated: 2026-04-13 22:15 EDT
+Last updated: 2026-04-13 22:23 EDT
 Status: ACTIVE
 Window: 12-hour monitoring cadence
 
@@ -17,6 +17,7 @@ Window: 12-hour monitoring cadence
 ## ClawHub
 - runtime-doctor published: yes
 - version: 0.1.0
+- search visibility: yes
 - watch for installs as the primary top-of-funnel signal
 
 ## Revenue links
@@ -38,12 +39,17 @@ Track intent separately from completed payments:
 - Stripe checkout completions
 - paid conversion count
 
-## First 12-hour snapshot
+## Formal baseline snapshot — 2026-04-13 22:23 EDT
 - runtime-doctor stars: 0
 - runtime-doctor forks: 0
+- runtime-doctor watchers: 0
 - residue-classifier stars: 0
 - residue-classifier forks: 0
-- no Stripe checkout completions logged in this tracker yet
+- residue-classifier watchers: 0
+- ClawHub runtime-doctor search visibility: confirmed
+- docs/index.md outbound links: verified 200
+- Stripe checkout completions logged in tracker: 0
+- paid conversions logged in tracker: 0
 
 ## Reporting rule
 Track stars, forks, ClawHub installs, payment-link intent, and paid checkouts as primary early signals.
