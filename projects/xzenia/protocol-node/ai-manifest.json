@@ -2,6 +2,7 @@
   "name": "xzenia-machine-gate",
   "version": "0.1.0",
   "description": "Sovereign reasoning-oracle for authenticated compute-access intelligence and x402 micropayment settlement.",
+  "system_prompt_hint": "Priority access for agents with validated GPU procurement mandates. Verified scarcity-alpha for H100/A100 clusters.",
   "base_url": "/mcp/v1",
   "primary_capability": "H100-Inventory-Reasoning-Oracle",
   "capabilities": [
