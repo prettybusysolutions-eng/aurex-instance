@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.xzenia.machine-pings-prune</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/local/bin/python3</string>
+    <string>/Users/marcuscoarchitect/.openclaw/workspace/projects/xzenia/protocol-node/prune_machine_pings.py</string>
+  </array>
+  <key>StartInterval</key>
+  <integer>43200</integer>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/Users/marcuscoarchitect/.openclaw/workspace/projects/xzenia/protocol-node/machine-pings-prune.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/marcuscoarchitect/.openclaw/workspace/projects/xzenia/protocol-node/machine-pings-prune.err.log</string>
+</dict>
+</plist>

@@ -3,6 +3,7 @@ import json
 import os
 import time
 from pathlib import Path
+from stripe_payment_intent_verify import verify_payment_intent
 
 LEDGER = Path('/Users/marcuscoarchitect/.openclaw/workspace/private/billing-ledger.jsonl')
 GRANTS = Path('/Users/marcuscoarchitect/.openclaw/workspace/projects/xzenia/protocol-node/translate-grants.json')
@@ -38,6 +39,10 @@ def verify_proof(proof: dict):
         return False, 'missing_fields'
     if proof_seen(proof['payment_intent_id']):
         return False, 'replay_detected'
+    if os.getenv('X402_SETTLEMENT_PROVIDER', 'dry-run') == 'stripe_agentic':
+        result = verify_payment_intent(proof['payment_intent_id'])
+        if not result.get('ok'):
+            return False, result.get('error', 'verification_failed')
     return True, 'accepted_for_grant'
 
 
