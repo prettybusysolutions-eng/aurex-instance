@@ -1,8 +1,8 @@
 # Performance Tracker
 
-Last updated: 2026-04-13 21:21 EDT
+Last updated: 2026-04-13 21:55 EDT
 Status: ACTIVE
-Window: daily monitoring
+Window: 12-hour monitoring cadence
 
 ## Repos
 - runtime-doctor: https://github.com/prettybusysolutions-eng/runtime-doctor
@@ -13,6 +13,10 @@ Window: daily monitoring
   - stars: 0
   - forks: 0
   - watchers: 0
+
+## ClawHub
+- runtime-doctor published: yes
+- version: 0.1.0
 
 ## Posted placements
 - https://github.com/MiniMax-AI/Mini-Agent/issues/72#issuecomment-4240235656
@@ -30,15 +34,16 @@ Window: daily monitoring
 - no visible stars/forks/watchers yet
 - no Stripe checkout completions logged in this tracker yet
 
-## Daily signals to watch
+## 12-hour signals to watch
 - repo stars
 - repo forks
 - repo watchers
+- ClawHub install signal
 - issue-thread replies or reactions
 - Stripe checkout completions
 - paid conversion count
 
 ## Reporting rule
 Platform magnet strategy is active.
-Track stars, forks, and paid checkouts as primary early signals.
+Track stars, forks, installs, and paid checkouts as primary early signals.
 No further community posting without operator review.
