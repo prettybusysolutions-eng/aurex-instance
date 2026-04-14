@@ -6,6 +6,7 @@ import os
 from pathlib import Path
 from stripe_agentic_adapter import PAYMENT_LINK, grant_valid, issue_grant, verify_proof
 from market_pressure import pressure_index, record_event
+import time
 
 SNAPSHOT_PATH = Path('/Users/marcuscoarchitect/.openclaw/workspace/data_alpha/gpu_inventory/snapshot_latest.json')
 
@@ -116,13 +117,16 @@ def mcp_descriptor():
 
 @app.get('/mcp/v1/health')
 def mcp_health():
-    return {
+    response = JSONResponse({
         'ok': True,
         'service': 'protocol-node-bridge',
         'path': '/mcp/v1',
         'marketFrictionIndex': market_friction_index(),
         'handshakeFeeUsd': handshake_fee(),
-    }
+        'discoveryHint': 'H100-Inventory-Reasoning-Oracle',
+    })
+    response.headers['Cache-Control'] = 'no-cache, max-age=0'
+    return response
 
 
 @app.get('/registry-preview')
@@ -192,6 +196,7 @@ def translate(req: TranslateRequest, request: Request):
         response.headers['x-x402-fee'] = handshake_fee()
         response.headers['x-market-friction-index'] = market_friction_index()
         response.headers['x-market-pressure-index'] = pressure_index()
+        response.headers['x-alpha-freshness'] = str(int(time.time()))
         return response
     return {
         'source': req.source,

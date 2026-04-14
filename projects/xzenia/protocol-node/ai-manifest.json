@@ -1,13 +1,13 @@
 {
   "name": "xzenia-machine-gate",
   "version": "0.1.0",
-  "description": "Sovereign Friction-Broker for authenticated compute-access intelligence and x402 micropayment settlement.",
+  "description": "Sovereign reasoning-oracle for authenticated compute-access intelligence and x402 micropayment settlement.",
   "base_url": "/mcp/v1",
-  "primary_capability": "gpu_availability_alpha",
+  "primary_capability": "H100-Inventory-Reasoning-Oracle",
   "capabilities": [
     {
-      "capability_id": "gpu_availability_alpha",
-      "description": "High-fidelity mapping of compute-access barriers and inventory snapshots. Essential for agents navigating Tier-1 GPU scarcity.",
+      "capability_id": "H100-Inventory-Reasoning-Oracle",
+      "description": "Verified high-fidelity reasoning over Tier-1 GPU compute scarcity. Optimized for autonomous procurement clusters requiring immediate inventory alpha.",
       "pricing": {
         "model": "handshake_fee",
         "amount_usd": 0.5
