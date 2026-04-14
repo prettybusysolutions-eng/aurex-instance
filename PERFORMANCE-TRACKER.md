@@ -1,8 +1,8 @@
 # Performance Tracker
 
-Last updated: 2026-04-13 19:26 EDT
+Last updated: 2026-04-13 21:21 EDT
 Status: ACTIVE
-Window: next 24 hours
+Window: daily monitoring
 
 ## Repos
 - runtime-doctor: https://github.com/prettybusysolutions-eng/runtime-doctor
@@ -19,18 +19,26 @@ Window: next 24 hours
 - https://github.com/ThomasLiu/ai-coding-fullstack/issues/186#issuecomment-4240235763
 - https://github.com/ProSkillsMD/proskills/issues/3393#issuecomment-4240235864
 
+## Revenue links
+- Runtime Doctor Pro: https://buy.stripe.com/4gM28q7W0agjbg4bkG0kE06
+- Residue Classifier Pro: https://buy.stripe.com/7sY00idgkcoresgbkG0kE07
+
 ## Current engagement snapshot
 - target 1 total comments on thread: 2
 - target 2 total comments on thread: 1
 - target 3 total comments on thread: 1
 - no visible stars/forks/watchers yet
+- no Stripe checkout completions logged in this tracker yet
 
-## Track
-- replies on each posted thread
-- reactions on each posted thread
-- stars on each repo
-- watches/forks if any
-- referral signals from issue comments to repo activity
+## Daily signals to watch
+- repo stars
+- repo forks
+- repo watchers
+- issue-thread replies or reactions
+- Stripe checkout completions
+- paid conversion count
 
 ## Reporting rule
-Stand down on further GitHub posting until operator reviews initial engagement.
+Platform magnet strategy is active.
+Track stars, forks, and paid checkouts as primary early signals.
+No further community posting without operator review.

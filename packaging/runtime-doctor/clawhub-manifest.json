@@ -1,0 +1,12 @@
+{
+  "name": "Runtime Doctor",
+  "slug": "runtime-doctor",
+  "version": "0.1.0",
+  "description": "Non-destructive OpenClaw runtime/config drift diagnosis utility for gateway disconnects, config issues, session recovery, and runtime stability.",
+  "entry": "SKILL.md",
+  "author": "Claw Foundry",
+  "upgrade": {
+    "label": "Upgrade to Runtime Doctor Pro",
+    "url": "https://buy.stripe.com/4gM28q7W0agjbg4bkG0kE06"
+  }
+}

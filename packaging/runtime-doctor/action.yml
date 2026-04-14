@@ -1,0 +1,25 @@
+name: 'Runtime Doctor'
+description: 'Run a non-destructive OpenClaw runtime diagnostic and write a report.'
+author: 'Claw Foundry'
+branding:
+  icon: activity
+  color: blue
+inputs:
+  workspace-path:
+    description: 'Path to the workspace to inspect'
+    required: false
+    default: '.'
+  output-path:
+    description: 'Path to write the runtime report'
+    required: false
+    default: 'runtime-doctor-report.json'
+outputs:
+  report-path:
+    description: 'Path to the generated report'
+runs:
+  using: 'composite'
+  steps:
+    - shell: bash
+      run: |
+        python3 "$GITHUB_ACTION_PATH/runtime_doctor.py"
+        echo "report-path=${{ inputs.output-path }}" >> "$GITHUB_OUTPUT"
