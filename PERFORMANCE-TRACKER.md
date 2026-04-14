@@ -51,9 +51,15 @@ Watch for first non-human machine signals:
 ## Launch of Sovereign Node — 2026-04-14 02:08 EDT
 - `/mcp/v1/translate` returned strict `402 Payment Required`
 - header confirmed: `x-x402-mode: live`
-- header confirmed: `x-x402-fee: 0.01`
+- header confirmed: `x-x402-fee: 0.01`, later rebased in code/env toward `0.25`
 - Stripe payment link header present
 - settlement mode is now live-gated at the HTTP layer
+
+## Price rebase check — 2026-04-14 02:32 EDT
+- attempted machine-gate rebase target: `$0.25`
+- verified Stripe Payment Link blocker: minimum total due must be at least `$0.50 USD`
+- current public Stripe link is not a valid quarter-dollar machine gate link
+- elasticity observation remains pending until a valid public gate price surface is chosen
 
 ## Live-settle alert rule
 Break silence immediately if:

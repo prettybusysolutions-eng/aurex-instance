@@ -18,7 +18,7 @@ class HandshakeProofRequest(BaseModel):
 
 
 def handshake_fee() -> str:
-    return os.getenv('X402_HANDSHAKE_FEE_USDC', '0.01')
+    return os.getenv('X402_HANDSHAKE_FEE_USDC', '0.25')
 
 
 def log_machine_ping(path: str, headers: dict):

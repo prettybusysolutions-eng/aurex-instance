@@ -23,3 +23,4 @@ If no valid grant is present, `/mcp/v1/translate` returns:
 - HTTP 402
 - JSON error payload
 - `x-payment-link` header with the current Stripe payment link
+- current public machine-gate price target: `$0.25`
