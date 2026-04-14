@@ -10,6 +10,8 @@ SNAPSHOT_PATH = Path('/Users/marcuscoarchitect/.openclaw/workspace/data_alpha/gp
 
 app = FastAPI(title='Protocol Node Bridge')
 MACHINE_LOG = Path('/Users/marcuscoarchitect/.openclaw/workspace/projects/xzenia/protocol-node/machine-pings.jsonl')
+REGISTRY_PREVIEW_LOG = Path('/Users/marcuscoarchitect/.openclaw/workspace/projects/xzenia/protocol-node/registry-preview.log')
+MANIFEST_PATH = Path('/Users/marcuscoarchitect/.openclaw/workspace/projects/xzenia/protocol-node/ai-manifest.json')
 
 class TranslateRequest(BaseModel):
     source: str
@@ -61,6 +63,18 @@ def market_friction_index() -> str:
         return '0.0'
 
 
+def log_registry_preview(request: Request):
+    REGISTRY_PREVIEW_LOG.parent.mkdir(parents=True, exist_ok=True)
+    row = {
+        'timestamp': __import__('time').strftime('%Y-%m-%dT%H:%M:%S%z'),
+        'agent_id': request.headers.get('x-agent-id', ''),
+        'user_agent': request.headers.get('user-agent', ''),
+        'source_ip': request.headers.get('x-forwarded-for', ''),
+    }
+    with REGISTRY_PREVIEW_LOG.open('a') as f:
+        f.write(json.dumps(row) + '\n')
+
+
 @app.middleware('http')
 async def x402_handshake_logic(request: Request, call_next):
     path = request.url.path
@@ -106,6 +120,20 @@ def mcp_health():
         'path': '/mcp/v1',
         'marketFrictionIndex': market_friction_index(),
         'handshakeFeeUsd': handshake_fee(),
+    }
+
+
+@app.get('/registry-preview')
+def registry_preview(request: Request):
+    log_registry_preview(request)
+    manifest = {}
+    if MANIFEST_PATH.exists():
+        manifest = json.loads(MANIFEST_PATH.read_text())
+    return {
+        'registryEntryPreview': True,
+        'marketFrictionIndex': market_friction_index(),
+        'handshakeFeeUsd': handshake_fee(),
+        'manifest': manifest,
     }
 
 
