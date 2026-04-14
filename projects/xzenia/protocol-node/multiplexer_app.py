@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request, Response
 from fastapi.responses import JSONResponse
 import httpx
 import os
-from bridge_app import mcp_descriptor, mcp_health, capabilities, translate, TranslateRequest
+from bridge_app import mcp_descriptor, mcp_health, capabilities, translate, TranslateRequest, registry_preview
 
 app = FastAPI(title='Protocol Node Multiplexer')
 BILLING_BASE = os.getenv('BILLING_BASE_URL', 'http://127.0.0.1:8787')
@@ -54,3 +54,8 @@ def routed_mcp_capabilities():
 @app.post('/mcp/v1/translate')
 def routed_mcp_translate(req: TranslateRequest, request: Request):
     return translate(req, request)
+
+
+@app.get('/registry-preview')
+def routed_registry_preview(request: Request):
+    return registry_preview(request)
