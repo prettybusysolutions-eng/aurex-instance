@@ -15,5 +15,11 @@ Break silence immediately and report:
 - currency
 - grant token issued or not
 
+## Urgent interrupt activation
+On first `CONSUMED` row:
+- append an immediate high-priority line to `projects/xzenia/protocol-node/ledger-watch.log`
+- treat the event as a system-wide alert condition
+- break silence in chat on the first observed settlement
+
 ## Thermal holding
 Keep 15-minute thermal watch active while live settlement gating is enabled.
