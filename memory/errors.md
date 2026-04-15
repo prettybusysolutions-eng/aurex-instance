@@ -117,3 +117,10 @@ Format: [timestamp] | [severity] | [component] | [error] | [resolution]
 - Verified current observer entrypoint is locally runnable with Node and writes `state/observer-state.json`.
 - Historical `logs/observer.log` still contains repeated `/bin/sh: node: command not found` lines.
 - Exact stale launcher path has not yet been identified in current reachable configs; failure remains classified as stale launch-surface drift, not a missing Node installation.
+
+## 2026-04-15 05:13 EDT — Boot integrity warnings
+- Missing daily memory file for 2026-04-15 at boot; created during recovery.
+- memory/self-model.md is stale (>7 days); last updated 2026-04-10 09:35:26 EDT.
+- memory/pipeline.md is stale (>48 hours); last updated 2026-04-10 09:35:26 EDT.
+- Skill registry count now verifies cleanly at 44 skill directories with 44 SKILL.md manifests.
+- Action: continued operating in fail-soft mode; identity layer intact and no interrupted task requiring automatic resume.

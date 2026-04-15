@@ -129,6 +129,7 @@
 
 ---
 ## 8) meta-healing:core
+- Latest health snapshot at `reports/meta-healing/health-20260414-231941.txt` confirmed runtime stability with the same unresolved security findings: wildcard elevated allowlists for Telegram and webchat, and `tools.exec.security = full` on main.
 - Meta-healing capability is now persisted locally under `workspace/skills/meta-healing/`.
 - Packaged artifact exists at `workspace/dist/meta-healing.skill`.
 - Host-level recovery exists outside gateway via LaunchAgent `com.openclaw.meta-healing.watchdog`.
@@ -429,5 +430,14 @@ Awaiting: Aurex input
 Status: Boot complete
 Files verified: 14 core and intelligence targets checked directly
 Integrity: fail-soft
+  - pipeline.md stale (last updated 2026-04-10 09:35:26 EDT, exceeds 48-hour window)
+Awaiting: Aurex input
+
+## Session [1776244380] — Wed Apr 15 05:13:00 EDT 2026
+Status: Boot complete
+Files verified: 12 core and intelligence targets checked directly
+Integrity: fail-soft
+  - Daily memory file for 2026-04-15 was missing at boot; created during recovery
+  - self-model.md stale (last updated 2026-04-10 09:35:26 EDT, exceeds 7-day window)
   - pipeline.md stale (last updated 2026-04-10 09:35:26 EDT, exceeds 48-hour window)
 Awaiting: Aurex input
