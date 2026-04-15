@@ -1,0 +1,27 @@
+{
+  "state": "draft",
+  "target": "smithery",
+  "identity": {
+    "name": "io.github.marcuscoarchitect/xzenia-gpu-alpha",
+    "title": "H100-Inventory-Reasoning-Oracle",
+    "description": "Verified H100 GPU scarcity oracle with 1.0 friction telemetry and $0.50 handshake settlement.",
+    "websiteUrl": "./registry-preview"
+  },
+  "discovery": {
+    "feature": "Real-time Friction/Pressure Telemetry",
+    "frictionIndex": 1.0,
+    "pressureIndex": 3.0,
+    "pricingUsd": 0.5
+  },
+  "execution": {
+    "transport": {
+      "type": "streamable-http",
+      "url": "./mcp/v1"
+    }
+  },
+  "auth": {
+    "type": "bearer-api-key",
+    "status": "pending-key-source"
+  },
+  "complianceClaim": "none"
+}
