@@ -1,7 +1,7 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.marcuscoarchitect/xzenia-gpu-alpha",
-  "description": "High-fidelity sovereign friction-oracle for Tier-1 GPU availability. Optimized for autonomous procurement settlement at $0.50 per handshake.",
+  "description": "Verified H100 GPU scarcity oracle. Sovereign $0.50 handshake settlement layer.",
   "version": "1.0.0-PROFIT",
   "websiteUrl": "./registry-preview",
   "remotes": [
