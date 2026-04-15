@@ -74,6 +74,10 @@ Break silence immediately if:
 - `private/machine-settlement-ledger.jsonl` receives a `CONSUMED` Stripe intent row
 - first real external hit lands on `/mcp/v1/handshake`
 
+## Live mode environment lock — 2026-04-15 00:31 EDT
+- launchd multiplexer plist now explicitly injects `X402_MODE=live`
+- runtime drift path from env omission was corrected at the daemon layer
+
 ## Reporting rule
 Track stars, forks, ClawHub installs, machine pings, payment-link intent, paid checkouts, and handshake bounce rate (`402 returned` vs `handshake initiated`) as primary signals.
 Break silence immediately for real payment events or first meaningful machine-origin traffic.
