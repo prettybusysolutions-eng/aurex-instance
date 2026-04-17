@@ -449,3 +449,12 @@ Integrity: fail-soft
   - self-model.md stale (last updated 2026-04-10 09:35:26 EDT, exceeds 7-day window)
   - pipeline.md stale (last updated 2026-04-10 09:35:26 EDT, exceeds 48-hour window)
 Awaiting: Aurex input
+
+## Session [1776450374] — Fri Apr 17 14:26:14 EDT 2026
+Status: Boot complete
+Files verified: 13 core and intelligence targets checked directly
+Integrity: fail-soft
+  - MEMORY.md checkpoint stale (last updated 2026-04-15 12:13:52 EDT, exceeds 24-hour window)
+  - self-model.md stale (last updated 2026-04-10 09:35:26 EDT, exceeds 7-day window)
+  - pipeline.md stale (last updated 2026-04-10 09:35:26 EDT, exceeds 48-hour window)
+Awaiting: Aurex input

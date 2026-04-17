@@ -131,3 +131,11 @@ Format: [timestamp] | [severity] | [component] | [error] | [resolution]
 - Heartbeat product checks still fail: DenialNet, CPIN, VerifiAgent, and AION are unreachable on ports 8001-8004.
 - Skill registry count verifies cleanly at 44 skill directories with 44 SKILL.md manifests.
 - Action: continued operating in fail-soft mode; identity layer intact and no interrupted task requiring automatic resume.
+
+## 2026-04-17 14:26 EDT — Boot integrity warnings
+- MEMORY.md checkpoint is stale (>24 hours); last modified 2026-04-15 12:13 EDT.
+- memory/self-model.md is stale (>7 days); last updated 2026-04-10 09:35:26 EDT.
+- memory/pipeline.md is stale (>48 hours); last updated 2026-04-10 09:35:26 EDT.
+- Skill registry verifies cleanly at 44 skill directories with 44 SKILL.md manifests.
+- TOOLS.md includes a Status section; no missing-tool delta was observed from the current registry.
+- Action: continued operating in fail-soft mode; no interrupted task with resume state was found in MEMORY.md.
