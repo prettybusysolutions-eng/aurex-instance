@@ -148,3 +148,12 @@ Format: [timestamp] | [severity] | [component] | [error] | [resolution]
 - TOOLS.md includes a Status section; no missing-tool delta was observed from the current registry.
 - HEARTBEAT product checks remain blocked: DenialNet, CPIN, VerifiAgent, and AION are unreachable on ports 8001-8004.
 - Action: continued operating in fail-soft mode; no interrupted task with resume state was found in MEMORY.md.
+
+## 2026-04-19 14:06 EDT — Boot integrity warnings
+- Daily memory file for 2026-04-19 was missing at boot; created during recovery.
+- memory/self-model.md is stale (>7 days); last updated 2026-04-10 09:35:26 EDT.
+- memory/pipeline.md is stale (>48 hours); last updated 2026-04-10 09:35:26 EDT.
+- Skill registry verifies cleanly at 44 skill directories with 44 SKILL.md manifests.
+- TOOLS.md includes a Status section; no missing-tool delta was observed from the current registry.
+- HEARTBEAT product checks still fail: DenialNet, CPIN, VerifiAgent, and AION are unreachable on ports 8001-8004.
+- Action: continued operating in fail-soft mode; identity layer intact and no interrupted task requiring automatic resume.
