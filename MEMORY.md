@@ -458,3 +458,13 @@ Integrity: fail-soft
   - self-model.md stale (last updated 2026-04-10 09:35:26 EDT, exceeds 7-day window)
   - pipeline.md stale (last updated 2026-04-10 09:35:26 EDT, exceeds 48-hour window)
 Awaiting: Aurex input
+
+## Session [1776560760] — Sat Apr 18 21:06:00 EDT 2026
+Status: Boot complete
+Files verified: 13 core and intelligence targets checked directly
+Integrity: fail-soft
+  - Stale checkpoint detected (MEMORY.md last updated 2026-04-17 14:27:04 EDT, exceeds 24-hour window)
+  - self-model.md stale (last updated 2026-04-10 09:35:26 EDT, exceeds 7-day window)
+  - pipeline.md stale (last updated 2026-04-10 09:35:26 EDT, exceeds 48-hour window)
+  - HEARTBEAT product checks blocked: DenialNet, CPIN, VerifiAgent, and AION unreachable on ports 8001-8004
+Awaiting: Aurex input

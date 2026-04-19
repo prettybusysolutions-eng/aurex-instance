@@ -139,3 +139,12 @@ Format: [timestamp] | [severity] | [component] | [error] | [resolution]
 - Skill registry verifies cleanly at 44 skill directories with 44 SKILL.md manifests.
 - TOOLS.md includes a Status section; no missing-tool delta was observed from the current registry.
 - Action: continued operating in fail-soft mode; no interrupted task with resume state was found in MEMORY.md.
+
+## 2026-04-18 21:06 EDT — Boot integrity warnings
+- Stale checkpoint detected: MEMORY.md last modified 2026-04-17 14:27 EDT, exceeding the 24-hour boot freshness window.
+- memory/self-model.md is stale (>7 days); last updated 2026-04-10 09:35:26 EDT.
+- memory/pipeline.md is stale (>48 hours); last updated 2026-04-10 09:35:26 EDT.
+- Skill registry verifies cleanly at 44 skill directories with 44 SKILL.md manifests.
+- TOOLS.md includes a Status section; no missing-tool delta was observed from the current registry.
+- HEARTBEAT product checks remain blocked: DenialNet, CPIN, VerifiAgent, and AION are unreachable on ports 8001-8004.
+- Action: continued operating in fail-soft mode; no interrupted task with resume state was found in MEMORY.md.
