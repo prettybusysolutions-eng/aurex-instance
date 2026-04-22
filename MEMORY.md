@@ -500,3 +500,12 @@ Integrity: fail-soft
   - pipeline.md stale (last updated 2026-04-10 09:35:26 EDT, exceeds 48-hour window)
   - HEARTBEAT product checks blocked: DenialNet, CPIN, VerifiAgent, and AION unreachable on ports 8001-8004
 Awaiting: Aurex input
+
+## Session [1776900960] — Wed Apr 22 11:36:00 EDT 2026
+Status: Boot complete
+Files verified: 14 core and intelligence targets checked directly
+Integrity: fail-soft
+  - self-model.md stale (last updated 2026-04-10 09:35:26 EDT, exceeds 7-day window)
+  - pipeline.md stale (last updated 2026-04-10 09:35:26 EDT, exceeds 48-hour window)
+  - HEARTBEAT product checks blocked: DenialNet, CPIN, VerifiAgent, and AION unreachable on ports 8001-8004
+Awaiting: Aurex input
