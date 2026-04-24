@@ -118,6 +118,14 @@ Format: [timestamp] | [severity] | [component] | [error] | [resolution]
 - Historical `logs/observer.log` still contains repeated `/bin/sh: node: command not found` lines.
 - Exact stale launcher path has not yet been identified in current reachable configs; failure remains classified as stale launch-surface drift, not a missing Node installation.
 
+## 2026-04-24 14:36 EDT — Boot integrity warning
+- MEMORY.md checkpoint is stale (>24h).
+- memory/self-model.md is stale (>7 days).
+- memory/pipeline.md is stale (>48 hours).
+- DenialNet, CPIN, VerifiAgent, and AION are unreachable on ports 8001-8004.
+- BOOT.md outbound Telegram report could not be executed because the message tool is unavailable in this session.
+- Action: continued operating in fail-soft mode; wrote boot checkpoint and completed heartbeat verification.
+
 ## 2026-04-15 05:13 EDT — Boot integrity warnings
 - Missing daily memory file for 2026-04-15 at boot; created during recovery.
 - memory/self-model.md is stale (>7 days); last updated 2026-04-10 09:35:26 EDT.
