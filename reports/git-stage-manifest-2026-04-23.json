@@ -1,0 +1,34 @@
+{
+  "stage": [
+    ".gitignore",
+    "CANONICAL-ROOT-MANIFEST.md",
+    "ROOT-PURITY-POLICY.md",
+    "scripts/verify_thin_root.py",
+    "reports/FINAL-THIN-ROOT-BASELINE-2026-04-23.json",
+    "reports/PROVISIONAL-ROUTING-CLOSEOUT-2026-04-23.md",
+    "reports/LEDGER-PURITY-AND-PROVISIONAL-ROUTING-2026-04-23.md",
+    "reports/BILLING-FULFILLMENT-PATCH-AND-PROOF-2026-04-23.md",
+    "reports/REVENUE-WEBHOOK-AND-WRITE-INTEGRITY-2026-04-23.md",
+    "reports/NODE-WEBHOOK-INTEGRITY-PATCH-2026-04-23.md",
+    "reports/META-HEALING-REPROVAL-ROUND-2-2026-04-23.md",
+    "revenue-copilot/server/index.mjs",
+    "private/billing_listener.py",
+    "skills/meta-healing/scripts/config-drift-check.sh",
+    "skills/meta-healing/scripts/update-baseline.sh",
+    "projects/revenue-engine",
+    "projects/verifiagent/offer-surfaces",
+    "projects/xzenia/control-residue",
+    "storefront",
+    "archive"
+  ],
+  "exclude_examples": [
+    "memory/2026-04-15.md",
+    "memory/2026-04-23.md",
+    "projects/xzenia/protocol-node/thermal-state.json",
+    "projects/xzenia/state/resume-queue.json",
+    "projects/xzenia/protocol-node/funnel-state.json",
+    "private/assets/",
+    "private/billing-ledger.jsonl",
+    "private/ledger-archive-tests.jsonl"
+  ]
+}

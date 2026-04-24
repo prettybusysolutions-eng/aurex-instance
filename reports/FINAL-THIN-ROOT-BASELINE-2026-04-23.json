@@ -1,0 +1,198 @@
+{
+  "generated_at": "2026-04-23T21:56:27.737528",
+  "counts": {
+    "canonical": 20,
+    "bootstrap": 11,
+    "provisional": 0,
+    "total_root_files": 31
+  },
+  "items": [
+    {
+      "name": "ACTIVATION-REGISTRY.md",
+      "class": "canonical",
+      "size": 2630,
+      "sha256": "553085c256dc5fd6aac35e474f67b6bb8a5552bcd627e35fdfd121a89ce26de3"
+    },
+    {
+      "name": "AGENTS.md",
+      "class": "bootstrap",
+      "size": 8016,
+      "sha256": "53a560ac6add6ae1fdb10864049c589d36eb9e1608c58badeab76e9ac97dd6bd"
+    },
+    {
+      "name": "ASSET-REGISTRY.md",
+      "class": "canonical",
+      "size": 12559,
+      "sha256": "d713244596212a6174bd76628fced39813be3c2ab3601e727f4fefbb6d2f83a3"
+    },
+    {
+      "name": "BOOT.md",
+      "class": "bootstrap",
+      "size": 2663,
+      "sha256": "507712f095b16f2d50ec5fe072fd478f612459c30009b2ef1e432e9345fbcdc9"
+    },
+    {
+      "name": "BOOTSTRAP.md",
+      "class": "bootstrap",
+      "size": 1471,
+      "sha256": "c6545993b6e07b979d9920262fbc720506978587f9c97916db3ffc78b500c2bd"
+    },
+    {
+      "name": "BRIDGE.md",
+      "class": "bootstrap",
+      "size": 12774,
+      "sha256": "fab7b4adfa907c28a7a7bb35b5c9c0343654dfe3e030be2255aabbe6e7a71f6b"
+    },
+    {
+      "name": "CANONICAL-ROOT-MANIFEST.md",
+      "class": "canonical",
+      "size": 4057,
+      "sha256": "6041fd44754c6b4c345f3d7a0f9eb1f4b8cd19bdf174c9ec1b854c4c9cbc4e06"
+    },
+    {
+      "name": "EXECUTION_LOOP.md",
+      "class": "bootstrap",
+      "size": 4512,
+      "sha256": "77f99f51bdbb928f8ea4c55f2df4c9cdf86d0a7259c6dbe9aab02931d06fac4b"
+    },
+    {
+      "name": "HEARTBEAT.md",
+      "class": "bootstrap",
+      "size": 4187,
+      "sha256": "a84b8265fcdb6736b945ed7eb16a6b2c39bdffce51e4c8547703e27f8f032afd"
+    },
+    {
+      "name": "IDENTITY.md",
+      "class": "bootstrap",
+      "size": 686,
+      "sha256": "df4bca3eae9978f786d402be10e73365b2023c3b322c9b474d510ab3a188b909"
+    },
+    {
+      "name": "MEMORY.md",
+      "class": "bootstrap",
+      "size": 33958,
+      "sha256": "bbc0dd08802646896133118d6aa8ba6a6ce9064658f0ed13af9ec81e3881e451"
+    },
+    {
+      "name": "NEXT-ACTION.md",
+      "class": "canonical",
+      "size": 1259,
+      "sha256": "cbb29a778ebaae6127d43b9b8d100f362f50870fb65e5df9420ced2ea8e17898"
+    },
+    {
+      "name": "PROOF-BASED-RECOVERY-PLAN.md",
+      "class": "canonical",
+      "size": 2158,
+      "sha256": "c6805df192a6066d061d4531d667382926bcdada5fdf7607321f8bd3dba9a9c4"
+    },
+    {
+      "name": "PROOF-TO-PRODUCT-PROMOTION-LAW.md",
+      "class": "canonical",
+      "size": 434,
+      "sha256": "8d2b098de337fe79572a16c1b01656aaf0b3a018ce763f2c3a182743004fe9e1"
+    },
+    {
+      "name": "README.md",
+      "class": "canonical",
+      "size": 654,
+      "sha256": "50cb02f8f447d034d1c039e28142f2b877997f57bdb35d9f11913d909182ffd4"
+    },
+    {
+      "name": "RECONSTITUTION-RUNTIME-TRUTH.md",
+      "class": "canonical",
+      "size": 1898,
+      "sha256": "3b97f71bb47d1065d6338e1d5a15f2819f15a0887a4016b693305932cb2c5c2a"
+    },
+    {
+      "name": "REVENUE-MACHINE-EXECUTION-CHARTER.md",
+      "class": "canonical",
+      "size": 1233,
+      "sha256": "1dcc065ee786689d62e95e05f6421c66592255808fbd7fc71c41897417be5a71"
+    },
+    {
+      "name": "ROOT-PURITY-POLICY.md",
+      "class": "canonical",
+      "size": 1929,
+      "sha256": "a2967cc236692c7f8deb7067846d776257fae729e8075f24277e8df4477a10b3"
+    },
+    {
+      "name": "ROOT-REPO-POLICY.md",
+      "class": "canonical",
+      "size": 765,
+      "sha256": "c30dfb4575a44e9221b8f6451edb227b8356841657c088a1ff4f76779541128d"
+    },
+    {
+      "name": "SOUL.md",
+      "class": "bootstrap",
+      "size": 7174,
+      "sha256": "443853e5a77d00b10d57a64d9700eb7d7da21ff10f00cfe3294f8593211b3d1d"
+    },
+    {
+      "name": "STATE.md",
+      "class": "canonical",
+      "size": 2736,
+      "sha256": "59a9a92f6eda790af12dfe0d85d4fa5d12bc59b5ef933f789cfe9266f0b14690"
+    },
+    {
+      "name": "SUBSYSTEM-CLASSIFICATION-LEDGER.md",
+      "class": "canonical",
+      "size": 1295,
+      "sha256": "24c0a9347e846db442350b5c52fc6bda22caa925c036e4731bf4221a2e99e0f3"
+    },
+    {
+      "name": "SYSTEM-OF-SYSTEMS-REGISTRY.md",
+      "class": "canonical",
+      "size": 1444,
+      "sha256": "56f9a1f7ea853563c5d034f2ed8af4fbd8abc6f56b35627f8c4eb38144da4182"
+    },
+    {
+      "name": "TOOLS.md",
+      "class": "bootstrap",
+      "size": 9240,
+      "sha256": "4087d28065e56a98285dd0757592b0ee22740a3095f1f6076c493f4a20ab371e"
+    },
+    {
+      "name": "TRUTH-DISCIPLINE-AUTOMATION-PLAN.md",
+      "class": "canonical",
+      "size": 510,
+      "sha256": "9cedce73e4639c017f8c8054ba7a6acbfe9babb3d422bc58a802c4f7f953a68b"
+    },
+    {
+      "name": "TRUTH-DISCIPLINE-ENFORCEMENT.md",
+      "class": "canonical",
+      "size": 538,
+      "sha256": "d31cf069059d3e1e76b71d184926b9aed1a9a5bb48361de336125cca9b5d827a"
+    },
+    {
+      "name": "USER.md",
+      "class": "bootstrap",
+      "size": 892,
+      "sha256": "f71094e51ee36846d8e8720f6dddf0482d1706431d328d73c0321fa3faa710e6"
+    },
+    {
+      "name": "XZENIA-CONTROL-SPINE.md",
+      "class": "canonical",
+      "size": 599,
+      "sha256": "219f556d417a37cec8346e4e69a36a506be43aa3fca47266ee4f7515ab8ebba4"
+    },
+    {
+      "name": "XZENIA-DECLARATION.md",
+      "class": "canonical",
+      "size": 1501,
+      "sha256": "3b3ec80840d55ec2713ac9cbe09ab7ed7b3831565f0002ed091225475b8cbee2"
+    },
+    {
+      "name": "XZENIA-GOVERNING-SPINE.md",
+      "class": "canonical",
+      "size": 5801,
+      "sha256": "0920290065f9d76071961569b7bcea8c4460f52a3c6df23bc4d08d6a91e6fcc7"
+    },
+    {
+      "name": "XZENIA-OPERATIONAL-LAW.md",
+      "class": "canonical",
+      "size": 1919,
+      "sha256": "1061bd387f2d6b16fb6bc81c363bc22b8b731434a5666eec4315d0e4464cd5c6"
+    }
+  ],
+  "law": "Any root file not present in this baseline is drift until explicitly classified."
+}

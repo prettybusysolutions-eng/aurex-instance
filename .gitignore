@@ -6,7 +6,10 @@ MEMORY.md
 !.env.example
 *.pem
 *.key
-
+private/assets/
+private/billing-ledger.jsonl
+private/ledger-archive-tests.jsonl
+private/__pycache__/
 
 # Root repo policy: canonical control repo only
 .backups/
@@ -128,8 +131,16 @@ generate_video1_hq.py
 generate_voiceover.py
 phase5_steps6to10.py
 record_xzenia.sh
+setup_stripe.py
+dump.rdb
 video*.mp4
 video*.jpg
+
+# Root drift quarantine patterns caught in tranche 4
+/root/*.mp4
+/root/*.jpg
+/root/*.txt
+/root/*.rdb
 
 
 # Canonical tranche exceptions
