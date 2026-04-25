@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "server.json",
+  "targets": ["mcp.canonical.json", "smithery.draft.yaml", "glamma.draft.json"],
+  "fieldMappings": [
+    {"source": "name", "canonical": "identity.name", "smithery": "identity.name", "glamma": "identity.name"},
+    {"source": "description", "canonical": "identity.description", "smithery": "identity.description", "glamma": "identity.description"},
+    {"source": "version", "canonical": "identity.version", "smithery": "identity.version", "glamma": "identity.version"},
+    {"source": "websiteUrl", "canonical": "identity.websiteUrl", "smithery": "identity.websiteUrl", "glamma": "identity.websiteUrl"},
+    {"source": "remotes[0].type", "canonical": "execution.transport.type", "smithery": "execution.transport.type", "glamma": "execution.transport.type"},
+    {"source": "remotes[0].url", "canonical": "execution.transport.url", "smithery": "execution.transport.url", "glamma": "execution.transport.url"},
+    {"source": "_meta.io.modelcontextprotocol.registry/publisher-provided", "canonical": "friction.publisherMeta", "smithery": "friction.publisherMeta", "glamma": "friction.publisherMeta"},
+    {"source": "# unmapped - pending submission test", "canonical": "friction.auth", "smithery": "# unmapped - pending submission test", "glamma": "# unmapped - pending submission test"},
+    {"source": "# unmapped - pending submission test", "canonical": "friction.install", "smithery": "# unmapped - pending submission test", "glamma": "# unmapped - pending submission test"},
+    {"source": "# unmapped - pending submission test", "canonical": "friction.allowedArgs", "smithery": "# unmapped - pending submission test", "glamma": "# unmapped - pending submission test"}
+  ]
+}

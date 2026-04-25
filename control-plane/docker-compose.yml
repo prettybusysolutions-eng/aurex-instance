@@ -1,0 +1,55 @@
+version: "3.9"
+
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:1
+    container_name: controlplane-uptime-kuma
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    volumes:
+      - uptime_kuma_data:/app/data
+
+  playwright-runner:
+    image: mcr.microsoft.com/playwright:v1.52.0-jammy
+    container_name: controlplane-playwright
+    restart: unless-stopped
+    working_dir: /workspace
+    command: ["sleep", "infinity"]
+    shm_size: "1gb"
+    volumes:
+      - ./playwright:/workspace
+      - playwright_cache:/ms-playwright
+    environment:
+      - CI=1
+
+  wallet-watch:
+    image: python:3.11-slim
+    container_name: controlplane-wallet-watch
+    restart: unless-stopped
+    working_dir: /app
+    command: ["/bin/sh", "-c", "pip install --no-cache-dir requests && python wallet_watch.py"]
+    volumes:
+      - ./wallet-watch:/app
+      - ./reports:/reports
+    environment:
+      - REPORTS_DIR=/reports
+      - WATCH_NETWORKS_FILE=/app/networks.json
+      - WALLET_ADDRESSES_FILE=/app/wallets.json
+
+  summary-cron:
+    image: python:3.11-slim
+    container_name: controlplane-summary
+    restart: unless-stopped
+    working_dir: /app
+    command: ["/bin/sh", "-c", "pip install --no-cache-dir requests schedule && python summary_loop.py"]
+    volumes:
+      - ./summary:/app
+      - ./reports:/reports
+    environment:
+      - REPORTS_DIR=/reports
+      - SOURCES_FILE=/app/sources.json
+
+volumes:
+  uptime_kuma_data:
+  playwright_cache:

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fault Verification</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#0b1020; color:#f3f5ff; margin:0; }
+    .wrap { max-width:720px; margin:64px auto; padding:24px; }
+    .card { background:#151c33; border:1px solid #293251; border-radius:16px; padding:24px; box-shadow:0 10px 40px rgba(0,0,0,.25); }
+    h1 { margin-top:0; font-size:32px; }
+    p { color:#c8d0ea; line-height:1.5; }
+    input { width:100%; padding:14px 16px; border-radius:12px; border:1px solid #44507a; background:#0d1326; color:#fff; font-size:16px; }
+    button { margin-top:16px; padding:14px 18px; border:none; border-radius:12px; background:#6e7cff; color:#fff; font-size:16px; font-weight:700; cursor:pointer; }
+    .result { margin-top:20px; padding:16px; border-radius:12px; background:#0d1326; border:1px solid #2f3b67; display:none; }
+    .cta { display:inline-block; margin-top:14px; padding:12px 16px; border-radius:10px; background:#19c37d; color:#08130e; font-weight:700; text-decoration:none; }
+    .error { color:#ff8f8f; }
+    .small { font-size:14px; color:#97a4cb; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Identify the silent digital faults leaking your revenue.</h1>
+      <p>Run a structural diagnostic against your public website and detect broken contact pathways, malformed communication links, and dead social routes.</p>
+      <input id="url" type="url" placeholder="https://yourdomain.com/contact" />
+      <button id="run">Run Diagnostic</button>
+      <div id="result" class="result"></div>
+      <p class="small">Full remediation stays locked until checkout is completed.</p>
+    </div>
+  </div>
+  <script>
+    const urlInput = document.getElementById('url');
+    const runBtn = document.getElementById('run');
+    const result = document.getElementById('result');
+
+    runBtn.addEventListener('click', async () => {
+      result.style.display = 'block';
+      result.innerHTML = 'Running scan...';
+      try {
+        const res = await fetch('/api/intake/scan', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ url: urlInput.value.trim() })
+        });
+        const data = await res.json();
+        if (!res.ok || !data.ok) throw new Error(data.error || 'scan_failed');
+        result.innerHTML = `
+          <strong>${data.gate.message}</strong>
+          <p>High severity: ${data.summary.highSeverity}<br>Medium severity: ${data.summary.mediumSeverity}<br>Low severity: ${data.summary.lowSeverity}</p>
+          <a class="cta" href="${data.gate.paymentLink}" target="_blank" rel="noopener">Unlock Full Diagnostic for $50</a>
+        `;
+      } catch (error) {
+        result.innerHTML = `<span class="error">Scan failed: ${error.message}</span>`;
+      }
+    });
+  </script>
+</body>
+</html>

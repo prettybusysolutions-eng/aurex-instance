@@ -1,0 +1,10 @@
+[
+  {
+    "name": "base",
+    "rpc_url": "https://mainnet.base.org"
+  },
+  {
+    "name": "ethereum",
+    "rpc_url": "https://cloudflare-eth.com"
+  }
+]

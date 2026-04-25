@@ -1,0 +1,48 @@
+{
+  "identity": {
+    "name": "io.github.marcuscoarchitect/xzenia-gpu-alpha",
+    "description": "Verified H100 GPU scarcity oracle. Sovereign $0.50 handshake settlement layer.",
+    "version": "1.0.0-PROFIT",
+    "websiteUrl": "./registry-preview"
+  },
+  "friction": {
+    "auth": "# unmapped - pending submission test",
+    "requiredEnvVars": [
+      "X402_MODE",
+      "X402_SETTLEMENT_PROVIDER",
+      "X402_HANDSHAKE_FEE_USDC"
+    ],
+    "tokenFlow": "# unmapped - pending submission test",
+    "install": "# unmapped - pending submission test",
+    "dependencies": [
+      "/usr/local/bin/python3",
+      "/usr/local/bin/cloudflared"
+    ],
+    "preflightChecks": [
+      "port 8788 reachable",
+      "launchd daemons loaded",
+      "server.json present"
+    ],
+    "publisherMeta": {
+      "operator": "owner-operated sovereign node",
+      "surface": "gpu_availability_alpha",
+      "pricing": "$0.50 per handshake"
+    }
+  },
+  "execution": {
+    "transport": {
+      "type": "streamable-http",
+      "url": "./mcp/v1"
+    },
+    "commandTemplate": "# unmapped - pending submission test",
+    "allowedArgs": "# unmapped - pending submission test"
+  },
+  "capabilities": [
+    {
+      "id": "H100-Inventory-Reasoning-Oracle",
+      "frictionIndex": 1.0,
+      "description": "Verified high-fidelity reasoning over Tier-1 GPU compute scarcity. Optimized for autonomous procurement clusters requiring immediate inventory alpha."
+    }
+  ],
+  "state": "draft"
+}

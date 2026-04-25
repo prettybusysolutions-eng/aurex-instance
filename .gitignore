@@ -500,3 +500,12 @@ projects/xzenia/domains/pretty-busy-cleaning/revenue-audit/
 projects/xzenia/charter/checklists/
 projects/xzenia/charter/graphs/
 projects/xzenia/charter/queues/
+control-plane/node_modules/
+control-plane/intake/node_modules/
+control-plane/playwright/node_modules/
+sovereign-diagnostic-engine/node_modules/
+sovereign-kit/node_modules/
+sovereign-kit/intake/node_modules/
+control-plane/playwright/reports/
+control-plane/reports/
+sovereign-kit/reports/

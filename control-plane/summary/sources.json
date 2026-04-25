@@ -1,0 +1,42 @@
+[
+  {
+    "label": "Akash Blog",
+    "kind": "blog",
+    "url": "https://akash.network/blog"
+  },
+  {
+    "label": "Akash Docs Provider",
+    "kind": "docs",
+    "url": "https://akash.network/docs/providers/overview/"
+  },
+  {
+    "label": "Akash GitHub",
+    "kind": "github",
+    "url": "https://github.com/akash-network"
+  },
+  {
+    "label": "io.net Blog",
+    "kind": "blog",
+    "url": "https://io.net/blog"
+  },
+  {
+    "label": "io.net Docs",
+    "kind": "docs",
+    "url": "https://docs.io.net"
+  },
+  {
+    "label": "Grass",
+    "kind": "site",
+    "url": "https://www.getgrass.io/"
+  },
+  {
+    "label": "Hacker News Show HN",
+    "kind": "hn",
+    "url": "https://hnrss.org/show"
+  },
+  {
+    "label": "Hacker News Hiring",
+    "kind": "hn",
+    "url": "https://hnrss.org/jobs"
+  }
+]

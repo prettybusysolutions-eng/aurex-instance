@@ -1,0 +1,12 @@
+{
+  "name": "fault-verification-intake",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

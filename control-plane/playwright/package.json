@@ -1,0 +1,12 @@
+{
+  "name": "controlplane-playwright",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Safe control-plane Playwright scaffold for documentation retrieval.",
+  "scripts": {
+    "retrieve-docs": "node retrieve_docs.js"
+  },
+  "dependencies": {
+    "playwright": "1.52.0"
+  }
+}
