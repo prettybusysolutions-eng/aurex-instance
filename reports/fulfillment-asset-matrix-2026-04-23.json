@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-04-23T21:37:53.960713",
+  "assets_found": [
+    {
+      "path": "/Users/marcuscoarchitect/Desktop/OpenClaw_Revenue/Sovereign_RevOps_Kit.zip",
+      "name": "Sovereign_RevOps_Kit.zip",
+      "size": 13206,
+      "class": "deliverable_candidate"
+    },
+    {
+      "path": "/Users/marcuscoarchitect/Desktop/OpenClaw_Revenue/Privacy_Migration_Kit.zip",
+      "name": "Privacy_Migration_Kit.zip",
+      "size": 4962,
+      "class": "deliverable_candidate"
+    },
+    {
+      "path": "/Users/marcuscoarchitect/Desktop/OpenClaw_Revenue/Home_Lab_Master_Kit.zip",
+      "name": "Home_Lab_Master_Kit.zip",
+      "size": 4971,
+      "class": "deliverable_candidate"
+    },
+    {
+      "path": "/Users/marcuscoarchitect/Desktop/OpenClaw_Revenue/review_bundle.zip",
+      "name": "review_bundle.zip",
+      "size": 24408,
+      "class": "deliverable_candidate"
+    },
+    {
+      "path": "/Users/marcuscoarchitect/.openclaw/workspace/archive/root-history/artifacts-bundles/sovereign-diagnostic-engine-kit.zip",
+      "name": "sovereign-diagnostic-engine-kit.zip",
+      "size": 9489,
+      "class": "deliverable_candidate"
+    }
+  ],
+  "product_key_matrix": {
+    "revops_kit_core": "/Users/marcuscoarchitect/Desktop/OpenClaw_Revenue/Sovereign_RevOps_Kit.zip",
+    "privacy_migration_kit": "/Users/marcuscoarchitect/Desktop/OpenClaw_Revenue/Privacy_Migration_Kit.zip",
+    "home_lab_master_kit": "/Users/marcuscoarchitect/Desktop/OpenClaw_Revenue/Home_Lab_Master_Kit.zip",
+    "review_bundle": "/Users/marcuscoarchitect/Desktop/OpenClaw_Revenue/review_bundle.zip",
+    "sovereign_diagnostic_engine": "/Users/marcuscoarchitect/.openclaw/workspace/archive/root-history/artifacts-bundles/sovereign-diagnostic-engine-kit.zip"
+  },
+  "protected_asset_dir_present": false,
+  "note": "Matrix includes only assets physically present on disk at scan time."
+}

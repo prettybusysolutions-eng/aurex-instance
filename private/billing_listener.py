@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
-import hmac
-import hashlib
 import json
 import mimetypes
 import os
 import secrets
 import threading
 import time
+import traceback
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 from urllib.parse import unquote
+
+import stripe
 
 LEDGER = Path('/Users/marcuscoarchitect/.openclaw/workspace/private/billing-ledger.jsonl')
 ASSET_DIR = Path('/Users/marcuscoarchitect/.openclaw/workspace/private/assets')
@@ -24,11 +25,15 @@ PRODUCT_ASSETS = {
 }
 
 
-def verify_signature(raw_body, signature, secret):
+PAYMENT_LINK_PRODUCT_MAP = {
+    'plink_1TPscQAc6hzX3Jk1cM4eE0zw': 'revops_kit_core',
+}
+
+
+def construct_event(raw_body, signature, secret):
     if not signature or not secret:
-        return False
-    expected = hmac.new(secret.encode(), raw_body, hashlib.sha256).hexdigest()
-    return hmac.compare_digest(expected, signature)
+        raise ValueError('missing_signature_or_secret')
+    return stripe.Webhook.construct_event(raw_body, signature, secret)
 
 
 def _read_rows_unlocked():
@@ -155,69 +160,112 @@ class Handler(BaseHTTPRequestHandler):
             self.end_headers()
             return
 
-        raw = self.rfile.read(int(self.headers.get('Content-Length', '0')))
-        sig = self.headers.get('X-Webhook-Signature', '')
-        secret = os.getenv('STRIPE_WEBHOOK_SECRET', '')
-        if not verify_signature(raw, sig, secret):
-            self._send_json(400, {'ok': False, 'error': 'invalid_signature'})
+        try:
+            content_length = int(self.headers.get('Content-Length', '0'))
+            payload = self.rfile.read(content_length)
+            sig_header = self.headers.get('Stripe-Signature', '')
+            webhook_secret = os.getenv('STRIPE_WEBHOOK_SECRET', '')
+
+            ingress_path = Path('/Users/marcuscoarchitect/.openclaw/workspace/private/stripe-ingress-debug.log')
+            ingress_path.write_text(
+                f"Sig: {sig_header}\nSecretPrefix: {webhook_secret[:5]}...\nPayloadLength: {len(payload)}\n"
+            )
+
+            try:
+                event = construct_event(payload, sig_header, webhook_secret)
+            except stripe.error.SignatureVerificationError as exc:
+                error_path = Path('/Users/marcuscoarchitect/.openclaw/workspace/private/stripe-live-event-error.log')
+                error_path.write_text(f'SIGNATURE ERROR: {exc}')
+                self._send_json(400, {'ok': False, 'error': 'invalid_signature'})
+                return
+            except ValueError as exc:
+                error_path = Path('/Users/marcuscoarchitect/.openclaw/workspace/private/stripe-live-event-error.log')
+                error_path.write_text(f'PAYLOAD ERROR: {exc}')
+                self._send_json(400, {'ok': False, 'error': 'invalid_payload'})
+                return
+
+            try:
+                event_id = event.id
+                if seen_event(event_id):
+                    self._send_json(200, {'ok': True, 'duplicate': True})
+                    return
+
+                obj = event.data.object
+                obj_dict = obj._to_dict_recursive()
+                metadata = obj_dict.get('metadata') or {}
+                debug_event_path = Path('/Users/marcuscoarchitect/.openclaw/workspace/private/stripe-live-event-debug.json')
+                debug_payload = {
+                    'event_id': event.id,
+                    'event_type': event.type,
+                    'object': obj_dict,
+                }
+                debug_event_path.write_text(json.dumps(debug_payload, indent=2, default=str))
+                if event.type == 'checkout.session.completed':
+                    Path(f'/Users/marcuscoarchitect/.openclaw/workspace/private/stripe-event-{event.id}.json').write_text(json.dumps(debug_payload, indent=2, default=str))
+                amount = obj_dict.get('amount_total', 0)
+                paid = obj_dict.get('payment_status') == 'paid'
+                product = metadata.get('product_key', '')
+                if not product:
+                    payment_link_id = obj_dict.get('payment_link', '')
+                    product = PAYMENT_LINK_PRODUCT_MAP.get(payment_link_id, '')
+                asset_path = PRODUCT_ASSETS.get(product)
+
+                debug = str(event_id).startswith('evt_test_') or str(metadata.get('debug', '')).lower() in {'1', 'true', 'yes', 'debug'}
+                token = None
+                expires_at = None
+                download_url = None
+                granted = False
+
+                if paid and amount >= 200 and asset_path and asset_path.exists():
+                    token = mint_download_token()
+                    expires_at = int(time.time()) + TOKEN_TTL_SECONDS
+                    download_url = f"http://127.0.0.1:{int(os.getenv('BILLING_LISTENER_PORT', '8787'))}/download/{token}"
+                    granted = True
+
+                event_row = {
+                    'kind': 'billing_event',
+                    'event_id': event_id,
+                    'debug': debug,
+                    'paid': paid,
+                    'amount_total': amount,
+                    'product_key': product,
+                    'granted': granted,
+                    'asset_path': str(asset_path) if asset_path else None,
+                }
+                append_ledger(event_row)
+
+                if granted:
+                    append_ledger({
+                        'kind': 'download_token',
+                        'event_id': event_id,
+                        'token': token,
+                        'product_key': product,
+                        'asset_path': str(asset_path),
+                        'status': 'active',
+                        'issued_at': int(time.time()),
+                        'expires_at': expires_at,
+                        'single_use': True,
+                    })
+
+                self._send_json(200, {
+                    'ok': True,
+                    'granted': granted,
+                    'token': token,
+                    'expires_at': expires_at,
+                    'download_url': download_url,
+                })
+                return
+            except Exception:
+                error_path = Path('/Users/marcuscoarchitect/.openclaw/workspace/private/stripe-live-event-error.log')
+                error_path.write_text('HARD CRASH IN do_POST\n' + traceback.format_exc())
+                self._send_json(500, {'ok': False, 'error': 'handler_crash'})
+                return
+        except Exception:
+            error_path = Path('/Users/marcuscoarchitect/.openclaw/workspace/private/stripe-live-event-error.log')
+            error_path.write_text('TOP-LEVEL do_POST CRASH\n' + traceback.format_exc())
+            self._send_json(500, {'ok': False, 'error': 'top_level_handler_crash'})
             return
 
-        event = json.loads(raw.decode('utf-8'))
-        event_id = event.get('id')
-        if seen_event(event_id):
-            self._send_json(200, {'ok': True, 'duplicate': True})
-            return
-
-        obj = event.get('data', {}).get('object', {})
-        amount = obj.get('amount_total', 0)
-        paid = obj.get('payment_status') == 'paid'
-        product = obj.get('metadata', {}).get('product_key', '')
-        asset_path = PRODUCT_ASSETS.get(product)
-
-        debug = str(event_id).startswith('evt_test_') or str(obj.get('metadata', {}).get('debug', '')).lower() in {'1', 'true', 'yes', 'debug'}
-        token = None
-        expires_at = None
-        download_url = None
-        granted = False
-
-        if paid and amount >= 200 and asset_path and asset_path.exists():
-            token = mint_download_token()
-            expires_at = int(time.time()) + TOKEN_TTL_SECONDS
-            download_url = f"http://127.0.0.1:{int(os.getenv('BILLING_LISTENER_PORT', '8787'))}/download/{token}"
-            granted = True
-
-        event_row = {
-            'kind': 'billing_event',
-            'event_id': event_id,
-            'debug': debug,
-            'paid': paid,
-            'amount_total': amount,
-            'product_key': product,
-            'granted': granted,
-            'asset_path': str(asset_path) if asset_path else None,
-        }
-        append_ledger(event_row)
-
-        if granted:
-            append_ledger({
-                'kind': 'download_token',
-                'event_id': event_id,
-                'token': token,
-                'product_key': product,
-                'asset_path': str(asset_path),
-                'status': 'active',
-                'issued_at': int(time.time()),
-                'expires_at': expires_at,
-                'single_use': True,
-            })
-
-        self._send_json(200, {
-            'ok': True,
-            'granted': granted,
-            'token': token,
-            'expires_at': expires_at,
-            'download_url': download_url,
-        })
 
 
 if __name__ == '__main__':

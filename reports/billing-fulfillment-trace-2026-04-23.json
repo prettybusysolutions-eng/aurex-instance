@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-04-23T21:31:26.260563",
+  "fulfillment_listener": {
+    "path": "private/billing_listener.py",
+    "grant_mode": "placeholder_url_mapping",
+    "grant_truth": {
+      "download_targets": {
+        "runtime_doctor_pro": "https://example.com/private/runtime-doctor-pro",
+        "residue_classifier_pro": "https://example.com/private/residue-classifier-pro",
+        "utilities_pro_bundle": "https://example.com/private/utilities-pro-bundle"
+      },
+      "real_delivery": false,
+      "secure_time_bound_delivery": false,
+      "cryptographic_license_issue": false
+    },
+    "trigger_logic": "grant_url emitted only when payment_status == paid and amount_total >= 200 and metadata.product_key maps to DOWNLOADS",
+    "response_logic": "returns {ok: true, granted: boolean}, but does not itself dispatch a real file or tokenized delivery artifact"
+  },
+  "ledger_truth": {
+    "path": "private/billing-ledger.jsonl",
+    "write_mode": "raw append in jsonl via LEDGER.open(\"a\")",
+    "atomicity_proven": false,
+    "access_control_plane": false,
+    "current_rows": 1,
+    "current_row_truth": "single placeholder test row with example.com grant URL"
+  },
+  "downstream_readers": {
+    "projects/xzenia/protocol-node/ledger_verify.py": "counts debug vs real rows only",
+    "projects/xzenia/protocol-node/stripe_agentic_adapter.py": "uses ledger as replay/proof surface for payment_intent tracking, not as fulfillment delivery controller"
+  },
+  "verdict": "fulfillment_gap_confirmed",
+  "priority": "replace placeholder grant URLs with real delivery mechanism before claiming production-grade paid loop"
+}

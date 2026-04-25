@@ -9,7 +9,14 @@ MEMORY.md
 private/assets/
 private/billing-ledger.jsonl
 private/ledger-archive-tests.jsonl
+private/billing-ledger-archive.jsonl
+private/*.jsonl
+private/*.log
+private/stripe-event-*.json
+private/test-download.zip
 private/__pycache__/
+packaging/runtime-doctor/__pycache__/
+projects/xzenia/protocol-node/funnel-state.json
 
 # Root repo policy: canonical control repo only
 .backups/
